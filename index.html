@@ -939,8 +939,64 @@ footer {
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .hero-top { padding: 40px 24px 0; }
-  .hero-selector { grid-template-columns: 1fr; }
-  .hero-panel { padding: 28px 24px; }
+
+  /* ── Mobile course selector: horizontal scroll strip ── */
+  .hero-selector {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    /* Peek effect: show partial next card to signal scrollability */
+    padding-right: 40px;
+  }
+  .hero-selector::-webkit-scrollbar { display: none; }
+
+  .hero-panel {
+    flex: 0 0 80vw;      /* each card = 80% of screen width, next one peeks */
+    min-width: 0;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    border-bottom: none;
+    padding: 28px 24px 32px;
+    scroll-snap-align: start;
+  }
+  .hero-panel:last-child { border-right: 1px solid rgba(255,255,255,0.08); }
+
+  /* Scroll hint indicator dots */
+  .hero-scroll-hint {
+    position: relative; z-index: 10;
+    display: flex; justify-content: center; gap: 8px;
+    padding: 12px 0 0;
+    background: transparent;
+  }
+  .hero-scroll-hint span {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transition: background .3s;
+    display: block;
+  }
+  .hero-scroll-hint span.active { background: var(--orange); }
+
+  /* Scroll hint label */
+  .hero-scroll-label {
+    position: relative; z-index: 10;
+    text-align: center;
+    font-family: var(--font-cond);
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    padding: 6px 0 16px;
+  }
+  .hero-scroll-label svg {
+    display: inline-block; vertical-align: middle;
+    margin: 0 4px; animation: nudgeX 1.5s ease-in-out infinite;
+  }
+  @keyframes nudgeX {
+    0%,100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+
   .about-strip, .courses, .delivery, .process, .testimonials, .newsletter, .trust, .cta-banner { padding: 72px 24px; }
   footer { padding: 60px 24px 32px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -951,6 +1007,11 @@ footer {
   .stats-row .stat-box:last-child { border-bottom: none; }
   .trust-inner { gap: 32px; }
   .trust-logos { gap: 32px; }
+}
+.hero-scroll-hint, .hero-scroll-label { display: none; }
+@media (max-width: 768px) {
+  .hero-scroll-hint { display: flex; }
+  .hero-scroll-label { display: block; }
 }
 /* Skip link — accessibility */
 .skip-link{position:absolute;top:-100px;left:0;background:var(--orange);color:#fff;padding:8px 20px;z-index:9999;font-family:var(--font-sans);font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:top .15s;}
@@ -993,7 +1054,7 @@ footer {
 <section class="hero">
   <div class="hero-bg">
     <div class="hero-video">
-      <video autoplay muted loop playsinline preload="metadata" poster="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Virtual-Meeting-3-2.jpg">
+      <video autoplay muted loop playsinline preload="none">
         <source src="hero-video.mp4" type="video/mp4">
       </video>
     </div>
@@ -1053,6 +1114,16 @@ footer {
       <p class="panel-desc">Solar, wind, hydrogen and energy transition. Available in English, Spanish, French and German.</p>
       <span class="panel-cta">Browse Courses <span class="panel-cta-arrow">→</span></span>
     </a>
+  </div>
+  <!-- Mobile scroll hint — hidden on desktop via CSS -->
+  <div class="hero-scroll-hint" id="heroScrollDots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="hero-scroll-label">
+    <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="0" y1="5" x2="12" y2="5"/><polyline points="8,1 12,5 8,9"/></svg>
+    Swipe to explore courses
   </div>
 </section>
 
@@ -1377,6 +1448,19 @@ footer {
 </footer>
 
 <script>
+  // Mobile hero scroll dots
+  (function(){
+    var sel = document.querySelector('.hero-selector');
+    var dots = document.querySelectorAll('#heroScrollDots span');
+    if(!sel || !dots.length) return;
+    sel.addEventListener('scroll', function(){
+      var w = sel.scrollWidth - sel.clientWidth;
+      if(w <= 0) return;
+      var idx = Math.round((sel.scrollLeft / w) * (dots.length - 1));
+      dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+    }, {passive:true});
+  })();
+
   // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {

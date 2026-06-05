@@ -727,23 +727,46 @@ footer{
   .filter-prompt{padding:0 24px;height:auto;min-height:44px;padding-top:10px;padding-bottom:10px;}
   .filter-prompt-cats{display:none;}
   .filter-prompt-arrow{display:none;}
-  /* Sidebar becomes horizontal scroll strip */
+  /* ── Mobile sidebar: all categories visible, stacked vertically ── */
   .body-wrap{grid-template-columns:1fr;}
   .sidebar{
-    position:sticky;top:116px;
+    position:static;
     height:auto;
-    flex-direction:row;
-    overflow-x:auto;overflow-y:visible;
-    border-right:none;border-bottom:2px solid var(--amber);
+    flex-direction:column;
+    overflow:visible;
+    border-right:none;
+    border-bottom:3px solid var(--amber);
+    background:var(--page3);
   }
-  .sidebar::-webkit-scrollbar{display:none;}
-  .sb-head,.sb-divider,.sb-inhouse{display:none;}
-  .sb-list{display:flex;flex-direction:row;padding:0;flex:unset;}
+  /* Show a simple heading, hide desktop-only elements */
+  .sb-divider,.sb-inhouse{display:none;}
+  .sb-head{
+    display:block;
+    padding:14px 20px 10px;
+    border-bottom:1px solid var(--line);
+  }
+  .sb-head-title{font-size:16px;}
+  .sb-head-hint{font-size:12px;}
+
+  /* All 9 buttons fully visible, stacked vertically */
+  .sb-list{
+    display:flex;
+    flex-direction:column;
+    padding:6px 0;
+  }
   .sb-btn{
-    padding:14px 18px;border-left:none;border-bottom:3px solid transparent;
-    white-space:nowrap;font-size:13px;flex-shrink:0;
+    padding:13px 20px;
+    border-left:3px solid transparent;
+    font-size:14px;
+    text-align:left;
+    white-space:normal;
+    width:100%;
   }
-  .sb-btn.active{border-left:none;border-bottom-color:var(--amber);background:none;color:var(--amber);}
+  .sb-btn.active{
+    border-left-color:var(--amber);
+    background:var(--amber-dim);
+    color:var(--amber);
+  }
   .panel{padding:32px 24px 60px;}
   .course-row{grid-template-columns:52px 1fr auto;}
   .course-row::before{left:-24px;right:-24px;}

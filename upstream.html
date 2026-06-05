@@ -14,7 +14,7 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="London Petro Academy">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<link rel="canonical" href="https://londonpetroacademy.co.uk/upstream-petroleum-training-courses/">
+<link rel="canonical" href="upstream.html">
 
 <!-- ═══════════════════════════════════════════
      OPEN GRAPH  (LinkedIn, Facebook previews)
@@ -727,45 +727,21 @@ footer{
   .filter-prompt{padding:0 24px;height:auto;min-height:44px;padding-top:10px;padding-bottom:10px;}
   .filter-prompt-cats{display:none;}
   .filter-prompt-arrow{display:none;}
-  /* ── Mobile sidebar: all categories visible, stacked vertically ── */
+  /* ── Mobile sidebar: always-visible vertical list ── */
   .body-wrap{grid-template-columns:1fr;}
-  .sidebar{
-    position:static;
-    height:auto;
-    flex-direction:column;
-    overflow:visible;
-    border-right:none;
-    border-bottom:3px solid var(--amber);
-    background:var(--page3);
-  }
-  /* Show a simple heading, hide desktop-only elements */
-  .sb-divider,.sb-inhouse{display:none;}
-  .sb-head{
-    display:block;
-    padding:14px 20px 10px;
-    border-bottom:1px solid var(--line);
-  }
-  .sb-head-title{font-size:16px;}
-  .sb-head-hint{font-size:12px;}
+  .sidebar{position:static;height:auto;overflow:visible;border-right:none;border-bottom:1px solid var(--line);background:var(--page3);}
+  .sb-head,.sb-divider,.sb-inhouse{display:none;}
+  .mob-filter-toggle{display:none !important;}
+  .sb-list{display:flex !important;flex-direction:column;padding:8px 0;}
+  .sb-btn{padding:14px 24px;border-left:3px solid transparent;white-space:normal;font-size:14px;text-align:left;}
+  .sb-btn.active{border-left-color:var(--amber);background:var(--amber-dim);color:var(--amber);}
 
-  /* All 9 buttons fully visible, stacked vertically */
-  .sb-list{
-    display:flex;
-    flex-direction:column;
-    padding:6px 0;
-  }
   .sb-btn{
-    padding:13px 20px;
-    border-left:3px solid transparent;
-    font-size:14px;
-    text-align:left;
-    white-space:normal;
-    width:100%;
+    padding:14px 24px;border-left:3px solid transparent;
+    font-size:14px;text-align:left;white-space:normal;
   }
   .sb-btn.active{
-    border-left-color:var(--amber);
-    background:var(--amber-dim);
-    color:var(--amber);
+    border-left-color:var(--amber);background:var(--amber-dim);color:var(--amber);
   }
   .panel{padding:32px 24px 60px;}
   .course-row{grid-template-columns:52px 1fr auto;}
@@ -779,8 +755,13 @@ footer{
   .filter-prompt{top:72px;}
   .sidebar{top:108px;}
 }
+.mob-filter-toggle{display:none;}
+@media(max-width:860px){.mob-filter-toggle{display:flex;}}
 .skip-link{position:absolute;top:-100px;left:0;background:var(--amber);color:var(--dark);padding:8px 20px;z-index:9999;font-family:var(--cond);font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:top .15s;}.skip-link:focus{top:0;}
 </style>
+
+<link rel="alternate" hreflang="en-gb" href="upstream.html">
+<link rel="alternate" hreflang="x-default" href="upstream.html">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -799,7 +780,7 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo"><img src="logo-dark.png" alt="London Petro Academy"></a>
+  <a href="index.html" class="nav-logo"><img src="logo-dark.png" alt="London Petro Academy" loading="lazy"></a>
   <ul class="nav-links">
     <li><a href="upstream.html" class="active">Upstream</a></li>
     <li><a href="downstream.html">Downstream</a></li>
@@ -875,7 +856,15 @@ footer{
       </p>
     </div>
 
-    <div class="sb-list">
+    <!-- Mobile filter toggle — only shown on mobile via CSS -->
+    <button class="mob-filter-toggle" id="mobFilterToggle" aria-expanded="false" aria-controls="mobFilterList">
+      <span class="mob-filter-toggle-label">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        Filter: <span class="mob-filter-current" id="mobFilterCurrent">Legal &amp; Fiscal</span>
+      </span>
+      <svg class="mob-filter-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="sb-list" id="mobFilterList">
       <button class="sb-btn active" data-cat="legal">Legal &amp; Fiscal <span class="sb-count">10</span></button>
       <button class="sb-btn" data-cat="gas">Gas &amp; LNG <span class="sb-count">4</span></button>
       <button class="sb-btn" data-cat="finance">Finance &amp; Accounting <span class="sb-count">4</span></button>
@@ -915,47 +904,47 @@ footer{
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">International Petroleum Joint Venture Agreements in Brazil</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/commercial-economic-and-joint-venture-aspects-of-oil-and-gas-projects/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: commercial-economic-and-joint-venture-aspects-of-oil-and-gas-projects" class="course-row">
           <span class="cr-num">02</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">Commercial, Economic and Joint Venture Aspects of Oil and Gas Projects</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/financial-fiscal-aspects-oil-gas-projects-brazil-training-course/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: financial-fiscal-aspects-oil-gas-projects-brazil-training-course" class="course-row">
           <span class="cr-num">03</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">Financial &amp; Fiscal Aspects of Oil &amp; Gas Projects in Brazil (PSCs &amp; Concession Regimes)</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/legal-aspects-of-production-sharing-contracts/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: legal-aspects-of-production-sharing-contracts" class="course-row">
           <span class="cr-num">04</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">Legal Aspects of Production Sharing Contracts</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/world-fiscal-systems-for-oil-gas/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: world-fiscal-systems-for-oil-gas" class="course-row">
           <span class="cr-num">05</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">World Fiscal Systems for Oil &amp; Gas</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/production-sharing-contracts-course-brazil/" class="course-row">
+        <a href="course-brazil-jv.html" class="course-row">
           <span class="cr-num">06</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">Production Sharing Contracts — Brazil: Legal, Fiscal &amp; Financial Aspects</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/economic-analysis-design-modelling-of-petroleum-fiscal-regimes/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: economic-analysis-design-modelling-of-petroleum-fiscal-regimes" class="course-row">
           <span class="cr-num">07</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">Economic Analysis, Design &amp; Modelling of Petroleum Fiscal Regimes</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/world-fiscal-systems-for-unconventional-oil-gas/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: world-fiscal-systems-for-unconventional-oil-gas" class="course-row">
           <span class="cr-num">08</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">World Fiscal Systems for Unconventional Oil &amp; Gas</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/energy-transition-fiscal-systems-for-oil-gas/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: energy-transition-fiscal-systems-for-oil-gas" class="course-row">
           <span class="cr-num">09</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">Energy Transition and Fiscal Systems for Oil and Gas</h3></div>
           <span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/gas-lng-contracts-negotiations/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: gas-lng-contracts-negotiations" class="course-row">
           <span class="cr-num">10</span>
           <div class="cr-body"><span class="cr-meta">Legal &amp; Fiscal · Classroom / Remote</span><h3 class="cr-title">Gas &amp; LNG Contracts Negotiations</h3></div>
           <span class="cr-arrow">→</span>
@@ -970,16 +959,16 @@ footer{
         <span class="cat-badge">4 Courses</span>
       </div>
       <div class="course-list">
-        <a href="https://londonpetroacademy.co.uk/international-gas-markets-economic-evaluation-of-gas-projects/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: international-gas-markets-economic-evaluation-of-gas-projects" class="course-row">
           <span class="cr-num">01</span><div class="cr-body"><span class="cr-meta">Gas &amp; LNG · Classroom / Remote</span><h3 class="cr-title">International Gas Markets &amp; Economic Evaluation of Gas Projects</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/lng-value-chain-markets-trading-operations-energy-transition/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: lng-value-chain-markets-trading-operations-energy-transition" class="course-row">
           <span class="cr-num">02</span><div class="cr-body"><span class="cr-meta">Gas &amp; LNG · 3-Day Course</span><h3 class="cr-title">LNG Value Chain — Markets, Trading, Operations &amp; Energy Transition</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/gas-lng-contracts-negotiations/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: gas-lng-contracts-negotiations" class="course-row">
           <span class="cr-num">03</span><div class="cr-body"><span class="cr-meta">Gas &amp; LNG · Classroom / Remote</span><h3 class="cr-title">Gas &amp; LNG Contracts Negotiations</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/small-scale-lng-shipping/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: small-scale-lng-shipping" class="course-row">
           <span class="cr-num">04</span><div class="cr-body"><span class="cr-meta">Gas &amp; LNG · Classroom / Remote</span><h3 class="cr-title">Small Scale LNG Shipping</h3></div><span class="cr-arrow">→</span>
         </a>
       </div>
@@ -992,16 +981,16 @@ footer{
         <span class="cat-badge">4 Courses</span>
       </div>
       <div class="course-list">
-        <a href="https://londonpetroacademy.co.uk/ifrs-accounting-for-jvs-in-upstream-oil-gas/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: ifrs-accounting-for-jvs-in-upstream-oil-gas" class="course-row">
           <span class="cr-num">01</span><div class="cr-body"><span class="cr-meta">Finance · Classroom / Remote</span><h3 class="cr-title">IFRS Accounting for JVs in Upstream Oil &amp; Gas</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/ifrs-fundamentals-for-upstream-oil-gas/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: ifrs-fundamentals-for-upstream-oil-gas" class="course-row">
           <span class="cr-num">02</span><div class="cr-body"><span class="cr-meta">Finance · Classroom / Remote</span><h3 class="cr-title">IFRS Fundamentals for Upstream Oil &amp; Gas</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/accounting-for-oil-gas/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: accounting-for-oil-gas" class="course-row">
           <span class="cr-num">03</span><div class="cr-body"><span class="cr-meta">Finance · Classroom / Remote</span><h3 class="cr-title">Accounting for Oil &amp; Gas</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/accounting-for-jvs-pscs-in-upstream-oil-gas/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: accounting-for-jvs-pscs-in-upstream-oil-gas" class="course-row">
           <span class="cr-num">04</span><div class="cr-body"><span class="cr-meta">Finance · Classroom / Remote</span><h3 class="cr-title">Accounting for JVs &amp; PSCs in Upstream Oil &amp; Gas</h3></div><span class="cr-arrow">→</span>
         </a>
       </div>
@@ -1014,13 +1003,13 @@ footer{
         <span class="cat-badge">3 Courses</span>
       </div>
       <div class="course-list">
-        <a href="https://londonpetroacademy.co.uk/commercial-economic-and-joint-venture-aspects-of-oil-and-gas-projects/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: commercial-economic-and-joint-venture-aspects-of-oil-and-gas-projects" class="course-row">
           <span class="cr-num">01</span><div class="cr-body"><span class="cr-meta">Economics · Classroom / Remote</span><h3 class="cr-title">Commercial, Economic and Joint Venture Aspects of Oil and Gas Projects</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/petroleum-project-economics-and-risk-decision-analysis/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: petroleum-project-economics-and-risk-decision-analysis" class="course-row">
           <span class="cr-num">02</span><div class="cr-body"><span class="cr-meta">Economics · Classroom / Remote</span><h3 class="cr-title">Petroleum Project Economics and Risk Decision Analysis</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/international-gas-markets-economic-evaluation-of-gas-projects/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: international-gas-markets-economic-evaluation-of-gas-projects" class="course-row">
           <span class="cr-num">03</span><div class="cr-body"><span class="cr-meta">Economics · Classroom / Remote</span><h3 class="cr-title">International Gas Markets &amp; Economic Evaluation of Gas Projects</h3></div><span class="cr-arrow">→</span>
         </a>
       </div>
@@ -1033,7 +1022,7 @@ footer{
         <span class="cat-badge">1 Course</span>
       </div>
       <div class="course-list">
-        <a href="https://londonpetroacademy.co.uk/oil-gas-fundamentals/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: oil-gas-fundamentals" class="course-row">
           <span class="cr-num">01</span><div class="cr-body"><span class="cr-meta">General · Classroom / Remote</span><h3 class="cr-title">Oil &amp; Gas Fundamentals</h3></div><span class="cr-arrow">→</span>
         </a>
       </div>
@@ -1049,7 +1038,7 @@ footer{
         <div><span class="aapm-text">AAPM Certified Programmes</span><span class="aapm-sub">American Academy of Project Management</span></div>
       </div>
       <div class="course-list">
-        <a href="https://londonpetroacademy.co.uk/upstream-petroleum-training-courses/" class="course-row">
+        <a href="upstream.html" class="course-row">
           <span class="cr-num">01</span><div class="cr-body"><span class="cr-meta">Project Management · AAPM Certified</span><h3 class="cr-title">Upstream Oil &amp; Gas Project Management</h3></div><span class="cr-arrow">→</span>
         </a>
       </div>
@@ -1062,16 +1051,16 @@ footer{
         <span class="cat-badge">4 Courses</span>
       </div>
       <div class="course-list">
-        <a href="https://londonpetroacademy.co.uk/drilling-hydraulics-design/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: drilling-hydraulics-design" class="course-row">
           <span class="cr-num">01</span><div class="cr-body"><span class="cr-meta">Drilling · Classroom / Remote</span><h3 class="cr-title">Drilling Hydraulics Design</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/stuck-pipe-prevention/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: stuck-pipe-prevention" class="course-row">
           <span class="cr-num">02</span><div class="cr-body"><span class="cr-meta">Drilling · Classroom / Remote</span><h3 class="cr-title">Stuck Pipe Prevention</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/offshore-deepwater-drilling/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: offshore-deepwater-drilling" class="course-row">
           <span class="cr-num">03</span><div class="cr-body"><span class="cr-meta">Drilling · Classroom / Remote</span><h3 class="cr-title">Offshore &amp; Deepwater Drilling</h3></div><span class="cr-arrow">→</span>
         </a>
-        <a href="https://londonpetroacademy.co.uk/drilling-for-non-drilling-personnel/" class="course-row">
+        <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry: drilling-for-non-drilling-personnel" class="course-row">
           <span class="cr-num">04</span><div class="cr-body"><span class="cr-meta">Drilling · Classroom / Remote</span><h3 class="cr-title">Drilling for Non-Drilling Personnel</h3></div><span class="cr-arrow">→</span>
         </a>
       </div>
@@ -1142,7 +1131,7 @@ footer{
 <footer>
   <div class="fg">
     <div>
-      <a href="index.html" class="fl"><img src="logo-dark.png" alt="London Petro Academy"></a>
+      <a href="index.html" class="fl"><img src="logo-dark.png" alt="London Petro Academy" loading="lazy"></a>
       <p class="ft">Empowering energy professionals for a sustainable future. Trusted by NOCs, IOCs and Energy Ministries worldwide.</p>
       <div class="fc">
         <a href="tel:+441582516247"><span class="fci">📞</span>+44 (0) 1582 516247</a>

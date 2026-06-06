@@ -12,12 +12,10 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="London Petro Academy">
 <link rel="sitemap" type="application/xml" href="sitemap.xml">
-<link rel="alternate" hreflang="en-gb" href="index.html">
-<link rel="alternate" hreflang="es" href="#">
-<link rel="alternate" hreflang="fr" href="#">
-<link rel="alternate" hreflang="de" href="#">
-<link rel="alternate" hreflang="x-default" href="index.html">
-<link rel="canonical" href="index.html">
+<link rel="canonical" href="https://www.londonpetroacademy.co.uk/">
+<link rel="alternate" hreflang="en-gb" href="https://www.londonpetroacademy.co.uk/">
+<link rel="alternate" hreflang="x-default" href="https://www.londonpetroacademy.co.uk/">
+
 
 <!-- ═══════════════════════════════════════════
      OPEN GRAPH
@@ -26,8 +24,8 @@
 <meta property="og:site_name" content="London Petro Academy">
 <meta property="og:title" content="London Petro Academy | Oil, Gas &amp; Renewable Energy Training">
 <meta property="og:description" content="Premier oil, gas and renewable energy training for professionals worldwide. Upstream, downstream and renewables courses — classroom, remote and in-house.">
-<meta property="og:url" content="https://londonpetroacademy.co.uk/">
-<meta property="og:image" content="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Virtual-Meeting-3-2.jpg">
+<meta property="og:url" content="https://www.londonpetroacademy.co.uk/">
+<meta property="og:image" content="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Virtual-Meeting-3-2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
@@ -39,7 +37,7 @@
 <meta name="twitter:site" content="@LondonPetroAc">
 <meta name="twitter:title" content="London Petro Academy | Oil, Gas &amp; Renewable Energy Training">
 <meta name="twitter:description" content="Premier oil, gas and renewable energy training. Trusted by NOCs, IOCs and Energy Ministries worldwide.">
-<meta name="twitter:image" content="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Virtual-Meeting-3-2.jpg">
+<meta name="twitter:image" content="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Virtual-Meeting-3-2.jpg">
 
 <!-- ═══════════════════════════════════════════
      STRUCTURED DATA — Organization
@@ -50,10 +48,10 @@
   "@type": "Organization",
   "name": "London Petro Academy",
   "alternateName": "LPA",
-  "url": "https://londonpetroacademy.co.uk",
+  "url": "https://www.londonpetroacademy.co.uk",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://londonpetroacademy.co.uk/wp-content/uploads/2025/03/Screenshot-2025-03-15-at-23.24.40.png",
+    "url": "https://www.londonpetroacademy.co.uk/wp-content/uploads/2025/03/Screenshot-2025-03-15-at-23.24.40.png",
     "width": 400,
     "height": 100
   },
@@ -91,7 +89,7 @@
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "London Petro Academy",
-  "url": "https://londonpetroacademy.co.uk",
+  "url": "https://www.londonpetroacademy.co.uk",
   "description": "London Petro Academy provides premier oil, gas and renewable energy training for professionals worldwide.",
   "address": {
     "@type": "PostalAddress",
@@ -113,9 +111,9 @@
     "@type": "OfferCatalog",
     "name": "Energy Training Courses",
     "itemListElement": [
-      {"@type": "OfferCatalog","name": "Upstream Petroleum Courses","url": "https://londonpetroacademy.co.uk/upstream-petroleum-training-courses/"},
-      {"@type": "OfferCatalog","name": "Downstream Courses","url": "https://londonpetroacademy.co.uk/downstream-courses/"},
-      {"@type": "OfferCatalog","name": "Renewable Energy Courses","url": "https://londonpetroacademy.co.uk/renewable-and-power-training-courses/"}
+      {"@type": "OfferCatalog","name": "Upstream Petroleum Courses","url": "https://www.londonpetroacademy.co.uk/upstream-petroleum-training-courses/"},
+      {"@type": "OfferCatalog","name": "Downstream Courses","url": "https://www.londonpetroacademy.co.uk/downstream-courses/"},
+      {"@type": "OfferCatalog","name": "Renewable Energy Courses","url": "https://www.londonpetroacademy.co.uk/renewable-and-power-training-courses/"}
     ]
   }
 }
@@ -129,10 +127,10 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "London Petro Academy",
-  "url": "https://londonpetroacademy.co.uk",
+  "url": "https://www.londonpetroacademy.co.uk",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": {"@type": "EntryPoint","urlTemplate": "https://londonpetroacademy.co.uk/?s={search_term_string}"},
+    "target": {"@type": "EntryPoint","urlTemplate": "https://www.londonpetroacademy.co.uk/?s={search_term_string}"},
     "query-input": "required name=search_term_string"
   }
 }
@@ -230,11 +228,8 @@ nav.scrolled {
   border-color: rgba(0,0,0,0.08);
 }
 .nav-logo { text-decoration: none; display: flex; align-items: center; }
-.nav-logo img { height: 44px; width: auto; object-fit: contain; transition: opacity 0.2s; }
-.logo-light-bg { display: none; }
-.logo-dark-bg  { display: block; }
-nav.scrolled .logo-light-bg { display: block; }
-nav.scrolled .logo-dark-bg  { display: none; }
+.nav-logo img { height: 44px; width: auto; max-width: 280px; object-fit: contain; object-position: left center; display: block; transition: filter 0.3s, opacity 0.2s; filter: brightness(0) invert(1); }
+nav.scrolled .nav-logo img { filter: brightness(0); }
 .nav-logo:hover img { opacity: 0.85; }
 .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
 .nav-links a {
@@ -740,7 +735,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
   <button class="mob-close" onclick="toggleNav()" aria-label="Close menu">✕</button>
-  <img src="https://cafedelmar74.github.io/website/logo-dark.png" alt="London Petro Academy" style="height:40px;opacity:.9;margin-bottom:16px;">
+  <img src="logo-white.png" alt="London Petro Academy" style="height:40px;opacity:.9;margin-bottom:16px">
   <a href="upstream.html">Upstream</a>
   <a href="downstream.html">Downstream</a>
   <a href="renewables.html">Renewables</a>
@@ -751,8 +746,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
 <!-- NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <a href="index.html" class="nav-logo">
-    <img class="logo-light-bg" src="https://cafedelmar74.github.io/website/logo-dark.png" alt="London Petro Academy">
-    <img class="logo-dark-bg" src="https://cafedelmar74.github.io/website/logo-white.png" alt="London Petro Academy">
+    <img src="logo-white.png" alt="London Petro Academy">
   </a>
   <ul class="nav-links">
     <li><a href="upstream.html">Upstream</a></li>
@@ -775,8 +769,8 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
 <section class="hero" aria-label="Homepage hero">
   <div class="hero-bg">
     <div class="hero-video">
-      <video autoplay muted loop playsinline preload="metadata" poster="https://londonpetroacademy.co.uk/hero-poster.jpg">
-        <source src="https://cafedelmar74.github.io/website/hero-video.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="hero-video.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -793,57 +787,57 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
   <div class="trust-track" aria-hidden="true">
     <!-- Set 1 -->
     <div class="trust-set">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Chevron_logo01.png" alt="Chevron" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Chevron_logo01.png" alt="Chevron" loading="lazy">
       <img src="https://download.logo.wine/logo/BP/BP-Logo.wine.png" alt="BP" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/shell-logo01.png" alt="Shell" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Total_logo_01.png" alt="TotalEnergies" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/ExxonMobil_logo11.png" alt="ExxonMobil" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/BR_Petrobras_logo01.png" alt="Petrobras" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/CNPC_logo01.png" alt="CNPC" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/ENI_logo01.png" alt="ENI" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Petronas_logo01.png" alt="Petronas" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Repsol_logo01.png" alt="Repsol" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/07/1200px-Oando_logo.svg_.png" alt="Oando" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Mubadala_logo01.png" alt="Mubadala" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Qatargas_logo01-1.png" alt="QatarEnergy" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Eco_Petrol_logo01.png" alt="Ecopetrol" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/05/ConocoPhillips-Logo-removebg-preview.png" alt="ConocoPhillips" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Anadarko_logo01.png" alt="Anadarko" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Schlumberge-logo01.png" alt="SLB" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Deloitte_logo11.png" alt="Deloitte" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/KPMG_logo01.png" alt="KPMG" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/EY_logo_slogan-2.png" alt="EY" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Cheniere.png" alt="Cheniere" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Sasol_logo01.png" alt="Sasol" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Gazprom-1.png" alt="Gazprom" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/nexen_logo01.png" alt="Nexen" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/shell-logo01.png" alt="Shell" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Total_logo_01.png" alt="TotalEnergies" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/ExxonMobil_logo11.png" alt="ExxonMobil" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/BR_Petrobras_logo01.png" alt="Petrobras" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/CNPC_logo01.png" alt="CNPC" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/ENI_logo01.png" alt="ENI" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Petronas_logo01.png" alt="Petronas" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Repsol_logo01.png" alt="Repsol" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/07/1200px-Oando_logo.svg_.png" alt="Oando" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Mubadala_logo01.png" alt="Mubadala" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Qatargas_logo01-1.png" alt="QatarEnergy" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Eco_Petrol_logo01.png" alt="Ecopetrol" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/05/ConocoPhillips-Logo-removebg-preview.png" alt="ConocoPhillips" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Anadarko_logo01.png" alt="Anadarko" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Schlumberge-logo01.png" alt="SLB" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Deloitte_logo11.png" alt="Deloitte" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/KPMG_logo01.png" alt="KPMG" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/EY_logo_slogan-2.png" alt="EY" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Cheniere.png" alt="Cheniere" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Sasol_logo01.png" alt="Sasol" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Gazprom-1.png" alt="Gazprom" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/nexen_logo01.png" alt="Nexen" loading="lazy">
     </div>
     <!-- Set 2 — exact duplicate for seamless loop -->
     <div class="trust-set">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Chevron_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Chevron_logo01.png" alt="" loading="lazy">
       <img src="https://download.logo.wine/logo/BP/BP-Logo.wine.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/shell-logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Total_logo_01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/ExxonMobil_logo11.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/BR_Petrobras_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/CNPC_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/ENI_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Petronas_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Repsol_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/07/1200px-Oando_logo.svg_.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Mubadala_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Qatargas_logo01-1.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Eco_Petrol_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/05/ConocoPhillips-Logo-removebg-preview.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Anadarko_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Schlumberge-logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Deloitte_logo11.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/KPMG_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/EY_logo_slogan-2.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Cheniere.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Sasol_logo01.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Gazprom-1.png" alt="" loading="lazy">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/nexen_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/shell-logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Total_logo_01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/ExxonMobil_logo11.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/BR_Petrobras_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/CNPC_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/ENI_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Petronas_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Repsol_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/07/1200px-Oando_logo.svg_.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Mubadala_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Qatargas_logo01-1.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Eco_Petrol_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/05/ConocoPhillips-Logo-removebg-preview.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Anadarko_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Schlumberge-logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Deloitte_logo11.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/KPMG_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/EY_logo_slogan-2.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Cheniere.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Sasol_logo01.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Gazprom-1.png" alt="" loading="lazy">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/nexen_logo01.png" alt="" loading="lazy">
     </div>
   </div>
 </div>
@@ -930,7 +924,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
   </div>
   <div class="delivery-grid">
     <div class="del-card reveal">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Virtual-Meeting-3-2.jpg" alt="Remote live training session" class="del-card-img" loading="lazy" width="600" height="200">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Virtual-Meeting-3-2.jpg" alt="Remote live training session" class="del-card-img" loading="lazy" width="600" height="200">
       <div class="del-card-body">
         <span class="del-card-tag">Format 01</span>
         <h3 class="del-card-title">Remote Live Courses</h3>
@@ -939,7 +933,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
       </div>
     </div>
     <div class="del-card reveal">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/classroom-2.jpg" alt="Classroom training" class="del-card-img" loading="lazy" width="600" height="200">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/classroom-2.jpg" alt="Classroom training" class="del-card-img" loading="lazy" width="600" height="200">
       <div class="del-card-body">
         <span class="del-card-tag">Format 02</span>
         <h3 class="del-card-title">Classroom Courses</h3>
@@ -948,7 +942,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
       </div>
     </div>
     <div class="del-card reveal">
-      <img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/large-stol-dlya-peregovorov-han-7-2.jpg" alt="In-house tailored training" class="del-card-img" loading="lazy" width="600" height="200">
+      <img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/large-stol-dlya-peregovorov-han-7-2.jpg" alt="In-house tailored training" class="del-card-img" loading="lazy" width="600" height="200">
       <div class="del-card-body">
         <span class="del-card-tag">Format 03</span>
         <h3 class="del-card-title">In-House Tailored</h3>
@@ -975,25 +969,25 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
       <span class="testi-stars" aria-label="5 out of 5 stars">★★★★★</span>
       <p class="testi-quote">"London Petro Academy provides high quality training courses in the Oil &amp; Gas industry."</p>
       <div class="testi-author">Vanessa Fernandes</div>
-      <div class="testi-logo"><img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Chevron_logo01.png" alt="Chevron" loading="lazy" height="20"></div>
+      <div class="testi-logo"><img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Chevron_logo01.png" alt="Chevron" loading="lazy" height="20"></div>
     </div>
     <div class="testi-card reveal">
       <span class="testi-stars" aria-label="5 out of 5 stars">★★★★★</span>
       <p class="testi-quote">"Very organised, very efficient and well co-ordinated. A seamless experience from first contact to completion."</p>
       <div class="testi-author">Aarinola Bode-Omoleye</div>
-      <div class="testi-logo"><img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/07/1200px-Oando_logo.svg_.png" alt="Oando" loading="lazy" height="20"></div>
+      <div class="testi-logo"><img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/07/1200px-Oando_logo.svg_.png" alt="Oando" loading="lazy" height="20"></div>
     </div>
     <div class="testi-card reveal">
       <span class="testi-stars" aria-label="5 out of 5 stars">★★★★★</span>
       <p class="testi-quote">"After my first participation I can say that London Petro Academy provides high quality training courses."</p>
       <div class="testi-author">Rodrigo Augusto Da Silva</div>
-      <div class="testi-logo"><img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/Logo_petrobras-2.gif" alt="Petrobras" loading="lazy" height="20"></div>
+      <div class="testi-logo"><img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/Logo_petrobras-2.gif" alt="Petrobras" loading="lazy" height="20"></div>
     </div>
     <div class="testi-card reveal">
       <span class="testi-stars" aria-label="5 out of 5 stars">★★★★★</span>
       <p class="testi-quote">"Dedicated, professional and patient. The trainer ensured every participant was fully engaged throughout."</p>
       <div class="testi-author">Lim Ling</div>
-      <div class="testi-logo"><img src="https://londonpetroacademy.co.uk/wp-content/uploads/2021/03/CNPC_logo01.png" alt="CNPC" loading="lazy" height="20"></div>
+      <div class="testi-logo"><img src="https://www.londonpetroacademy.co.uk/wp-content/uploads/2021/03/CNPC_logo01.png" alt="CNPC" loading="lazy" height="20"></div>
     </div>
   </div>
 </section>
@@ -1045,11 +1039,11 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
   <div class="cta-banner-right">
     <div class="cta-info">
       <span class="cta-info-icon" aria-hidden="true">📞</span>
-      <a href="tel:+441582516247" style="color:inherit;text-decoration:none;">+44 (0) 1582 516247</a>
+      <a href="tel:+441582516247" style="color:inherit;text-decoration:none">+44 (0) 1582 516247</a>
     </div>
     <div class="cta-info">
       <span class="cta-info-icon" aria-hidden="true">✉️</span>
-      <a href="mailto:info@londonpetroacademy.co.uk" style="color:inherit;text-decoration:none;">info@londonpetroacademy.co.uk</a>
+      <a href="mailto:info@londonpetroacademy.co.uk" style="color:inherit;text-decoration:none">info@londonpetroacademy.co.uk</a>
     </div>
     <br>
     <a href="contact.html" class="btn-fill">Start the Conversation</a>
@@ -1091,7 +1085,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
       <input type="tel" placeholder="Phone number (optional)" aria-label="Phone number">
       <textarea placeholder="Tell us about your training requirements — topic, number of delegates, preferred dates and delivery format." aria-label="Training requirements"></textarea>
       <button type="submit" class="eq-submit">Send Enquiry</button>
-      <p class="eq-note">Your details are handled in accordance with our <a href="privacy-policy.html" style="color:var(--grey);text-decoration:underline;">Privacy Policy</a>. We never share your data.</p>
+      <p class="eq-note">Your details are handled in accordance with our <a href="privacy-policy.html" style="color:var(--grey);text-decoration:underline">Privacy Policy</a>. We never share your data.</p>
     </form>
   </div>
 </section>
@@ -1104,7 +1098,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 8
 <footer>
   <div class="footer-grid">
     <div class="foot-brand">
-      <a href="index.html" class="foot-logo"><img src="https://cafedelmar74.github.io/website/logo-dark.png" alt="London Petro Academy"></a>
+      <a href="index.html" class="foot-logo"><img src="logo-white.png" alt="London Petro Academy"></a>
       <p class="foot-tagline">Empowering energy professionals for a sustainable future. Trusted by NOCs, IOCs and Energy Ministries worldwide.</p>
       <div class="foot-contact">
         <a href="tel:+441582516247"><span class="foot-contact-icon" aria-hidden="true">📞</span> +44 (0) 1582 516247</a>

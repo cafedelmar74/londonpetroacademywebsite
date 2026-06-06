@@ -385,58 +385,9 @@ footer{background:var(--dark2);border-top:1px solid var(--d-line);padding:72px 6
 }
 @media(min-width:1101px){.mobile-book-bar{display:none;}}
 
-/* BOOKING MODAL */
-#bkOverlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;
-  background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;
-  padding:20px;box-sizing:border-box;
-  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;}
-#bkOverlay.open{opacity:1;visibility:visible;}
-#bkModal{background:#fff;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;
-  border-top:4px solid #c8873a;box-shadow:0 24px 80px rgba(0,0,0,.5);
-  transform:scale(0.9);transition:transform .35s cubic-bezier(.34,1.4,.64,1);}
-#bkOverlay.open #bkModal{transform:scale(1);}
-.bk-modal-head{padding:24px 28px 16px;border-bottom:1px solid #eee;
-  display:flex;align-items:flex-start;justify-content:space-between;
-  position:sticky;top:0;background:#fff;z-index:10;}
-.bk-modal-title{font-family:'Fraunces',serif;font-size:24px;font-weight:300;color:#111;line-height:1.1;}
-.bk-modal-title em{font-style:italic;color:#c8873a;}
-.bk-modal-sub{font-size:13px;color:#888;margin-top:4px;}
-.bk-close{background:none;border:none;font-size:24px;cursor:pointer;color:#888;padding:2px 8px;line-height:1;}
-.bk-close:hover{color:#111;}
-.bk-modal-body{padding:24px 28px 32px;}
-.bk-field-label{display:block;font-size:11px;font-family:'Barlow Condensed',sans-serif;
-  letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:6px;font-weight:600;}
-.bk-field-label .req{color:#c8873a;}
-.bk-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
-.bk-field{margin-bottom:14px;}
-.bk-input{width:100%;padding:11px 13px;border:1.5px solid #ddd;background:#fafafa;
-  font-size:14px;color:#111;outline:none;box-sizing:border-box;
-  font-family:'Barlow',sans-serif;border-radius:0;-webkit-appearance:none;}
-.bk-input:focus{border-color:#c8873a;background:#fff;}
-.bk-input.err{border-color:#e74c3c;}
-select.bk-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c8873a'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer;}
-.bk-hr{height:1px;background:#eee;margin:16px 0;}
-.bk-btn-submit{display:block;width:100%;background:#c8873a;color:#fff;border:none;
-  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;padding:16px;cursor:pointer;margin-top:16px;}
-.bk-btn-submit:hover{background:#b87730;}
-.bk-btn-submit:disabled{opacity:.6;cursor:not-allowed;}
-.bk-privacy{font-size:12px;color:#aaa;margin-top:12px;line-height:1.5;}
-.bk-privacy a{color:#c8873a;}
-.bk-success{text-align:center;padding:48px 24px;display:none;}
-.bk-success-check{font-size:48px;color:#c8873a;margin-bottom:16px;}
-.bk-success h3{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:#111;margin-bottom:10px;}
-.bk-success p{font-size:14px;color:#888;}
-@media(max-width:560px){
-  .bk-row{grid-template-columns:1fr;}
-  .bk-modal-head,.bk-modal-body{padding-left:20px;padding-right:20px;}
-}
-
 </style>
 
 <!-- LPA shared config + form -->
-<link rel="stylesheet" href="form.css">
 <script src="config.js"></script>
 <script src="form.js" defer></script>
 </head>
@@ -778,8 +729,6 @@ select.bk-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://ww
       <p class="br-desc">Includes full agenda, trainer profiles, venue details and pricing.</p>
       <a href="#" class="btn-brochure" ><svg><use href="#ico-download"/></svg> Download PDF Brochure</a>
     </div>
-    <!-- ENQUIRY FORM -->
-    <div class="lpa-form-wrap" id="form-container" aria-label="Course enquiry form"></div>
 
     <div class="related-card">
       <span class="rc-label">Related Courses</span>
@@ -811,15 +760,6 @@ select.bk-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://ww
     ← Back to All Upstream Courses
   </a>
 </div>
-<!-- BOTTOM ENQUIRY FORM -->
-<section style="background:var(--page2);padding:72px 60px;border-top:1px solid var(--line);">
-  <div style="max-width:680px;margin:0 auto;">
-    <span style="font-family:var(--cond);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:12px;">Ready to Enrol?</span>
-    <h2 style="font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:300;color:var(--ink);margin-bottom:8px;">Get in Touch — <em style="font-style:italic;color:var(--amber);">We Reply Within 24 Hours</em></h2>
-    <p style="font-size:16px;color:var(--ink-light);font-weight:300;margin-bottom:0;">Submit your enquiry below and one of our advisors will contact you to discuss dates, group rates, and in-house delivery options.</p>
-    <div id="form-container-bottom" class="lpa-form-wrap" style="margin-top:32px;" aria-label="Course enquiry form"></div>
-  </div>
-</section>
 
 <!-- RELATED FULL ROW -->
 <section class="related-full" aria-label="Related courses">
@@ -897,92 +837,145 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 </script>
 
-<script>
-// Course metadata — used to populate hidden fields and analytics
-const courseMeta = {
-  course_name: 'International Petroleum Joint Venture Agreements in Brazil',
-  category:    'Legal & Fiscal',
-  duration:    '4 days',
-  level:       'Professional',
-  location:    'Rio de Janeiro, Brazil',
-};
+<!-- ======= BOOKING MODAL ======= -->
+<style>
+#bkOverlay{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  z-index:99999;
+  background:rgba(10,11,13,0.88);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+#bkOverlay.open{display:flex;}
+#bkModal{
+  background:#ffffff;
+  width:100%;
+  max-width:580px;
+  max-height:92vh;
+  overflow-y:auto;
+  border-top:4px solid #c8873a;
+  box-shadow:0 24px 80px rgba(0,0,0,.55);
+  animation:bkZoomIn .3s ease forwards;
+}
+@keyframes bkZoomIn{
+  from{transform:scale(.9);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+.bkh{
+  padding:22px 26px 14px;
+  border-bottom:1px solid #eee;
+  display:flex;align-items:flex-start;
+  justify-content:space-between;
+  position:sticky;top:0;
+  background:#fff;z-index:2;
+}
+.bkh-t{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:#111;}
+.bkh-t em{font-style:italic;color:#c8873a;}
+.bkh-s{font-size:13px;color:#888;margin-top:3px;}
+.bk-x{background:none;border:none;font-size:22px;cursor:pointer;color:#999;padding:0 4px;line-height:1;}
+.bk-x:hover{color:#111;}
+.bkb{padding:22px 26px 28px;}
+.fl{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:#888;font-family:'Barlow Condensed',sans-serif;font-weight:600;margin-bottom:5px;}
+.fl .r{color:#c8873a;}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.fm{margin-bottom:12px;}
+.fi{
+  width:100%;padding:10px 12px;
+  border:1.5px solid #ddd;background:#f8f7f5;
+  font-size:14px;color:#111;
+  font-family:'Barlow',sans-serif;
+  outline:none;box-sizing:border-box;
+  border-radius:0;-webkit-appearance:none;appearance:none;
+}
+.fi:focus{border-color:#c8873a;background:#fff;}
+.fi.er{border-color:#e74c3c;}
+select.fi{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c8873a'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;
+  padding-right:28px;cursor:pointer;
+}
+.bk-sep{height:1px;background:#eee;margin:14px 0;}
+.bk-sub{
+  display:block;width:100%;background:#c8873a;color:#fff;
+  border:none;cursor:pointer;
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;padding:15px;margin-top:14px;
+}
+.bk-sub:hover{background:#b87730;}
+.bk-sub:disabled{opacity:.6;cursor:not-allowed;}
+.bk-priv{font-size:11px;color:#bbb;margin-top:10px;line-height:1.5;}
+.bk-priv a{color:#c8873a;}
+.bk-ok{display:none;text-align:center;padding:48px 24px;}
+.bk-ok-icon{font-size:44px;color:#c8873a;}
+.bk-ok h3{font-family:'Fraunces',serif;font-size:24px;font-weight:300;color:#111;margin:12px 0 8px;}
+.bk-ok p{font-size:14px;color:#888;}
+@media(max-width:540px){
+  .fg{grid-template-columns:1fr;}
+  .bkh,.bkb{padding-left:18px;padding-right:18px;}
+}
+</style>
 
-// Render forms when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  LPA_Form.render('#form-container',        courseMeta);
-  LPA_Form.render('#form-container-bottom', courseMeta);
-});
-</script>
-
-
-<!-- BOOKING MODAL -->
-<div id="bkOverlay">
+<div id="bkOverlay" onclick="if(event.target===this)closeBkModal()">
   <div id="bkModal">
-    <div class="bk-modal-head">
+    <div class="bkh">
       <div>
-        <div class="bk-modal-title">Book This <em>Course</em></div>
-        <div class="bk-modal-sub">Complete the form — we'll confirm within one business day.</div>
+        <div class="bkh-t">Book This <em>Course</em></div>
+        <div class="bkh-s">We'll confirm your place within one business day.</div>
       </div>
-      <button class="bk-close" onclick="closeBkModal()">&#x2715;</button>
+      <button class="bk-x" onclick="closeBkModal()">&#x2715;</button>
     </div>
-    <div class="bk-modal-body">
-
-      <div id="bkFormWrap">
-        <div class="bk-field">
-          <label class="bk-field-label">Course Session <span class="req">*</span></label>
-          <select class="bk-input" id="bkSession">
+    <div class="bkb">
+      <div id="bkFormArea">
+        <div class="fm">
+          <label class="fl">Course Session <span class="r">*</span></label>
+          <select class="fi" id="bkSes">
             <option value="">— Choose a date and location —</option>
-            <option value="13–16 Oct 2026, Rio de Janeiro, Brazil">13–16 October 2026 — Rio de Janeiro, Brazil</option>
+            <option value="13–16 Oct 2026 | Rio de Janeiro, Brazil">13–16 October 2026 — Rio de Janeiro, Brazil</option>
           </select>
         </div>
-
-        <div class="bk-hr"></div>
-
-        <div class="bk-row">
+        <div class="bk-sep"></div>
+        <div class="fg">
           <div>
-            <label class="bk-field-label">First Name <span class="req">*</span></label>
-            <input class="bk-input" id="bkFirst" type="text" placeholder="Jane" autocomplete="given-name">
+            <label class="fl">First Name <span class="r">*</span></label>
+            <input class="fi" id="bkFN" type="text" placeholder="Jane">
           </div>
           <div>
-            <label class="bk-field-label">Last Name <span class="req">*</span></label>
-            <input class="bk-input" id="bkLast" type="text" placeholder="Smith" autocomplete="family-name">
+            <label class="fl">Last Name <span class="r">*</span></label>
+            <input class="fi" id="bkLN" type="text" placeholder="Smith">
           </div>
         </div>
-
-        <div class="bk-row">
+        <div class="fg">
           <div>
-            <label class="bk-field-label">Work Email <span class="req">*</span></label>
-            <input class="bk-input" id="bkEmail" type="email" placeholder="jane@company.com" autocomplete="email">
+            <label class="fl">Work Email <span class="r">*</span></label>
+            <input class="fi" id="bkEM" type="email" placeholder="jane@company.com">
           </div>
           <div>
-            <label class="bk-field-label">Phone Number <span class="req">*</span></label>
-            <input class="bk-input" id="bkPhone" type="tel" placeholder="+44 7700 900000" autocomplete="tel">
-          </div>
-        </div>
-
-        <div class="bk-hr"></div>
-
-        <div class="bk-row">
-          <div>
-            <label class="bk-field-label">Company / Organisation <span class="req">*</span></label>
-            <input class="bk-input" id="bkCompany" type="text" placeholder="Petrobras" autocomplete="organization">
-          </div>
-          <div>
-            <label class="bk-field-label">Job Title <span class="req">*</span></label>
-            <input class="bk-input" id="bkJob" type="text" placeholder="Senior Engineer" autocomplete="organization-title">
+            <label class="fl">Phone Number <span class="r">*</span></label>
+            <input class="fi" id="bkPH" type="tel" placeholder="+44 7700 900000">
           </div>
         </div>
-
-        <div class="bk-hr"></div>
-
-        <div class="bk-field">
-          <label class="bk-field-label">Billing Address <span class="req">*</span></label>
-          <input class="bk-input" id="bkAddress" type="text" placeholder="123 Main Street, City, Postcode" autocomplete="street-address">
+        <div class="bk-sep"></div>
+        <div class="fg">
+          <div>
+            <label class="fl">Company <span class="r">*</span></label>
+            <input class="fi" id="bkCO" type="text" placeholder="Petrobras">
+          </div>
+          <div>
+            <label class="fl">Job Title <span class="r">*</span></label>
+            <input class="fi" id="bkJT" type="text" placeholder="Senior Engineer">
+          </div>
         </div>
-
-        <div class="bk-field">
-          <label class="bk-field-label">Country <span class="req">*</span></label>
-          <select class="bk-input" id="bkCountry" autocomplete="country-name">
+        <div class="fm">
+          <label class="fl">Billing Address <span class="r">*</span></label>
+          <input class="fi" id="bkAD" type="text" placeholder="123 Main Street, City, Postcode">
+        </div>
+        <div class="fm">
+          <label class="fl">Country <span class="r">*</span></label>
+          <select class="fi" id="bkCN">
             <option value="">— Select country —</option>
             <option>United Kingdom</option><option>United States</option><option>Brazil</option>
             <option>Nigeria</option><option>Saudi Arabia</option><option>UAE</option>
@@ -996,88 +989,68 @@ document.addEventListener('DOMContentLoaded', () => {
             <option>Other</option>
           </select>
         </div>
-
-        <p class="bk-privacy">By submitting you agree to our <a href="https://www.londonpetroacademy.co.uk/privacy-policy/" target="_blank">Privacy Policy</a>. Your data is only used to process your booking.</p>
-
-        <button class="bk-btn-submit" id="bkSubmitBtn" onclick="submitBkForm()">Confirm Booking Request →</button>
+        <p class="bk-priv">By submitting you agree to our <a href="https://www.londonpetroacademy.co.uk/privacy-policy/" target="_blank">Privacy Policy</a>.</p>
+        <button class="bk-sub" id="bkSB" onclick="submitBk()">Confirm Booking Request →</button>
       </div>
-
-      <div class="bk-success" id="bkSuccess">
-        <div class="bk-success-check">✓</div>
+      <div class="bk-ok" id="bkOK">
+        <div class="bk-ok-icon">✓</div>
         <h3>Booking Request Received</h3>
         <p>Thank you. We'll confirm your place and send invoice details within one business day.</p>
       </div>
-
     </div>
   </div>
 </div>
 
 <script>
 function openBkModal(){
-  document.getElementById('bkOverlay').classList.add('open');
+  var o=document.getElementById('bkOverlay');
+  o.classList.add('open');
   document.body.style.overflow='hidden';
-  if(typeof gtag==='function') gtag('event','booking_form_open',{course_name:'International Petroleum Joint Venture Agreements in Brazil'});
 }
 function closeBkModal(){
   document.getElementById('bkOverlay').classList.remove('open');
   document.body.style.overflow='';
 }
-document.getElementById('bkOverlay').addEventListener('click',function(e){
-  if(e.target===this) closeBkModal();
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape') closeBkModal();
-});
-document.getElementById('btnOpenBooking').addEventListener('click', openBkModal);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBkModal();});
+document.getElementById('btnOpenBooking').addEventListener('click',openBkModal);
 
-async function submitBkForm(){
-  var fields = [
-    {id:'bkSession',  name:'course_session'},
-    {id:'bkFirst',    name:'first_name'},
-    {id:'bkLast',     name:'last_name'},
-    {id:'bkEmail',    name:'email'},
-    {id:'bkPhone',    name:'phone'},
-    {id:'bkCompany',  name:'company'},
-    {id:'bkJob',      name:'job_title'},
-    {id:'bkAddress',  name:'billing_address'},
-    {id:'bkCountry',  name:'country'},
-  ];
-  var valid = true;
-  var payload = {
-    course_name:     'International Petroleum Joint Venture Agreements in Brazil',
-    course_category: 'Legal & Fiscal',
-    course_duration: '4 days',
-    course_location: 'Rio de Janeiro, Brazil',
-    source:          'booking_form',
-    page_url:        window.location.href,
-    submitted_at:    new Date().toISOString(),
-  };
-  fields.forEach(function(f){
-    var el = document.getElementById(f.id);
-    el.classList.remove('err');
-    if(!el.value.trim()){ el.classList.add('err'); valid=false; }
-    else payload[f.name] = el.value.trim();
+async function submitBk(){
+  var ids=['bkSes','bkFN','bkLN','bkEM','bkPH','bkCO','bkJT','bkAD','bkCN'];
+  var ok=true;
+  ids.forEach(function(id){
+    var el=document.getElementById(id);
+    el.classList.remove('er');
+    if(!el.value.trim()){el.classList.add('er');ok=false;}
   });
-  if(!valid){ document.querySelector('.err').focus(); return; }
-  payload.full_name = payload.first_name + ' ' + payload.last_name;
-
-  var btn = document.getElementById('bkSubmitBtn');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-
+  if(!ok){document.querySelector('.er').focus();return;}
+  var btn=document.getElementById('bkSB');
+  btn.textContent='Sending…';btn.disabled=true;
+  var payload={
+    course_name:'International Petroleum Joint Venture Agreements in Brazil',
+    course_session:document.getElementById('bkSes').value,
+    first_name:document.getElementById('bkFN').value,
+    last_name:document.getElementById('bkLN').value,
+    full_name:document.getElementById('bkFN').value+' '+document.getElementById('bkLN').value,
+    email:document.getElementById('bkEM').value,
+    phone:document.getElementById('bkPH').value,
+    company:document.getElementById('bkCO').value,
+    job_title:document.getElementById('bkJT').value,
+    billing_address:document.getElementById('bkAD').value,
+    country:document.getElementById('bkCN').value,
+    course_category:'Legal & Fiscal',
+    course_duration:'4 days',
+    source:'booking_form',
+    page_url:window.location.href,
+    submitted_at:new Date().toISOString()
+  };
   try{
-    await fetch(LPA.webhook,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
-    });
-    document.getElementById('bkFormWrap').style.display='none';
-    document.getElementById('bkSuccess').style.display='block';
-    if(typeof gtag==='function') gtag('event','booking_submitted',{course_name:payload.course_name, course_session:payload.course_session});
-  } catch(err){
-    btn.textContent='Confirm Booking Request →';
-    btn.disabled=false;
-    alert('Something went wrong. Please email us at info@londonpetroacademy.co.uk');
+    await fetch(LPA.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    document.getElementById('bkFormArea').style.display='none';
+    document.getElementById('bkOK').style.display='block';
+    if(typeof gtag==='function')gtag('event','booking_submitted',{course_name:payload.course_name});
+  }catch(e){
+    btn.textContent='Confirm Booking Request →';btn.disabled=false;
+    alert('Something went wrong. Please email info@londonpetroacademy.co.uk');
   }
 }
 </script>

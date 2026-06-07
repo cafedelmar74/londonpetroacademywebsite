@@ -8,12 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0b0d;--bg2:#0e1014;--bg3:#13161a;
-  --surface:#181c21;--surface2:#1e2228;
-  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
-  --amber:#c8873a;--amber2:#e09a4a;--amber-dim:rgba(200,135,58,0.10);
-  --off-white:#e8e6e0;--grey:#8a8f96;--grey-mid:#5a6068;
-  --red:#e05252;--green:#52b788;
+  --bg:#f6f3ee;--bg2:#ffffff;--bg3:#edeae3;
+  --surface:#ffffff;--surface2:#f6f3ee;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);
+  --amber:#c8873a;--amber2:#b87730;--amber-dim:rgba(200,135,58,0.10);
+  --off-white:#18191c;--grey:#6b6f78;--grey-mid:#9a9fa8;
+  --red:#e05252;--green:#2d8a5e;
   --serif:'Fraunces',serif;--sans:'Barlow',sans-serif;--cond:'Barlow Condensed',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -21,11 +21,12 @@ html{scroll-behavior:smooth;}
 body{
   font-family:var(--sans);background:var(--bg);color:var(--off-white);
   min-height:100vh;-webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
 /* ── HEADER ── */
 .dash-header{
-  background:var(--bg2);border-bottom:1px solid var(--border);
+  background:#ffffff;border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(0,0,0,0.06);
   padding:0 40px;height:68px;
   display:flex;align-items:center;justify-content:space-between;
   position:sticky;top:0;z-index:100;
@@ -43,7 +44,7 @@ body{
 .dash-refresh:hover{border-color:var(--amber);color:var(--amber);}
 .dash-refresh svg{width:14px;height:14px;stroke:currentColor;fill:none;}
 .dash-status{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--grey);}
-.status-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#2d8a5e;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 
 /* ── LAYOUT ── */
@@ -65,7 +66,7 @@ body{
 .kpi-value{font-family:var(--serif);font-size:42px;font-weight:300;color:var(--off-white);line-height:1;}
 .kpi-value span{font-size:20px;color:var(--grey);}
 .kpi-sub{font-size:13px;color:var(--grey-mid);margin-top:8px;font-weight:300;}
-.kpi-icon{position:absolute;right:20px;top:20px;opacity:.08;font-size:48px;}
+.kpi-icon{position:absolute;right:20px;top:20px;opacity:.12;font-size:48px;}
 
 /* ── CONTROLS ── */
 .dash-controls{
@@ -99,7 +100,7 @@ body{
   font-weight:700;padding:10px 20px;cursor:pointer;transition:background .2s;
   display:flex;align-items:center;gap:8px;
 }
-.dash-export:hover{background:var(--amber2);}
+.dash-export:hover{background:#b87730;}
 .dash-export svg{width:14px;height:14px;stroke:currentColor;fill:none;}
 
 /* ── TABLE ── */
@@ -112,6 +113,7 @@ body{
   grid-template-columns:180px 140px 160px 140px 120px 120px 100px 80px;
   border-bottom:1px solid var(--border2);
   padding:0 20px;
+  background:var(--bg3);
 }
 .th{
   font-family:var(--cond);font-size:10px;letter-spacing:2px;text-transform:uppercase;
@@ -123,7 +125,7 @@ body{
 
 .table-body{max-height:600px;overflow-y:auto;}
 .table-body::-webkit-scrollbar{width:4px;}
-.table-body::-webkit-scrollbar-track{background:var(--bg);}
+.table-body::-webkit-scrollbar-track{background:var(--bg3);}
 .table-body::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 
 .table-row{
@@ -187,7 +189,7 @@ body{
 .drawer-overlay.open{opacity:1;visibility:visible;}
 .drawer{
   position:fixed;right:0;top:0;bottom:0;width:480px;max-width:95vw;
-  background:var(--bg2);border-left:1px solid var(--border);
+  background:#ffffff;border-left:1px solid var(--border);box-shadow:-8px 0 32px rgba(0,0,0,0.08);
   z-index:501;transform:translateX(100%);transition:transform .35s cubic-bezier(.34,1.2,.64,1);
   overflow-y:auto;
 }
@@ -195,7 +197,7 @@ body{
 .drawer-head{
   padding:28px 32px 20px;border-bottom:1px solid var(--border);
   display:flex;align-items:flex-start;justify-content:space-between;
-  position:sticky;top:0;background:var(--bg2);z-index:2;
+  position:sticky;top:0;background:#ffffff;z-index:2;
 }
 .drawer-title{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--off-white);}
 .drawer-sub{font-size:13px;color:var(--grey);margin-top:4px;}

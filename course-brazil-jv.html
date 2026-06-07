@@ -160,7 +160,7 @@ h1.course-title em{font-style:italic;color:var(--amber);}
 .bc-price{font-family:var(--serif);font-size:42px;font-weight:300;color:var(--ink);line-height:1;}
 .bc-price-label{font-family:var(--cond);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-light);}
 .bc-price-note{font-size:12px;color:var(--ink-light);margin-bottom:18px;}
-.btn-book{display:block;width:100%;text-align:center;background:var(--amber);color:#fff;font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px;text-decoration:none;transition:background .2s;margin-bottom:10px;border:none;cursor:pointer;}
+.btn-book{display:block;width:100%;text-align:center;background:var(--amber);color:#fff !important;font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px;text-decoration:none;transition:background .2s;margin-bottom:10px;border:none;cursor:pointer;}
 .btn-book:hover{background:var(--amber2);}
 .btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;text-align:center;background:none;border:1.5px solid var(--line2);color:var(--ink-mid);font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:12px;text-decoration:none;transition:border-color .2s,color .2s;margin-bottom:8px;cursor:pointer;}
 .btn-secondary svg{width:14px;height:14px;stroke:currentColor;fill:none;flex-shrink:0;}
@@ -865,7 +865,7 @@ footer{background:var(--dark2);border-top:1px solid var(--d-line);padding:72px 6
     <div class="mb-price">£2,500</div>
     <div class="mb-label">per delegate · Oct 2026</div>
   </div>
-  <button type="button" class="btn-book" onclick="openBooking()" style="padding:12px 24px;font-size:11px;margin-bottom:0;width:auto;margin-left:auto;" aria-label="Book now">Book Now →</button>
+  <button type="button" class="btn-book" onclick="openBkModal()" style="padding:12px 24px;font-size:11px;margin-bottom:0;width:auto;margin-left:auto;" aria-label="Book now">Book Now →</button>
 </div>
 <script>
 function toggleNav(){document.getElementById('mob').classList.toggle('open');}

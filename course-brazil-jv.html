@@ -1648,6 +1648,14 @@ async function submitBk(){
   };
   try{
     await fetch(LPA.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    // Store in dashboard cache
+    if(typeof(Storage)!=='undefined'){
+      const stored = localStorage.getItem('lpa_bookings');
+      let bookings = [];
+      try { bookings = JSON.parse(stored) || []; } catch(e) {}
+      const exists = bookings.find(b => b.submitted_at===payload.submitted_at && b.email===payload.email);
+      if(!exists){ bookings.unshift(payload); localStorage.setItem('lpa_bookings', JSON.stringify(bookings)); }
+    }
     document.getElementById('bkFormArea').style.display='none';
     document.getElementById('bkOK').style.display='block';
     if(typeof gtag==='function') gtag('event','booking_submitted',{course_name:payload.course_name,course_session:payload.course_session});

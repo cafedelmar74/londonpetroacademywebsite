@@ -236,6 +236,34 @@ body{
   font-size:14px;color:#444;font-weight:500;
 }
 
+
+/* ── DATE FILTER ── */
+.date-filter-wrap{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding:14px 20px;background:var(--bg3);
+  border-bottom:1px solid var(--border);
+}
+.date-filter-label{
+  font-family:var(--cond);font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;color:#555;font-weight:700;margin-right:4px;
+}
+.date-pill{
+  background:#fff;border:1.5px solid var(--border2);color:#444;
+  font-family:var(--cond);font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  font-weight:600;padding:7px 14px;cursor:pointer;transition:all .2s;
+}
+.date-pill:hover{border-color:var(--amber);color:var(--amber);}
+.date-pill.active{background:var(--amber);border-color:var(--amber);color:#fff;}
+.date-custom{display:flex;align-items:center;gap:8px;margin-left:8px;}
+.date-custom input{
+  background:#fff;border:1.5px solid var(--border2);
+  color:#0e0f11;font-family:var(--sans);font-size:13px;
+  padding:7px 10px;outline:none;transition:border-color .2s;
+  cursor:pointer;
+}
+.date-custom input:focus{border-color:var(--amber);}
+.date-custom-sep{font-size:13px;color:#888;}
+
 /* ── DELETE CONFIRM MODAL ── */
 .del-overlay{
   position:fixed;inset:0;z-index:600;
@@ -340,6 +368,24 @@ body{
       <div class="kpi-label">Courses Booked</div>
       <div class="kpi-value" id="kpiCourses">—</div>
       <div class="kpi-sub">Unique courses</div>
+    </div>
+  </div>
+
+
+  <!-- DATE FILTER -->
+  <div class="date-filter-wrap" id="dateFilterWrap">
+    <span class="date-filter-label">Period:</span>
+    <button class="date-pill active" onclick="setDateFilter('all',this)">All Time</button>
+    <button class="date-pill" onclick="setDateFilter('this_week',this)">This Week</button>
+    <button class="date-pill" onclick="setDateFilter('last_week',this)">Last Week</button>
+    <button class="date-pill" onclick="setDateFilter('this_month',this)">This Month</button>
+    <button class="date-pill" onclick="setDateFilter('last_month',this)">Last Month</button>
+    <button class="date-pill" onclick="setDateFilter('last_3months',this)">Last 3 Months</button>
+    <div class="date-custom">
+      <span class="date-custom-sep">or</span>
+      <input type="date" id="dateFrom" onchange="setDateFilter('custom',null)" title="From date">
+      <span class="date-custom-sep">→</span>
+      <input type="date" id="dateTo" onchange="setDateFilter('custom',null)" title="To date">
     </div>
   </div>
 
@@ -465,7 +511,8 @@ function applyFilter() {
     const matchFilter = activeFilter === 'all' || b.source === activeFilter;
     const matchSearch = !q || [b.full_name,b.company,b.course_name,b.email,b.country]
       .some(v => v && v.toLowerCase().includes(q));
-    return matchFilter && matchSearch;
+    const matchDate = isInDateRange(b);
+    return matchFilter && matchSearch && matchDate;
   });
   // Sort
   filtered.sort((a,b) => {
@@ -616,6 +663,70 @@ function exportCSV(){
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
   a.download = `lpa-bookings-${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
+}
+
+
+// ── DATE FILTER ─────────────────────────────────────────────
+let activeDateFilter = 'all';
+
+function setDateFilter(period, btn) {
+  activeDateFilter = period;
+  // Update pill active state
+  if (btn) {
+    document.querySelectorAll('.date-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    // Clear custom date inputs
+    document.getElementById('dateFrom').value = '';
+    document.getElementById('dateTo').value = '';
+  } else {
+    // Custom date — deactivate all pills
+    document.querySelectorAll('.date-pill').forEach(p => p.classList.remove('active'));
+  }
+  renderAll();
+}
+
+function getDateRange() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  if (activeDateFilter === 'custom') {
+    const from = document.getElementById('dateFrom').value;
+    const to   = document.getElementById('dateTo').value;
+    return {
+      from: from ? new Date(from) : null,
+      to:   to   ? new Date(to + 'T23:59:59') : null,
+    };
+  }
+
+  const day = today.getDay(); // 0=Sun
+  const monday = new Date(today); monday.setDate(today.getDate() - (day===0?6:day-1));
+  const lastMonday = new Date(monday); lastMonday.setDate(monday.getDate()-7);
+  const lastSunday = new Date(monday); lastSunday.setDate(monday.getDate()-1); lastSunday.setHours(23,59,59);
+  const firstOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+  const firstOfLastMonth = new Date(now.getFullYear(), now.getMonth()-1, 1);
+  const lastOfLastMonth = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59);
+  const threeMonthsAgo = new Date(now.getFullYear(), now.getMonth()-3, now.getDate());
+
+  const ranges = {
+    all:          { from: null, to: null },
+    this_week:    { from: monday, to: null },
+    last_week:    { from: lastMonday, to: lastSunday },
+    this_month:   { from: firstOfMonth, to: null },
+    last_month:   { from: firstOfLastMonth, to: lastOfLastMonth },
+    last_3months: { from: threeMonthsAgo, to: null },
+  };
+  return ranges[activeDateFilter] || { from: null, to: null };
+}
+
+function isInDateRange(booking) {
+  const { from, to } = getDateRange();
+  if (!from && !to) return true;
+  try {
+    const d = new Date(booking.submitted_at);
+    if (from && d < from) return false;
+    if (to   && d > to)   return false;
+    return true;
+  } catch(e) { return true; }
 }
 
 // ── DELETE ──────────────────────────────────────────────────

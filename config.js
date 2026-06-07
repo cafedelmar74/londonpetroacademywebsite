@@ -19,8 +19,8 @@ const LPA = {
   // ── n8n Lead Capture Webhook ─────────────────────────────
   // Switch between test and production URLs here only
   webhook_test: 'https://n8n.srv765009.hstgr.cloud/webhook-test/lpa-leads',
-  webhook_prod: '', // TODO: paste production webhook URL here when ready
-  get webhook() { return this.webhook_test; }, // switch to webhook_prod when live
+  webhook_prod: 'https://n8n.srv765009.hstgr.cloud/webhook/lpa-leads',
+  get webhook() { return this.webhook_prod; }, // now live on production
 
   // ── Social ────────────────────────────────────────────────
   linkedin:    'https://www.linkedin.com/company/london-petro-academy-limited/',

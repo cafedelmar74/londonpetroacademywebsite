@@ -402,6 +402,11 @@ select.bkfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
   .phone-num2{border-left:1.5px solid #e0ddd8 !important;border-top:none !important;}
   .bk-captcha-row2{flex-direction:column;}
 }
+
+.bc-price-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;}
+.bc-price{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--ink);line-height:1;}
+.bc-price-label{font-family:var(--cond);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-light);}
+.bc-price-note{font-size:12px;color:var(--ink-light);margin-bottom:18px;line-height:1.5;}
 </style>
 <script src="config.js"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -522,11 +527,11 @@ select.bkfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
         </div>
       </div>
 
-      <div class="bc-pricing" style="grid-template-columns:1fr;">
-        <div class="bc-price-box" style="border-color:var(--amber);">
-          <span class="bc-price-box-label">Classroom (per delegate)</span>
-          <div class="bc-price-val" style="color:var(--amber);"><span class="bc-price-cur">£</span>3,300</div>
-        </div>
+            <div class="bc-price-row">
+        <span class="bc-price">£3,300</span>
+        <span class="bc-price-label">per delegate</span>
+      </div>
+      <p class="bc-price-note">No VAT on all 2026 sessions (Bali, Rio, Bangkok, Singapore). Group discounts available.</p></div>
       </div>
       <p style="font-size:12px;color:var(--ink-light);margin-top:8px;">No VAT on all 2026 sessions. Group discounts available.</p>
 

@@ -40,22 +40,11 @@ body{font-family:var(--sans);background:var(--page);color:var(--ink);-webkit-fon
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4;}
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
-/* NAV */
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s;}
-.site-nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);}
-.nav-logo img{height:38px;transition:opacity .2s;}
-.nav-logo:hover img{opacity:.8;}
-.nav-links{display:flex;align-items:center;gap:36px;}
-.nav-links a{font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#fff;font-weight:600;transition:color .2s;}
-.site-nav.scrolled .nav-links a{color:var(--ink);}
-.nav-links a:hover{color:var(--amber);}
-.nav-cta{font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:10px 22px;background:var(--amber);color:#fff;border:none;cursor:pointer;transition:background .2s;}
-.nav-cta:hover{background:var(--amber2);}
 /* HERO */
 .course-hero{position:relative;height:540px;display:flex;align-items:flex-end;overflow:hidden;}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,11,13,.92) 0%,rgba(10,11,13,.55) 50%,rgba(10,11,13,.25) 100%);}
-
+.hero-content{position:relative;z-index:2;padding:0 64px 52px;max-width:900px;}
 .course-tag{font-family:var(--cond);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:block;}
 .course-title{font-family:var(--serif);font-size:clamp(34px,5vw,58px);font-weight:300;color:#fff;line-height:1.05;margin-bottom:14px;}
 .course-title em{font-style:italic;color:var(--amber);}
@@ -233,12 +222,12 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 @media(max-width:640px){#bkOverlay{padding:0;align-items:flex-end;}#bkModal{max-height:96vh;max-width:100%;}.bkh,.bkb{padding-left:20px;padding-right:20px;}.bkh{padding-top:24px;}.bk-row2,.bk-checks2{grid-template-columns:1fr;}.dial-sel2{width:100% !important;border-right:1.5px solid #e0ddd8 !important;}.phone-wrap2{flex-direction:column;}.phone-num2{border-left:1.5px solid #e0ddd8 !important;border-top:none !important;}.bk-captcha-row2{flex-direction:column;}#brOverlay{padding:0;align-items:flex-end;}#brModal{max-width:100%;}.brh,.brb{padding-left:20px;padding-right:20px;}.phone-wrap-br{flex-direction:column;}.dial-sel-br{width:100% !important;border-right:1.5px solid #e0ddd8 !important;}.phone-num-br{border-left:1.5px solid #e0ddd8 !important;border-top:none !important;}}
 
 @media(max-width:900px){
-  .site-nav{padding:0 20px;}.nav-links{display:none;}
+  .nav-links{display:none;}
   .course-layout{grid-template-columns:1fr;padding:0 20px;}
   .course-main{padding:40px 0;border-right:none;}
   .course-sidebar{display:none;}
   .mobile-book-bar{display:flex;}
-  
+  .hero-content{padding:0 24px 40px;}
   .breadcrumb{padding:14px 20px;}
   .topics-grid,.audience-grid{grid-template-columns:1fr;}
   .rf-grid{grid-template-columns:1fr 1fr;}
@@ -288,7 +277,7 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 .hero-img-wrap{position:absolute;inset:0;z-index:0;}
 .hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,11,13,.88) 40%,rgba(10,11,13,.6) 70%,rgba(10,11,13,.3) 100%);}
-.hero-content{position:relative;z-index:2;padding:0 60px 40px;display:grid !important;grid-template-columns:1fr 400px !important;gap:60px;align-items:end;margin-top:auto;max-width:none !important;width:100%;}
+.hero-content{position:relative;z-index:2;padding:0 60px 0;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:end;margin-top:auto;}
 .hero-left{padding-bottom:0;}
 .booking-card{background:#f6f3ee;border-top:3px solid #c8873a;padding:28px 26px 24px;box-shadow:0 32px 80px rgba(0,0,0,.45);margin-bottom:0;align-self:end;}
 .bc-date-block{background:#0e0f11;padding:16px 18px;margin-bottom:20px;border-left:3px solid #c8873a;}
@@ -324,10 +313,25 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 .htab{font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);padding:18px 24px;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
 .htab:hover{color:#fff;}.htab.active{color:#c8873a;border-bottom-color:#c8873a;}
 @media(max-width:1000px){
-  @media(max-width:1000px){.hero-content{grid-template-columns:1fr !important;gap:32px;padding:0 24px;}}
+  .hero-content{grid-template-columns:1fr;gap:32px;padding:0 24px;}
   .booking-card{max-width:100%;}
 }
 @media(max-width:700px){.hero-content{padding:0 20px;}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(12,13,15,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo img{height:42px;width:auto;max-width:280px;object-fit:contain;object-position:left center;display:block;transition:filter .3s,opacity .2s;filter:brightness(0) invert(1);}
+.nav-logo:hover img{opacity:.8;}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+.nav-links a{font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-links a.active{color:#c8873a;}
+.nav-cta{border:1px solid #c8873a !important;color:#c8873a !important;padding:9px 22px;transition:background .2s,color .2s !important;}
+.nav-cta:hover{background:#c8873a !important;color:#0c0d0f !important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;transition:all .3s;}
+@media(max-width:900px){nav{padding:0 24px;}.nav-links{display:none;}.hamburger{display:flex;}}
 </style>
 </head>
 <body>
@@ -352,18 +356,16 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 </svg>
 
 <!-- NAV -->
-<nav class="site-nav" id="siteNav">
-  <a href="index.html" class="nav-logo">
-    <img src="logo-white.png" alt="London Petro Academy" id="navLogo">
-  </a>
-  <div class="nav-links">
-    <a href="upstream.html">Upstream</a>
-    <a href="downstream.html">Downstream</a>
-    <a href="renewables.html">Renewables</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <button class="nav-cta" onclick="openBkModal()">Enquire Now</button>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo-white.png" alt="London Petro Academy" loading="lazy"></a>
+  <ul class="nav-links" role="navigation" aria-label="Main navigation">
+    <li><a href="upstream.html" class="active">Upstream</a></li>
+    <li><a href="downstream.html">Downstream</a></li>
+    <li><a href="renewables.html">Renewables</a></li>
+    <li><a href="https://www.londonpetroacademy.co.uk/about/">About</a></li>
+    <li><a href="https://www.londonpetroacademy.co.uk/contact/" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- HERO -->
@@ -1036,13 +1038,6 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 <script>
 // ── TABS ──
 function setTab(el){document.querySelectorAll('.htab').forEach(function(t){t.classList.remove('active');});el.classList.add('active');}
-// ── NAV ──
-var nav=document.getElementById('siteNav'),logo=document.getElementById('navLogo');
-window.addEventListener('scroll',function(){
-  if(window.scrollY>60){nav.classList.add('scrolled');logo.src='logo-dark.png';}
-  else{nav.classList.remove('scrolled');logo.src='logo-white.png';}
-});
-
 // ── BOOKING MODAL ──
 function openBkModal(){document.getElementById('bkOverlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeBkModal(){document.getElementById('bkOverlay').classList.remove('open');document.body.style.overflow='';}

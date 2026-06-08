@@ -1590,6 +1590,9 @@ async function submitBrochure(){
     await fetch('https://n8n.srv765009.hstgr.cloud/webhook/lpa-brochure',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     document.getElementById('brFormArea').style.display='none';
     document.getElementById('brOK').style.display='block';
+    // Save to downloads dashboard
+    try{var s=localStorage.getItem('lpa_downloads');var b=[];try{b=JSON.parse(s)||[];}catch(e){}
+    if(!b.find(function(x){return x.submitted_at===payload.submitted_at&&x.email===payload.email;})){b.unshift(payload);localStorage.setItem('lpa_downloads',JSON.stringify(b));}}catch(e){}
     if(typeof gtag==='function') gtag('event','brochure_download',{course_name:payload.course});
   }catch(e){btn.textContent='Send Me the Brochure →';btn.disabled=false;alert('Something went wrong. Please email info@londonpetroacademy.co.uk');}
 }

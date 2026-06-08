@@ -630,6 +630,80 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 }
 @media(max-width:700px){}
 
+/* ══════════ COURSE LAYOUT (main + sidebar) ══════════ */
+.course-layout{display:grid;grid-template-columns:1fr 360px;gap:60px;padding:64px 60px 80px;align-items:start;max-width:1400px;margin:0 auto;}
+.course-main{min-width:0;}
+.course-sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:88px;}
+
+/* ── TOPICS GRID ── */
+.topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.topic-card{background:var(--page3);border:1px solid var(--line);padding:28px 24px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s;}
+.topic-card:hover{border-color:var(--amber);transform:translateY(-2px);}
+.topic-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1a1612,var(--amber));transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.topic-card:hover::before{transform:scaleX(1);}
+.topic-card-num{font-family:var(--serif);font-size:40px;font-weight:300;font-style:italic;color:rgba(200,135,58,.15);line-height:1;margin-bottom:8px;}
+.topic-card-title{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:12px;}
+.topic-card-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.topic-card-list li{font-size:14px;color:var(--ink-light);font-weight:300;padding-left:14px;position:relative;line-height:1.5;}
+.topic-card-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--amber);}
+
+/* ── SESSIONS TABLE ── */
+.sessions-table{width:100%;border-collapse:collapse;margin-top:12px;}
+.sessions-table th{font-family:var(--cond);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-light);padding:12px 16px;border-bottom:2px solid var(--line2);text-align:left;}
+.sessions-table td{padding:16px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-mid);font-weight:300;}
+.sessions-table tr:hover td{background:var(--amber-dim);}
+.sessions-table .session-date{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);}
+.sessions-table .session-loc{font-family:var(--cond);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);}
+.sessions-table .session-tag{font-family:var(--cond);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(200,135,58,.25);padding:3px 10px;display:inline-block;}
+
+/* ── SIDEBAR CARDS ── */
+.sidebar-section{background:var(--page3);border:1px solid var(--line);padding:24px;margin-bottom:20px;}
+.sidebar-title{font-family:var(--cond);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-light);margin-bottom:16px;display:block;}
+.ih-card{background:var(--dark);padding:28px;border-top:3px solid var(--amber);}
+.ih-card .ih-label{font-family:var(--cond);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;display:block;}
+.ih-card .ih-title{font-family:var(--serif);font-size:22px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:10px;}
+.ih-card .ih-desc{font-size:13px;color:var(--d-muted);font-weight:300;line-height:1.6;margin-bottom:16px;}
+.ih-btn{display:block;width:100%;text-align:center;border:1.5px solid var(--amber);color:var(--amber);font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:13px;text-decoration:none;transition:background .2s,color .2s;margin-top:14px;}
+.ih-btn:hover{background:var(--amber);color:var(--dark);}
+
+/* ── RELATED FULL ROW ── */
+.related-section{background:var(--page2);padding:72px 60px;border-top:1px solid var(--line);}
+.related-inner{max-width:1400px;margin:0 auto;}
+.related-title{font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:300;color:var(--ink);line-height:1;margin-bottom:36px;}
+.related-title em{font-style:italic;color:var(--amber);}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--dark2);border-top:1px solid var(--d-line);padding:72px 60px 36px;}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid var(--d-line);margin-bottom:32px;}
+.footer-logo{text-decoration:none;display:block;margin-bottom:14px;}
+.footer-logo img{height:44px;width:auto;object-fit:contain;opacity:.9;}
+.footer-tagline{font-size:13px;color:var(--d-faint);line-height:1.7;max-width:260px;margin-bottom:0;font-weight:300;}
+.footer-col-title{font-family:var(--cond);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--d-faint);margin-bottom:18px;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:10px;}
+.footer-links a{font-size:14px;color:var(--d-muted);text-decoration:none;font-weight:300;transition:color .2s;}
+.footer-links a:hover{color:var(--amber);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-copy{font-size:12px;color:var(--d-faint);}
+
+/* ── MOBILE BOOK BAR ── */
+.mb-btn{background:var(--amber);color:#fff;border:none;cursor:pointer;font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:12px 20px;transition:background .2s;white-space:nowrap;}
+.mb-btn:hover{background:var(--amber2);}
+
+/* ── RESPONSIVE OVERRIDES ── */
+@media(max-width:1100px){
+  .course-layout{grid-template-columns:1fr;padding:48px 24px 60px;gap:0;}
+  .course-sidebar{position:static;display:none;}
+  .topics-grid{grid-template-columns:1fr;}
+  .related-section{padding:60px 24px;}
+  .site-footer{padding:60px 24px 32px;}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:600px){
+  .footer-inner{grid-template-columns:1fr;}
+  .related-section .rf-grid{grid-template-columns:1fr;}
+}
+
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(12,13,15,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);}
 .nav-logo{text-decoration:none;display:flex;align-items:center;}
@@ -714,8 +788,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;ali
     <li><a href="upstream.html" class="active">Upstream</a></li>
     <li><a href="downstream.html">Downstream</a></li>
     <li><a href="renewables.html">Renewables</a></li>
-    <li><a href="https://www.londonpetroacademy.co.uk/about/">About</a></li>
-    <li><a href="https://www.londonpetroacademy.co.uk/contact/" class="nav-cta">Contact Us</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
   <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
@@ -972,8 +1046,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;ali
 
     <!-- IN-HOUSE -->
     <div class="ih-card">
-      <div class="ih-label">In-House Training</div>
-      <div class="ih-title">Bring this course to your team</div>
+      <span class="ih-label">In-House Training</span>
+      <h3 class="ih-title">Bring this course to your team</h3>
       <p class="ih-desc">Fully customised and delivered at your premises or any location worldwide.</p>
       <a href="mailto:j.rogus@londonpetroacademy.co.uk?subject=In-House%20Request%20%E2%80%94%20Small%20Scale%20LNG%20Shipping" class="ih-btn">Request a Proposal →</a>
     </div>
@@ -986,22 +1060,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;ali
   <div class="related-inner">
     <h2 class="related-title">Related <em>Courses</em></h2>
     <div class="rf-grid">
-  <a href="course-gas-lng-contracts-negotiations.html" class="rf-card">
-      <h3 class="rf-title">Gas &amp; LNG Contract Negotiations</h3>
-      <span class="rf-cta">Read More →</span>
-    </a>
-  <a href="course-lng-value-chain.html" class="rf-card">
-      <h3 class="rf-title">LNG Value Chain: Markets, Trading &amp; Energy Transition</h3>
-      <span class="rf-cta">Read More →</span>
-    </a>
-  <a href="course-international-gas-markets.html" class="rf-card">
-      <h3 class="rf-title">International Gas Markets &amp; Economic Evaluation</h3>
-      <span class="rf-cta">Read More →</span>
-    </a>
-  <a href="course-energy-transition-fiscal-systems.html" class="rf-card">
-      <h3 class="rf-title">Energy Transition &amp; Fiscal Systems</h3>
-      <span class="rf-cta">Read More →</span>
-    </a>
+      <a href="course-gas-lng-contracts-negotiations.html" class="rf-card">
+        <h3 class="rf-title">Gas &amp; LNG Contract Negotiations</h3>
+        <span class="rf-cta">Read More →</span>
+      </a>
+      <a href="course-lng-value-chain.html" class="rf-card">
+        <h3 class="rf-title">LNG Value Chain: Markets, Trading &amp; Energy Transition</h3>
+        <span class="rf-cta">Read More →</span>
+      </a>
+      <a href="course-international-gas-markets.html" class="rf-card">
+        <h3 class="rf-title">International Gas Markets &amp; Economic Evaluation</h3>
+        <span class="rf-cta">Read More →</span>
+      </a>
+      <a href="course-energy-transition-fiscal-systems.html" class="rf-card">
+        <h3 class="rf-title">Energy Transition &amp; Fiscal Systems</h3>
+        <span class="rf-cta">Read More →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1010,7 +1084,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;ali
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="footer-logo"><img src="logo-white.png" alt="London Petro Academy"></a>
+      <a href="index.html" class="footer-logo"><img src="logo-white.png" alt="London Petro Academy" loading="lazy"></a>
       <p class="footer-tagline">Empowering Professionals for a Sustainable Future</p>
     </div>
     <div>

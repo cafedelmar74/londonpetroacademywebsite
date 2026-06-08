@@ -246,6 +246,42 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
   .related-section{padding:48px 20px;}
 }
 @media(max-width:600px){.rf-grid{grid-template-columns:1fr;}.footer-inner{grid-template-columns:1fr;}}
+
+/* ── HERO WITH BOOKING CARD ── */
+.course-hero{position:relative;min-height:600px;display:flex;align-items:stretch;overflow:hidden;}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,11,13,.92) 50%,rgba(10,11,13,.65) 75%,rgba(10,11,13,.3) 100%);}
+.hero-body{position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;align-items:center;max-width:1280px;margin:0 auto;padding:100px 48px 60px;width:100%;gap:48px;}
+.hero-left{padding-right:24px;}
+.hero-right{display:flex;flex-direction:column;}
+/* Hero booking card */
+.hero-booking-card{background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-top:4px solid #c8873a;box-shadow:0 24px 60px rgba(0,0,0,.4);}
+.hbc-sessions{padding:0;}
+.hbc-session{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;border-bottom:1px solid rgba(0,0,0,0.08);background:#0e0f11;}
+.hbc-session:last-of-type{border-bottom:none;}
+.hbc-date{font-family:'Fraunces',serif;font-size:15px;font-weight:400;color:#fff;margin-bottom:2px;}
+.hbc-loc{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a8f96;}
+.hbc-tag{font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 7px;border:1px solid rgba(200,135,58,0.4);color:#c8873a;flex-shrink:0;}
+.hbc-pricing{padding:16px 18px 12px;}
+.hbc-price-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px;}
+.hbc-price{font-family:'Fraunces',serif;font-size:40px;font-weight:300;color:#111;line-height:1;}
+.hbc-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#777;}
+.hbc-note{font-size:11px;color:#888;margin-bottom:14px;line-height:1.5;}
+.hbc-btn-book{display:block;width:100%;background:#c8873a;color:#fff;border:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:15px;text-align:center;transition:background .2s;margin-bottom:8px;}
+.hbc-btn-book:hover{background:#b87730;}
+.hbc-btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:transparent;color:#333;border:1.5px solid #e0ddd8;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:12px;cursor:pointer;transition:all .2s;margin-bottom:8px;}
+.hbc-btn-secondary:hover{border-color:#c8873a;color:#c8873a;}
+.hbc-btn-secondary svg{width:13px;height:13px;stroke:currentColor;fill:none;}
+.hbc-zoom{display:flex;align-items:center;gap:10px;padding:12px 18px;background:rgba(200,135,58,0.08);border-top:1px solid rgba(200,135,58,0.15);margin-top:4px;}
+.hbc-zoom-icon{width:28px;height:28px;background:rgba(200,135,58,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hbc-zoom-icon svg{width:13px;height:13px;stroke:#c8873a;fill:none;}
+.hbc-zoom-text{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#555;font-weight:700;}
+.hbc-zoom-sub{font-size:11px;color:#888;}
+@media(max-width:1000px){
+  .hero-body{grid-template-columns:1fr;padding:90px 24px 40px;}
+  .hero-right{display:none;}
+  .hero-overlay{background:linear-gradient(to top,rgba(10,11,13,.92) 0%,rgba(10,11,13,.55) 50%,rgba(10,11,13,.25) 100%);}
+}
 </style>
 </head>
 <body>
@@ -286,13 +322,14 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 
 <!-- HERO -->
 <section class="course-hero" aria-label="Course hero">
-  <img src="gas-lng-hero.jpg" alt="Gas processing facility at night — international gas markets" class="hero-img" loading="eager" fetchpriority="high">
+  <img src="https://images.pexels.com/photos/10407689/pexels-photo-10407689.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Aerial view of illuminated gas refinery at night — international gas markets" class="hero-img" loading="eager" fetchpriority="high">
   <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-content">
-    <span class="course-tag">Upstream · Gas Economics</span>
-    <h1 class="course-title">International Gas Markets<br>&amp; <em>Economic Evaluation</em> of Gas Projects</h1>
-    <p class="course-subtitle">Bali · Rio · Singapore · Doha — 2026</p>
-    <ul class="course-pills" role="list">
+  <div class="hero-body">
+    <div class="hero-left">
+      <span class="course-tag">Upstream · Gas Economics</span>
+      <h1 class="course-title">International Gas Markets<br>&amp; <em>Economic Evaluation</em> of Gas Projects</h1>
+      <p class="course-subtitle">Bali · Rio · Singapore · Doha — 2026</p>
+      <ul class="course-pills" role="list">
         <span class="pill  pill-highlight" role="listitem"><svg><use href="#ico-cal"/></svg> 22–26 Jun · Bali</span>
         <span class="pill  pill-highlight" role="listitem"><svg><use href="#ico-cal"/></svg> 3–7 Aug · Rio</span>
         <span class="pill  pill-highlight" role="listitem"><svg><use href="#ico-cal"/></svg> 7–11 Sep · Singapore</span>
@@ -300,6 +337,58 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
         <span class="pill" role="listitem"><svg><use href="#ico-clock"/></svg> 5 Days</span>
         <span class="pill" role="listitem"><svg><use href="#ico-hotel"/></svg> 5-Star Hotel</span>
     </ul>
+    </div>
+    <div class="hero-right">
+      <div class="hero-booking-card">
+<div class="hbc-sessions">
+        <div class="hbc-session">
+          <div>
+            <div class="hbc-date">22–26 Jun 2026</div>
+            <div class="hbc-loc">Bali, Indonesia</div>
+          </div>
+          <span class="hbc-tag">Classroom</span>
+        </div>
+        <div class="hbc-session">
+          <div>
+            <div class="hbc-date">3–7 Aug 2026</div>
+            <div class="hbc-loc">Rio de Janeiro, Brazil</div>
+          </div>
+          <span class="hbc-tag">Classroom</span>
+        </div>
+        <div class="hbc-session">
+          <div>
+            <div class="hbc-date">7–11 Sep 2026</div>
+            <div class="hbc-loc">Singapore</div>
+          </div>
+          <span class="hbc-tag">Classroom</span>
+        </div>
+        <div class="hbc-session" style="justify-content:center;"><div class="hbc-loc" style="color:#c8873a;">+ 1 more session</div></div>
+      </div>
+        <div class="hbc-pricing">
+          <div class="hbc-price-row">
+            <span class="hbc-price">£3,500</span>
+            <span class="hbc-label">per delegate</span>
+          </div>
+          <p class="hbc-note">No VAT on all 2026 sessions.</p>
+          <button type="button" class="hbc-btn-book" onclick="openBkModal()">Book This Course →</button>
+          <a href="mailto:info@londonpetroacademy.co.uk?subject=I%20am%20interested%20in%20International%20Gas%20Markets%20course" class="hbc-btn-secondary">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send an Enquiry
+          </a>
+          <button type="button" class="hbc-btn-secondary" onclick="openBrModal()">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Brochure
+          </button>
+        </div>
+        <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" target="_blank" class="hbc-zoom" rel="noopener">
+          <div class="hbc-zoom-icon"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <div>
+            <div class="hbc-zoom-text">Free Zoom Consultation</div>
+            <div class="hbc-zoom-sub">Talk to an advisor before booking</div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 

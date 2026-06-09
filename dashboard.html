@@ -453,17 +453,18 @@ function getFlag(country) {
   return COUNTRY_FLAGS[country] || '🌍';
 }
 // ── CONFIG ──────────────────────────────────────────────────
-const N8N_WEBHOOK = 'https://n8n.srv765009.hstgr.cloud/webhook/lpa-leads-read';
-// Fallback: use stored data if webhook unavailable
 let allBookings = [];
 let filtered    = [];
 let sortField   = 'submitted_at';
 let sortDir     = -1;
 let activeFilter = 'all';
 
-// ── LOAD DATA FROM N8N ──────────────────────────────────────
-// We store bookings in localStorage as a cache
-// Each form submission also calls storeBooking() to add to local cache
+// ── CONFIG: n8n Data Table ───────────────────────────────────
+const N8N_BASE  = 'https://n8n.srv765009.hstgr.cloud';
+const TABLE_ID  = 'Uuam7KVPTjr5Zzxj';
+const N8N_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNDdkZTdmYS1mMjk2LTQ1ZjYtYjNmZC0xZDBmMTdiOWY2NTIiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiY2RjZjg4M2YtOThlMi00ZDViLWIyMTQtYjcwMzU3ZmY1YWE2IiwiaWF0IjoxNzgxMDQzODg4fQ.rQMnWKaEAleY9-MTAFWhOEy_LFsPBHRfc7Qi5PQyWjA';
+
+// ── LOAD DATA FROM N8N DATA TABLE ────────────────────────────
 async function loadBookings() {
   document.getElementById('tableBody').innerHTML = `
     <div class="loading-state">
@@ -471,32 +472,42 @@ async function loadBookings() {
       <div class="loading-text">Refreshing…</div>
     </div>`;
 
-  // Load from localStorage cache
-  const stored = localStorage.getItem('lpa_bookings');
-  if (stored) {
-    try {
-      allBookings = JSON.parse(stored);
-    } catch(e) {
-      allBookings = [];
-    }
+  try {
+    const res = await fetch(
+      `${N8N_BASE}/api/v1/tables/${TABLE_ID}/rows?limit=500`,
+      { headers: { 'X-N8N-API-KEY': N8N_API_KEY } }
+    );
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    // Each row has an 'id' (n8n row id) + our column fields
+    allBookings = (data.rows || []).map(row => ({
+      _rowId: row.id,
+      submitted_at:    row.submitted_at  || '',
+      full_name:       row.full_name     || '',
+      first_name:      row.first_name    || '',
+      email:           row.email         || '',
+      phone:           row.phone         || '',
+      company:         row.company       || '',
+      job_title:       row.job_title     || '',
+      country:         row.country       || '',
+      billing_address: row.billing_address || '',
+      course_name:     row.course_name   || '',
+      course_session:  row.course_session || '',
+      course_category: row.course_category || '',
+      course_duration: row.course_duration || '',
+      source:          row.source        || 'website',
+      page_url:        row.page_url      || '',
+    }));
+    // Sort newest first
+    allBookings.sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at));
+  } catch(err) {
+    console.error('Failed to load bookings:', err);
+    allBookings = [];
   }
 
   renderAll();
   document.getElementById('lastUpdated').textContent =
     'Updated ' + new Date().toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'});
-}
-
-// ── CALLED BY FORM ON SUBMISSION ────────────────────────────
-function storeBooking(data) {
-  const stored = localStorage.getItem('lpa_bookings');
-  let bookings = [];
-  try { bookings = JSON.parse(stored) || []; } catch(e) {}
-  // Avoid duplicates
-  const exists = bookings.find(b => b.submitted_at === data.submitted_at && b.email === data.email);
-  if (!exists) {
-    bookings.unshift(data);
-    localStorage.setItem('lpa_bookings', JSON.stringify(bookings));
-  }
 }
 
 // ── RENDER ──────────────────────────────────────────────────
@@ -751,14 +762,24 @@ function cancelDelete() {
   document.body.style.overflow = '';
 }
 
-function executeDelete() {
+async function executeDelete() {
   if (pendingDeleteIdx === null || pendingDeleteIdx < 0) return;
+  const booking = allBookings[pendingDeleteIdx];
+  // Delete from n8n data table if we have a row ID
+  if (booking && booking._rowId) {
+    try {
+      await fetch(
+        `https://n8n.srv765009.hstgr.cloud/api/v1/tables/Uuam7KVPTjr5Zzxj/rows/${booking._rowId}`,
+        { method: 'DELETE', headers: { 'X-N8N-API-KEY': N8N_API_KEY } }
+      );
+    } catch(err) {
+      console.warn('Delete from table failed:', err);
+    }
+  }
   allBookings.splice(pendingDeleteIdx, 1);
-  localStorage.setItem('lpa_bookings', JSON.stringify(allBookings));
   pendingDeleteIdx = null;
   document.getElementById('delOverlay').classList.remove('open');
   document.body.style.overflow = '';
-  // Close drawer if open
   closeDrawer();
   renderAll();
 }

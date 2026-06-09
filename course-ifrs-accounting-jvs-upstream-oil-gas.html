@@ -94,7 +94,7 @@ nav.scrolled .nav-logo img{filter:brightness(0);}
   overflow:hidden;
 }
 .hero-photo{position:absolute;inset:0;z-index:0;}
-.hero-photo canvas{width:100%;height:100%;display:block;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;}
 .hero-overlay{
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,
@@ -501,249 +501,11 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 
   <!-- Oil field aerial view warm tones — Pexels CC0 -->
     <div class="hero-photo">
-    <canvas id="acctCanvas" style="width:100%;height:100%;display:block;"></canvas>
+    <img src="accounting-hero.jpg"
+         alt="Accounting professional at desk with laptop, notebook and calculator — IFRS oil and gas training"
+         loading="eager">
   </div>
   <div class="hero-overlay"></div>
-  <script>
-  (function(){
-    var C   = document.getElementById('acctCanvas');
-    var ctx = C.getContext('2d');
-    var DPR = window.devicePixelRatio || 1;
-    var t = 0, last = 0, raf, W, H;
-
-    /* ── colour palette ── */
-    var AMBER  = [200,135,58];
-    var DARK   = [8,10,14];
-    var NAVY   = [14,18,28];
-    var MUTED  = [40,48,64];
-
-    function rgba(c,a){ return 'rgba('+c[0]+','+c[1]+','+c[2]+','+a+')'; }
-
-    /* ── GRID LINES (balance-sheet rows) ── */
-    var ROWS = 9;
-    var rows = [];
-    function buildRows(){
-      rows = [];
-      var gap = H / (ROWS + 1);
-      for(var i=0;i<ROWS;i++){
-        rows.push({
-          y:     gap*(i+1),
-          w:     0.35 + Math.random()*0.5,   /* bar width 35–85% */
-          w2:    0.15 + Math.random()*0.3,
-          phase: Math.random()*Math.PI*2,
-          speed: 0.004 + Math.random()*0.006,
-          amber: i % 3 === 0,
-        });
-      }
-    }
-
-    /* ── FLOATING NUMBERS (journal entries) ── */
-    var NUMS = 18;
-    var nums = [];
-    var CHARS = ['£','$','%','0','1','2','3','4','5','6','7','8','9',
-                 'Dr','Cr','IAS','IFRS','JV','P&L'];
-    function buildNums(){
-      nums = [];
-      for(var i=0;i<NUMS;i++){
-        nums.push({
-          x:     Math.random()*W,
-          y:     Math.random()*H,
-          vx:    (Math.random()-0.5)*0.18,
-          vy:   -(0.15+Math.random()*0.25),
-          char:  CHARS[Math.floor(Math.random()*CHARS.length)],
-          size:  10+Math.random()*14,
-          alpha: 0.08+Math.random()*0.18,
-          amber: Math.random()>0.7,
-          life:  Math.random(),
-        });
-      }
-    }
-
-    /* ── CANDLESTICK / BAR CHART (right panel) ── */
-    var BARS = 12;
-    var bars = [];
-    function buildBars(){
-      bars = [];
-      var bw = W * 0.018;
-      var bx = W * 0.72;
-      var by = H * 0.18;
-      var bh = H * 0.55;
-      for(var i=0;i<BARS;i++){
-        var v = 0.2+Math.random()*0.8;
-        bars.push({
-          x:    bx + i*(bw+W*0.012),
-          y:    by + bh*(1-v),
-          h:    bh*v,
-          w:    bw,
-          tgt:  0.2+Math.random()*0.8,
-          cur:  v,
-          amber: i%4===0,
-        });
-      }
-    }
-
-    /* ── LINE CHART (subtle background) ── */
-    var linePoints = [];
-    function buildLine(){
-      linePoints = [];
-      var n = 40;
-      for(var i=0;i<n;i++){
-        linePoints.push(0.3+Math.random()*0.4);
-      }
-    }
-
-    function build(){
-      W = C.parentElement.offsetWidth  || window.innerWidth;
-      H = C.parentElement.offsetHeight || window.innerHeight;
-      if(!W||!H) return false;
-      C.width  = W*DPR; C.height = H*DPR;
-      C.style.width=W+'px'; C.style.height=H+'px';
-      ctx.setTransform(DPR,0,0,DPR,0,0);
-      buildRows(); buildNums(); buildBars(); buildLine();
-      return true;
-    }
-
-    function draw(ts){
-      raf = requestAnimationFrame(draw);
-      var dt = Math.min((ts-last)/1000, 0.05);
-      last = ts;
-      t += dt;
-
-      ctx.clearRect(0,0,W,H);
-
-      /* background gradient */
-      var bg = ctx.createLinearGradient(0,0,W,H);
-      bg.addColorStop(0, rgba(DARK,1));
-      bg.addColorStop(0.6, rgba(NAVY,1));
-      bg.addColorStop(1, rgba([10,8,6],1));
-      ctx.fillStyle = bg;
-      ctx.fillRect(0,0,W,H);
-
-      /* subtle dot grid */
-      ctx.fillStyle = rgba(MUTED,0.18);
-      var gs = 36;
-      for(var gx=0;gx<W;gx+=gs)
-        for(var gy=0;gy<H;gy+=gs){
-          ctx.beginPath();
-          ctx.arc(gx,gy,0.8,0,Math.PI*2);
-          ctx.fill();
-        }
-
-      /* ── balance-sheet row lines ── */
-      rows.forEach(function(row){
-        var pulse = (Math.sin(t*row.speed*60+row.phase)+1)/2;
-        var bw    = row.w * W * 0.55;
-        var bw2   = row.w2 * W * 0.22;
-        var col   = row.amber ? AMBER : MUTED;
-
-        /* full row separator */
-        ctx.strokeStyle = rgba(MUTED, 0.22);
-        ctx.lineWidth   = 0.5;
-        ctx.beginPath();
-        ctx.moveTo(W*0.04, row.y);
-        ctx.lineTo(W*0.65, row.y);
-        ctx.stroke();
-
-        /* left bar (account name width indicator) */
-        ctx.fillStyle = rgba(col, 0.06 + pulse*0.04);
-        ctx.fillRect(W*0.04, row.y-6, bw*0.45, 5);
-
-        /* right bar (value) */
-        ctx.fillStyle = rgba(col, 0.12 + pulse*0.08);
-        ctx.fillRect(W*0.52, row.y-6, bw2, 5);
-
-        /* amber accent on highlighted rows */
-        if(row.amber){
-          ctx.fillStyle = rgba(AMBER, 0.7+pulse*0.3);
-          ctx.fillRect(W*0.03, row.y-7, 2, 7);
-        }
-      });
-
-      /* ── background line chart ── */
-      var lx0 = W*0.04, lw = W*0.62;
-      var ly0 = H*0.72, lh = H*0.18;
-      ctx.beginPath();
-      linePoints.forEach(function(v,i){
-        /* gentle wave on each point */
-        var wv = v + Math.sin(t*0.4+i*0.5)*0.04;
-        var px = lx0 + i/(linePoints.length-1)*lw;
-        var py = ly0 + lh*(1-wv);
-        i===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
-      });
-      ctx.strokeStyle = rgba(AMBER, 0.12);
-      ctx.lineWidth   = 1.5;
-      ctx.stroke();
-
-      /* fill under line */
-      ctx.lineTo(lx0+lw, ly0+lh); ctx.lineTo(lx0, ly0+lh); ctx.closePath();
-      ctx.fillStyle = rgba(AMBER, 0.04);
-      ctx.fill();
-
-      /* ── bar chart (right side) ── */
-      bars.forEach(function(bar){
-        bar.cur += (bar.tgt - bar.cur)*0.008;
-        if(Math.abs(bar.cur-bar.tgt)<0.01){
-          bar.tgt = 0.2+Math.random()*0.8;
-        }
-        var bh = H*0.55 * bar.cur;
-        var by = H*0.18 + H*0.55*(1-bar.cur);
-        var col = bar.amber ? AMBER : MUTED;
-
-        /* bar shadow */
-        ctx.fillStyle = rgba(DARK,0.6);
-        ctx.fillRect(bar.x+1, by+1, bar.w, bh);
-
-        /* bar body */
-        var grad = ctx.createLinearGradient(bar.x, by, bar.x, by+bh);
-        grad.addColorStop(0, rgba(col, bar.amber ? 0.7 : 0.25));
-        grad.addColorStop(1, rgba(col, bar.amber ? 0.3 : 0.08));
-        ctx.fillStyle = grad;
-        ctx.fillRect(bar.x, by, bar.w, bh);
-
-        /* top cap */
-        ctx.fillStyle = rgba(col, bar.amber ? 0.9 : 0.4);
-        ctx.fillRect(bar.x, by, bar.w, 1.5);
-      });
-
-      /* chart baseline */
-      ctx.strokeStyle = rgba(MUTED, 0.3);
-      ctx.lineWidth   = 1;
-      ctx.beginPath();
-      if(bars.length){
-        ctx.moveTo(bars[0].x-4, H*0.73);
-        ctx.lineTo(bars[bars.length-1].x+bars[0].w+4, H*0.73);
-      }
-      ctx.stroke();
-
-      /* ── floating journal numbers ── */
-      nums.forEach(function(n){
-        n.x += n.vx; n.y += n.vy; n.life += 0.003;
-        if(n.y < -20 || n.life > 1){
-          n.x=Math.random()*W; n.y=H+10; n.life=0;
-          n.char=CHARS[Math.floor(Math.random()*CHARS.length)];
-          n.amber=Math.random()>0.7;
-        }
-        var a = n.alpha * Math.sin(n.life*Math.PI);
-        ctx.fillStyle = rgba(n.amber ? AMBER : MUTED, a);
-        ctx.font = 'bold '+n.size+'px monospace';
-        ctx.fillText(n.char, n.x, n.y);
-      });
-
-      /* ── amber vertical accent line ── */
-      var ap = (Math.sin(t*0.3)+1)/2;
-      ctx.strokeStyle = rgba(AMBER, 0.15+ap*0.1);
-      ctx.lineWidth   = 1;
-      ctx.beginPath();
-      ctx.moveTo(W*0.67, H*0.1);
-      ctx.lineTo(W*0.67, H*0.9);
-      ctx.stroke();
-    }
-
-    function init(ts){ if(!build()){ requestAnimationFrame(init); return; } last=ts; draw(ts); }
-    window.addEventListener('resize', build);
-    requestAnimationFrame(init);
-  })();
-  </script>
 
 
   <div class="hero-content">
@@ -1178,7 +940,6 @@ window.addEventListener('scroll',()=>{
             <option value="19-22 Jan 2026 | London, UK">19–22 Jan 2026 — London, UK (+VAT)</option>
             <option value="15-18 Jun 2026 | Houston, USA">15–18 Jun 2026 — Houston, USA</option>
             <option value="5-8 Oct 2026 | Calgary, Canada">5–8 Oct 2026 — Calgary, Canada</option>
-            <option value="22-24 Sep 2026 | Singapore">22–24 September 2026 — Singapore</option>
           </select>
         </div>
         <div class="bk-sep"></div>

@@ -15,13 +15,13 @@
 <meta property="og:title" content="International Gas Markets &amp; Economic Evaluation of Gas Projects | London Petro Academy">
 <meta property="og:description" content="5-day course on international gas markets and economic evaluation of gas projects. Covers LNG markets, shale gas economics, NPV/IRR modelling and risk analysis. Bali, Rio, Singapore, Doha 2026.">
 <meta property="og:url" content="https://www.londonpetroacademy.co.uk/international-gas-markets-economic-evaluation-of-gas-projects">
-<meta property="og:image" content="gas-lng-hero.jpg">
+<meta property="og:image" content="https://cafedelmar74.github.io/logo-white.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="International Gas Markets &amp; Economic Evaluation of Gas Projects | London Petro Academy">
 <meta name="twitter:description" content="5-day course on international gas markets and economic evaluation of gas projects. Covers LNG markets, shale gas economics, NPV/IRR modelling and risk analysis. Bali, Rio, Singapore, Doha 2026.">
-<meta name="twitter:image" content="gas-lng-hero.jpg">
+<meta name="twitter:image" content="https://cafedelmar74.github.io/logo-white.png">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Course","name":"International Gas Markets & Economic Evaluation of Gas Projects","description":"An intensive 3-day practice-focused masterclass covering Gas Sales Agreements, LNG Sale and Purchase Agreements, pricing strategies, decarbonisation imperatives, ESG obligations, sanctions compliance and dispute resolution. Delivered through expert-led lectures, case studies and negotiation exercises.","url":"https://www.londonpetroacademy.co.uk/international-gas-markets-economic-evaluation-of-gas-projects","provider":{"@type":"Organization","name":"London Petro Academy","url":"https://www.londonpetroacademy.co.uk/"},"courseMode":["onsite"],"educationalLevel":"Professional","inLanguage":"en","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","worstRating":"1","reviewCount":"12"},"offers":[{"@type":"Offer","name":"Classroom Session","price":"3500","priceCurrency":"GBP","availability":"https://schema.org/InStock"}],"hasCourseInstance":[{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-07-06","endDate":"2026-07-08","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Bali","addressCountry":"ID"}}},{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-08-25","endDate":"2026-08-27","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Rio de Janeiro","addressCountry":"BR"}}},{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-09-07","endDate":"2026-09-11","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}}},{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-11-30","endDate":"2026-12-04","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Doha","addressCountry":"QA"}}}]}
@@ -88,7 +88,7 @@ nav.scrolled .nav-logo img{filter:brightness(0);}
   overflow:hidden;
 }
 .hero-photo{position:absolute;inset:0;z-index:0;}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;}
+.hero-photo canvas{width:100%;height:100%;display:block;}
 .hero-overlay{
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,
@@ -495,11 +495,143 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 
   <!-- Oil field aerial view warm tones — Pexels CC0 -->
   <div class="hero-photo">
-    <img src="gas-lng-hero.jpg"
-         alt="Judge signing legal documents with gavel — production sharing contract law"
-         loading="eager">
+    <canvas id="triCanvas" style="width:100%;height:100%;display:block;"></canvas>
   </div>
   <div class="hero-overlay"></div>
+  <script>
+  (function(){
+    const C   = document.getElementById('triCanvas');
+    const ctx = C.getContext('2d');
+    const DPR = window.devicePixelRatio || 1;
+
+    /* ── palette: dark navy → deep amber ── */
+    const PALETTE = [
+      [6,   8,  12],   /* near-black */
+      [10,  13,  18],
+      [14,  18,  28],
+      [22,  26,  38],
+      [30,  22,  14],   /* dark amber-brown */
+      [48,  32,  10],
+      [70,  44,  12],
+      [100, 62,  14],
+      [140, 88,  28],
+      [170,108,  40],
+      [200,135,  58],   /* amber */
+      [8,   10,  16],
+    ];
+
+    let W, H, cols, rows, pts, tris, t = 0;
+    const CELL = 110;   /* grid cell size */
+    const JITTER = 0.42; /* point jitter factor */
+    const SPEED  = 0.0004;
+
+    function lerpColor(a, b, k){
+      return [
+        a[0] + (b[0]-a[0])*k | 0,
+        a[1] + (b[1]-a[1])*k | 0,
+        a[2] + (b[2]-a[2])*k | 0,
+      ];
+    }
+
+    function samplePalette(nx, ny, phase){
+      /* diagonal gradient position 0–1 */
+      const d  = (nx + ny + Math.sin(phase)*0.18) * 0.5;
+      const i  = d * (PALETTE.length-1);
+      const lo = PALETTE[Math.floor(i) % PALETTE.length];
+      const hi = PALETTE[Math.ceil(i)  % PALETTE.length];
+      return lerpColor(lo, hi, i % 1);
+    }
+
+    function build(){
+      W = C.offsetWidth;
+      H = C.offsetHeight;
+      C.width  = W * DPR;
+      C.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+      cols = Math.ceil(W / CELL) + 2;
+      rows = Math.ceil(H / CELL) + 2;
+
+      /* generate jittered grid points */
+      pts = [];
+      for(let r = 0; r <= rows; r++){
+        for(let c = 0; c <= cols; c++){
+          const bx = (c - 0.5) * CELL;
+          const by = (r - 0.5) * CELL;
+          pts.push({
+            bx, by,
+            ox: (Math.random()-0.5) * CELL * JITTER,
+            oy: (Math.random()-0.5) * CELL * JITTER,
+            nx: bx / W,
+            ny: by / H,
+            px: 0, py: 0,          /* animated position */
+            vx: (Math.random()-0.5) * 0.15,
+            vy: (Math.random()-0.5) * 0.08,
+            phase: Math.random() * Math.PI * 2,
+            amp:   CELL * 0.06 + Math.random() * CELL * 0.04,
+          });
+        }
+      }
+
+      /* build triangles from grid */
+      tris = [];
+      for(let r = 0; r < rows; r++){
+        for(let c = 0; c < cols; c++){
+          const i  = r*(cols+1)+c;
+          const tl = i, tr = i+1, bl = i+(cols+1), br = i+(cols+2);
+          /* upper-left triangle */
+          tris.push([tl, tr, bl]);
+          /* lower-right triangle */
+          tris.push([tr, br, bl]);
+        }
+      }
+    }
+
+    function frame(){
+      t += SPEED;
+
+      /* update point positions (gentle drift) */
+      pts.forEach(p => {
+        p.px = p.bx + p.ox + Math.sin(t * 0.8 + p.phase)       * p.amp;
+        p.py = p.by + p.oy + Math.cos(t * 0.6 + p.phase * 1.3) * p.amp * 0.7;
+      });
+
+      /* draw triangles */
+      ctx.clearRect(0, 0, W, H);
+
+      tris.forEach(([ai, bi, ci]) => {
+        const a = pts[ai], b = pts[bi], cc = pts[ci];
+        if(!a || !b || !cc) return;
+
+        /* centroid normalised position for colour */
+        const cx  = (a.px + b.px + cc.px) / 3;
+        const cy  = (a.py + b.py + cc.py) / 3;
+        const nx  = Math.max(0, Math.min(1, cx / W));
+        const ny  = Math.max(0, Math.min(1, cy / H));
+        const col = samplePalette(nx, ny, t);
+
+        ctx.beginPath();
+        ctx.moveTo(a.px, a.py);
+        ctx.lineTo(b.px, b.py);
+        ctx.lineTo(cc.px, cc.py);
+        ctx.closePath();
+        ctx.fillStyle = `rgb(${col[0]},${col[1]},${col[2]})`;
+        ctx.fill();
+
+        /* subtle edge lines for the low-poly facet look */
+        ctx.strokeStyle = `rgba(0,0,0,0.18)`;
+        ctx.lineWidth   = 0.5;
+        ctx.stroke();
+      });
+
+      requestAnimationFrame(frame);
+    }
+
+    build();
+    window.addEventListener('resize', build);
+    frame();
+  })();
+  </script>
 
 
   <div class="hero-content">

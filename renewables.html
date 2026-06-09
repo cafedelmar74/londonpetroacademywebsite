@@ -742,6 +742,68 @@ footer{
   .sidebar{top:108px;}
 }
 .skip-link{position:absolute;top:-100px;left:0;background:var(--amber);color:var(--dark);padding:8px 20px;z-index:9999;font-family:var(--cond);font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:top .15s;}.skip-link:focus{top:0;}
+
+/* ── PORTFOLIO SWITCHER BAR ── */
+.port-switcher{
+  position:fixed;
+  bottom:32px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:9000;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(10,11,13,0.92);
+  border:1px solid rgba(200,135,58,0.25);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:8px 10px;
+  border-radius:60px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.45);
+}
+.port-switcher-label{
+  font-family:var(--cond,sans-serif);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(200,135,58,0.6);
+  padding:0 10px 0 6px;
+  white-space:nowrap;
+  border-right:1px solid rgba(255,255,255,0.08);
+  margin-right:4px;
+}
+.port-btn{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 18px;
+  border-radius:50px;
+  border:none;
+  background:transparent;
+  color:rgba(232,230,224,0.55);
+  font-family:var(--cond,sans-serif);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  text-decoration:none;
+  cursor:pointer;
+  transition:all .2s;
+  white-space:nowrap;
+}
+.port-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.port-btn:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.port-btn.active{
+  background:var(--amber,#c8873a);
+  color:#fff;
+  box-shadow:0 2px 12px rgba(200,135,58,0.35);
+}
+.port-btn.active svg{stroke:#fff;}
+@media(max-width:600px){
+  .port-switcher{bottom:16px;padding:6px 8px;gap:2px;}
+  .port-switcher-label{display:none;}
+  .port-btn{padding:8px 12px;font-size:11px;gap:5px;}
+}
 </style>
 </head>
 <body>
@@ -1065,5 +1127,12 @@ document.querySelectorAll('.sb-btn').forEach(b=>{
   b.addEventListener('click',()=>switchCat(b.dataset.cat));
 });
 </script>
+<!-- PORTFOLIO SWITCHER -->
+<nav class="port-switcher" aria-label="Switch portfolio">
+  <span class="port-switcher-label">Portfolio</span>
+  <a href="upstream.html"    class="port-btn"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Upstream</a>
+  <a href="downstream.html" class="port-btn"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>Downstream</a>
+  <a href="renewables.html" class="port-btn active"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.82A1 1 0 0 0 5 21C13 21 19 16 19 8"/><path d="M7 14c.5-2 1.5-3.5 6-5.5"/></svg>Renewables</a>
+</nav>
 </body>
 </html>

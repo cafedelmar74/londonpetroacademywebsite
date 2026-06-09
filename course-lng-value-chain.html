@@ -17,7 +17,7 @@
 <meta property="og:title" content="LNG Value Chain: Markets, Trading, Operations &amp; Energy Transition | London Petro Academy">
 <meta property="og:description" content="Intensive 3-day masterclass on Gas &amp; LNG contract negotiations. GSAs, LNG SPAs, pricing strategies, ESG and dispute resolution. Bali, Rio, Bangkok, Singapore 2026.">
 <meta property="og:url" content="https://www.londonpetroacademy.co.uk/gas-lng-contracts-negotiations">
-<meta property="og:image" content="gas-lng-hero.jpg">
+<meta property="og:image" content="https://cafedelmar74.github.io/logo-white.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
 <meta property="article:published_time" content="2026-03-17T15:33:17+00:00">
@@ -27,7 +27,7 @@
 <meta name="twitter:site" content="@London_Petro_Ac">
 <meta name="twitter:title" content="Gas &amp; LNG Contracts Negotiations Masterclass | London Petro Academy">
 <meta name="twitter:description" content="3-day masterclass on Gas &amp; LNG contract negotiations. GSAs, SPAs, pricing, ESG. Bali, Rio, Bangkok, Singapore 2026.">
-<meta name="twitter:image" content="gas-lng-hero.jpg">
+<meta name="twitter:image" content="https://cafedelmar74.github.io/logo-white.png">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Course","name":"LNG Value Chain: Markets, Trading, Operations & Energy Transition","description":"An intensive 3-day practice-focused masterclass covering Gas Sales Agreements, LNG Sale and Purchase Agreements, pricing strategies, decarbonisation imperatives, ESG obligations, sanctions compliance and dispute resolution. Delivered through expert-led lectures, case studies and negotiation exercises.","url":"https://www.londonpetroacademy.co.uk/lng-value-chain-markets-trading-operations-energy-transition","provider":{"@type":"Organization","name":"London Petro Academy","url":"https://www.londonpetroacademy.co.uk/"},"courseMode":["onsite"],"educationalLevel":"Professional","inLanguage":"en","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","worstRating":"1","reviewCount":"12"},"offers":[{"@type":"Offer","name":"Classroom Session","price":"2700","priceCurrency":"GBP","availability":"https://schema.org/InStock"}],"hasCourseInstance":[{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-07-06","endDate":"2026-07-08","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Bali","addressCountry":"ID"}}},{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-08-25","endDate":"2026-08-27","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Rio de Janeiro","addressCountry":"BR"}}},{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-09-09","endDate":"2026-09-11","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressCountry":"TH"}}},{"@type":"CourseInstance","courseMode":"onsite","startDate":"2026-09-22","endDate":"2026-09-24","location":{"@type":"Place","name":"Five-Star Hotel Venue","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}}}]}
@@ -94,7 +94,7 @@ nav.scrolled .nav-logo img{filter:brightness(0);}
   overflow:hidden;
 }
 .hero-photo{position:absolute;inset:0;z-index:0;}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;}
+.hero-photo canvas{width:100%;height:100%;display:block;}
 .hero-overlay{
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,
@@ -501,11 +501,140 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 
   <!-- Oil field aerial view warm tones — Pexels CC0 -->
   <div class="hero-photo">
-    <img src="gas-lng-hero.jpg"
-         alt="Judge signing legal documents with gavel — production sharing contract law"
-         loading="eager">
+    <canvas id="triAltCanvas" style="width:100%;height:100%;display:block;"></canvas>
   </div>
   <div class="hero-overlay"></div>
+  <script>
+  (function(){
+    const C   = document.getElementById('triAltCanvas');
+    const ctx = C.getContext('2d');
+    const DPR = window.devicePixelRatio || 1;
+
+    /* ── Trianglify Alt: strict grid, diagonal split, colour-cycling gradient ──
+       Each cell = two right-angled triangles (top-left & bottom-right).
+       Colour is determined by the cell's position mapped onto a
+       sweeping diagonal gradient whose phase rotates over time.       */
+
+    /* Site palette stops — dark teal/navy → amber → deep brown */
+    const STOPS = [
+      [4,   9,  18],   /* deep navy       */
+      [8,  14,  28],
+      [12,  20,  38],
+      [20,  28,  48],
+      [30,  24,  14],  /* dark warm brown */
+      [55,  36,  10],
+      [88,  54,  10],
+      [130, 80,  18],
+      [168,104,  34],
+      [200,135,  58],  /* amber peak      */
+      [155, 95,  30],
+      [90,  56,  14],
+      [40,  28,  10],
+      [14,  18,  32],
+      [6,   10,  20],  /* back to navy    */
+    ];
+
+    const CELL  = 80;   /* grid cell px   */
+    const SPEED = 0.35; /* gradient sweep speed deg/s */
+
+    let W, H, cols, rows, t = 0, last = 0, raf;
+
+    function lerp(a, b, k){ return a + (b-a)*k; }
+
+    function sampleGradient(pos){
+      /* pos 0–1 along the sweeping gradient */
+      const p   = ((pos % 1) + 1) % 1;
+      const raw = p * (STOPS.length - 1);
+      const lo  = STOPS[Math.floor(raw)];
+      const hi  = STOPS[Math.ceil(raw) % STOPS.length];
+      const k   = raw % 1;
+      return [lerp(lo[0],hi[0],k)|0, lerp(lo[1],hi[1],k)|0, lerp(lo[2],hi[2],k)|0];
+    }
+
+    function cellColor(cx, cy, angleDeg){
+      /* project cell centre onto the sweep direction */
+      const rad = angleDeg * Math.PI / 180;
+      const nx  = cx / W;
+      const ny  = cy / H;
+      const proj = nx * Math.cos(rad) + ny * Math.sin(rad); /* –1 … 1 */
+      const pos  = (proj + 1) / 2;                          /* 0 … 1  */
+      return sampleGradient(pos);
+    }
+
+    function build(){
+      W = C.parentElement.offsetWidth  || window.innerWidth;
+      H = C.parentElement.offsetHeight || window.innerHeight;
+      if(!W || !H) return false;
+      C.width  = W * DPR;
+      C.height = H * DPR;
+      C.style.width  = W + 'px';
+      C.style.height = H + 'px';
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      cols = Math.ceil(W / CELL) + 1;
+      rows = Math.ceil(H / CELL) + 1;
+      return true;
+    }
+
+    function draw(ts){
+      raf = requestAnimationFrame(draw);
+      const dt = Math.min((ts - last) / 1000, 0.05);
+      last = ts;
+      t   += SPEED * dt;                /* degrees per second */
+
+      const angle = t % 360;            /* sweeping direction */
+
+      ctx.clearRect(0, 0, W, H);
+
+      for(let r = 0; r < rows; r++){
+        for(let c = 0; c < cols; c++){
+          const x0 = c * CELL, y0 = r * CELL;
+          const x1 = x0 + CELL, y1 = y0 + CELL;
+
+          /* upper-left triangle — centroid biased top-left */
+          const col1 = cellColor((x0*2+x1)/3, (y0*2+y1)/3, angle);
+          ctx.beginPath();
+          ctx.moveTo(x0, y0);
+          ctx.lineTo(x1, y0);
+          ctx.lineTo(x0, y1);
+          ctx.closePath();
+          ctx.fillStyle = `rgb(${col1[0]},${col1[1]},${col1[2]})`;
+          ctx.fill();
+
+          /* lower-right triangle — centroid biased bottom-right */
+          const col2 = cellColor((x0+x1*2)/3, (y0+y1*2)/3, angle);
+          ctx.beginPath();
+          ctx.moveTo(x1, y0);
+          ctx.lineTo(x1, y1);
+          ctx.lineTo(x0, y1);
+          ctx.closePath();
+          ctx.fillStyle = `rgb(${col2[0]},${col2[1]},${col2[2]})`;
+          ctx.fill();
+
+          /* facet edge */
+          ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+          ctx.lineWidth   = 0.5;
+          /* diagonal */
+          ctx.beginPath();
+          ctx.moveTo(x1, y0);
+          ctx.lineTo(x0, y1);
+          ctx.stroke();
+          /* cell border */
+          ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+          ctx.strokeRect(x0, y0, CELL, CELL);
+        }
+      }
+    }
+
+    function init(ts){
+      if(!build()){ requestAnimationFrame(init); return; }
+      last = ts;
+      draw(ts);
+    }
+
+    window.addEventListener('resize', build);
+    requestAnimationFrame(init);
+  })();
+  </script>
 
 
   <div class="hero-content">

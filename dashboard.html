@@ -459,12 +459,10 @@ let sortField   = 'submitted_at';
 let sortDir     = -1;
 let activeFilter = 'all';
 
-// ── CONFIG: n8n Data Table ───────────────────────────────────
-const N8N_BASE  = 'https://n8n.srv765009.hstgr.cloud';
-const TABLE_ID  = 'Uuam7KVPTjr5Zzxj';
-const N8N_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNDdkZTdmYS1mMjk2LTQ1ZjYtYjNmZC0xZDBmMTdiOWY2NTIiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiY2RjZjg4M2YtOThlMi00ZDViLWIyMTQtYjcwMzU3ZmY1YWE2IiwiaWF0IjoxNzgxMDQzODg4fQ.rQMnWKaEAleY9-MTAFWhOEy_LFsPBHRfc7Qi5PQyWjA';
+// ── CONFIG ───────────────────────────────────────────────────
+const BOOKINGS_WEBHOOK = 'https://n8n.srv765009.hstgr.cloud/webhook/lpa-bookings-read';
 
-// ── LOAD DATA FROM N8N DATA TABLE ────────────────────────────
+// ── LOAD DATA FROM GOOGLE SHEETS VIA N8N ─────────────────────
 async function loadBookings() {
   document.getElementById('tableBody').innerHTML = `
     <div class="loading-state">
@@ -473,32 +471,26 @@ async function loadBookings() {
     </div>`;
 
   try {
-    const res = await fetch(
-      `${N8N_BASE}/api/v1/tables/${TABLE_ID}/rows?limit=500`,
-      { headers: { 'X-N8N-API-KEY': N8N_API_KEY } }
-    );
+    const res = await fetch(BOOKINGS_WEBHOOK);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    // Each row has an 'id' (n8n row id) + our column fields
-    allBookings = (data.rows || []).map(row => ({
-      _rowId: row.id,
-      submitted_at:    row.submitted_at  || '',
-      full_name:       row.full_name     || '',
-      first_name:      row.first_name    || '',
-      email:           row.email         || '',
-      phone:           row.phone         || '',
-      company:         row.company       || '',
-      job_title:       row.job_title     || '',
-      country:         row.country       || '',
-      billing_address: row.billing_address || '',
-      course_name:     row.course_name   || '',
-      course_session:  row.course_session || '',
-      course_category: row.course_category || '',
-      course_duration: row.course_duration || '',
-      source:          row.source        || 'website',
-      page_url:        row.page_url      || '',
+    allBookings = (Array.isArray(data) ? data : []).map(row => ({
+      submitted_at:    row['Submitted At']     || '',
+      full_name:       row['Full Name']        || '',
+      first_name:      (row['Full Name']||'').split(' ')[0] || '',
+      email:           row['Email']            || '',
+      phone:           row['Phone']            || '',
+      company:         row['Company']          || '',
+      job_title:       row['Job Title']        || '',
+      country:         row['Country']          || '',
+      billing_address: row['Billing Address']  || '',
+      course_name:     row['Course Name']      || '',
+      course_session:  row['Course Session']   || '',
+      course_category: row['Course Category']  || '',
+      course_duration: row['Course Duration']  || '',
+      source:          row['Source']           || 'website',
+      page_url:        row['Page URL']         || '',
     }));
-    // Sort newest first
     allBookings.sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at));
   } catch(err) {
     console.error('Failed to load bookings:', err);
@@ -762,20 +754,8 @@ function cancelDelete() {
   document.body.style.overflow = '';
 }
 
-async function executeDelete() {
+function executeDelete() {
   if (pendingDeleteIdx === null || pendingDeleteIdx < 0) return;
-  const booking = allBookings[pendingDeleteIdx];
-  // Delete from n8n data table if we have a row ID
-  if (booking && booking._rowId) {
-    try {
-      await fetch(
-        `https://n8n.srv765009.hstgr.cloud/api/v1/tables/Uuam7KVPTjr5Zzxj/rows/${booking._rowId}`,
-        { method: 'DELETE', headers: { 'X-N8N-API-KEY': N8N_API_KEY } }
-      );
-    } catch(err) {
-      console.warn('Delete from table failed:', err);
-    }
-  }
   allBookings.splice(pendingDeleteIdx, 1);
   pendingDeleteIdx = null;
   document.getElementById('delOverlay').classList.remove('open');

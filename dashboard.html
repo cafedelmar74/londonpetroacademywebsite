@@ -475,21 +475,21 @@ async function loadBookings() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     allBookings = (Array.isArray(data) ? data : []).map(row => ({
-      submitted_at:    row['Submitted At']     || '',
-      full_name:       row['Full Name']        || '',
+      submitted_at:    row['Submitted At']      || '',
+      full_name:       row['Full Name']         || '',
       first_name:      (row['Full Name']||'').split(' ')[0] || '',
-      email:           row['Email']            || '',
-      phone:           row['Phone']            || '',
-      company:         row['Company']          || '',
-      job_title:       row['Job Title']        || '',
-      country:         row['Country']          || '',
-      billing_address: row['Billing Address']  || '',
-      course_name:     row['Course Name']      || '',
-      course_session:  row['Course Session']   || '',
-      course_category: row['Course Category']  || '',
-      course_duration: row['Course Duration']  || '',
-      source:          row['Source']           || 'website',
-      page_url:        row['Page URL']         || '',
+      email:           row['Email']             || '',
+      phone:           row['Phone']             || '',
+      company:         row['Company']           || '',
+      job_title:       row['Job Title ']        || row['Job Title'] || '',
+      country:         row['Country']           || '',
+      billing_address: row['Billing Address ']  || row['Billing Address'] || '',
+      course_name:     row['Course Name ']      || row['Course Name'] || '',
+      course_session:  row['Course Session']    || '',
+      course_category: row['Course Category']   || '',
+      course_duration: row['Course Duration']   || '',
+      source:          row['Source']            || 'website',
+      page_url:        row['Page URL']          || '',
     }));
     allBookings.sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at));
   } catch(err) {

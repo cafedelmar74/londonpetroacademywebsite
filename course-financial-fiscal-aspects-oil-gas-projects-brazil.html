@@ -412,6 +412,15 @@ select.bkfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
   .phone-num2{border-left:1.5px solid #e0ddd8 !important;border-top:none !important;}
   .bk-captcha-row2{flex-direction:column;}
 }
+
+/* Mobile bottom Book Now bar */
+@media(max-width:1100px){
+  .mobile-book-bar{position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--page3);border-top:2px solid var(--amber);padding:12px 24px;display:flex;align-items:center;gap:12px;box-shadow:0 -4px 24px rgba(0,0,0,.12);}
+  .mobile-book-bar .mb-price{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--ink);}
+  .mobile-book-bar .mb-label{font-size:11px;color:var(--ink-light);font-family:var(--cond);letter-spacing:1px;text-transform:uppercase;}
+  .mobile-book-bar .btn-book{padding:12px 20px;font-size:11px;margin-bottom:0;width:auto;margin-left:auto;}
+}
+@media(min-width:1101px){.mobile-book-bar{display:none;}}
 </style>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- LPA config -->
@@ -1492,5 +1501,13 @@ async function submitBk(){
 }
 </script>
 
+
+<div class="mobile-book-bar" aria-label="Quick booking">
+  <div>
+    <div class="mb-price">£3,100</div>
+    <div class="mb-label">Classroom · Rio de Janeiro</div>
+  </div>
+  <button onclick="openBkModal()" class="btn-book" style="padding:12px 20px;font-size:11px;margin-bottom:0;width:auto;margin-left:auto;">Book Now →</button>
+</div>
 </body>
 </html>

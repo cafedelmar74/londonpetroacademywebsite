@@ -319,8 +319,15 @@ footer{background:var(--dark2);border-top:1px solid var(--d-line);padding:72px 6
   nav{padding:0 24px;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .hero-content{padding:0 24px;}
-  .hero-tabs{margin-top:32px;}
+  /* ── Mobile hero: dark bg, no image, push content below nav ── */
+  .course-hero{min-height:auto;padding-top:80px;background:linear-gradient(160deg,#0e1014 0%,#13161a 60%,#0c0d0f 100%);}
+  .hero-photo{display:none;}
+  .hero-overlay{background:none;}
+  .hero-overlay::after{display:none;}
+  .hero-content{padding:32px 20px 36px;gap:24px;}
+  .hero-content{grid-template-columns:1fr;}
+  .booking-card{display:none;}
+  .hero-tabs{margin-top:24px;}
   .htab{padding:14px 16px;font-size:11px;}
   .content-body{padding:36px 24px 60px;}
   .related-full{padding:60px 24px;}

@@ -369,6 +369,14 @@ footer{background:var(--dark2);border-top:1px solid var(--d-line);padding:72px 6
       rgba(12,13,15,0.4) 70%,
       rgba(12,13,15,0.95) 100%);
   }
+
+  /* ── Mobile hero: dark bg, no image, push content below nav ── */
+  .course-hero{min-height:auto;padding-top:80px;background:linear-gradient(160deg,#0e1014 0%,#13161a 60%,#0c0d0f 100%);}
+  .hero-photo{display:none;}
+  .hero-overlay{background:none;}
+  .hero-overlay::after{display:none;}
+  .hero-content{padding:32px 20px 36px !important;gap:24px !important;grid-template-columns:1fr !important;}
+  .booking-card{display:none !important;}
 }
 .skip-link{position:absolute;top:-100px;left:0;background:var(--amber);color:var(--dark);padding:8px 20px;z-index:9999;font-family:var(--cond);font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:top .15s;}.skip-link:focus{top:0;}
 /* Fixed bottom CTA bar — mobile/tablet */

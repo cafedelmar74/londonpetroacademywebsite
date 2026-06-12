@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>In-House Tailored Training | London Petro Academy</title>
+<meta name="description" content="Fully customised oil, gas and renewable energy training delivered at your workplace or any preferred venue worldwide. From initial enquiry to course delivery — we handle everything.">
+<link rel="canonical" href="https://www.londonpetroacademy.co.uk/in-house-training">
+<meta property="og:title" content="In-House Tailored Training | London Petro Academy">
+<meta property="og:description" content="Fully customised energy training programmes delivered at your workplace or any preferred venue worldwide.">
+<meta property="og:url" content="https://www.londonpetroacademy.co.uk/in-house-training">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="config.js" defer></script>
+<style>
+:root{
+  --page:#f6f3ee;--page2:#edeae3;--page3:#fff;--page4:#e2dfd6;
+  --ink:#18191c;--ink-mid:#3d3f45;--ink-light:#6b6f78;
+  --line:rgba(0,0,0,.09);--line2:rgba(0,0,0,.15);
+  --dark:#0c0d0f;--dark2:#141618;
+  --d-line:rgba(255,255,255,.08);--d-muted:#7a7f88;
+  --amber:#c8873a;--amber2:#e09a4a;--amber-dim:rgba(200,135,58,.10);
+  --serif:'Fraunces',serif;--sans:'Barlow',sans-serif;--cond:'Barlow Condensed',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--page);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(12,13,15,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--d-line);}
+.nav-logo img{height:34px;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--d-muted);transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-links a.active{color:var(--amber);}
+.nav-cta{font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--amber);color:var(--amber);padding:9px 22px;transition:background .2s,color .2s;}
+.nav-cta:hover{background:var(--amber);color:#000;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,13,15,.4) 0%,rgba(12,13,15,.2) 30%,rgba(12,13,15,.7) 65%,rgba(12,13,15,.98) 100%);}
+.hero-content{position:relative;z-index:1;padding:80px 60px 80px;max-width:860px;}
+.hero-eyebrow{font-family:var(--cond);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--amber);}
+.hero-h1{font-family:var(--serif);font-size:clamp(44px,5.5vw,76px);font-weight:300;color:#fff;line-height:1.08;margin-bottom:24px;}
+.hero-h1 em{font-style:italic;color:var(--amber);}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.7);max-width:620px;line-height:1.7;margin-bottom:40px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-a{background:var(--amber);color:#000;font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:15px 32px;display:inline-flex;align-items:center;gap:10px;transition:background .2s;}
+.btn-a:hover{background:var(--amber2);}
+.btn-b{border:1.5px solid rgba(255,255,255,.3);color:#fff;font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:15px 32px;display:inline-flex;align-items:center;gap:10px;transition:border-color .2s,color .2s;}
+.btn-b:hover{border-color:var(--amber);color:var(--amber);}
+.hero-stats{position:relative;z-index:1;display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);}
+.hstat{padding:28px 48px;border-right:1px solid rgba(255,255,255,.1);}
+.hstat:last-child{border-right:none;}
+.hstat-num{font-family:var(--serif);font-size:38px;font-weight:300;color:var(--amber);line-height:1;}
+.hstat-label{font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--d-muted);margin-top:4px;}
+
+/* ── SECTIONS ── */
+.sec{padding:100px 60px;}
+.sec-eyebrow{font-family:var(--cond);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.sec-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--amber);}
+.sec-h2{font-family:var(--serif);font-size:clamp(32px,3.5vw,52px);font-weight:300;line-height:1.15;margin-bottom:20px;}
+.sec-h2 em{font-style:italic;color:var(--amber);}
+.sec-intro{font-size:17px;color:var(--ink-mid);max-width:640px;line-height:1.75;font-weight:300;}
+
+/* ── WHY INHOUSE ── */
+.why-sec{background:var(--page);}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
+.why-card{background:var(--page3);padding:40px 36px;position:relative;overflow:hidden;transition:transform .25s;}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.why-card:hover::before{transform:scaleX(1);}
+.why-card:hover{transform:translateY(-4px);}
+.why-icon{width:48px;height:48px;background:var(--amber-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.why-icon svg{width:22px;height:22px;stroke:var(--amber);fill:none;}
+.why-num{font-family:var(--serif);font-size:11px;letter-spacing:3px;color:var(--ink-light);text-transform:uppercase;margin-bottom:12px;}
+.why-title{font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:12px;line-height:1.3;}
+.why-title em{font-style:italic;color:var(--amber);}
+.why-desc{font-size:14px;color:var(--ink-mid);line-height:1.7;font-weight:300;}
+
+/* ── MILESTONE JOURNEY ── */
+.journey-sec{background:var(--dark2);padding:100px 0;overflow:hidden;}
+.journey-inner{max-width:1200px;margin:0 auto;padding:0 60px;}
+.journey-header{text-align:center;margin-bottom:80px;}
+.journey-header .sec-h2{color:#fff;}
+.journey-header .sec-intro{color:var(--d-muted);margin:0 auto;}
+.journey-header .sec-eyebrow{justify-content:center;}
+.journey-header .sec-eyebrow::before{display:none;}
+
+/* Timeline track */
+.timeline{position:relative;padding:0 0 40px;}
+.timeline-track{position:absolute;top:44px;left:0;right:0;height:2px;background:var(--d-line);}
+.timeline-progress{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--amber),var(--amber2));width:0%;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.timeline-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;z-index:1;}
+
+/* Each step */
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;opacity:0;transform:translateY(30px);transition:opacity .5s ease,transform .5s ease;}
+.step.visible{opacity:1;transform:translateY(0);}
+
+.step-dot{width:52px;height:52px;border-radius:50%;background:var(--dark2);border:2px solid var(--d-line);display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;transition:border-color .4s,background .4s,box-shadow .4s;flex-shrink:0;}
+.step-dot svg{width:20px;height:20px;stroke:var(--d-muted);fill:none;transition:stroke .4s;}
+.step-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid transparent;transition:border-color .4s;}
+.step.active .step-dot{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 8px rgba(200,135,58,.15),0 0 32px rgba(200,135,58,.3);}
+.step.active .step-dot svg{stroke:#000;}
+.step.active .step-dot::after{border-color:rgba(200,135,58,.3);}
+.step.done .step-dot{background:rgba(200,135,58,.15);border-color:rgba(200,135,58,.5);}
+.step.done .step-dot svg{stroke:var(--amber);}
+
+.step-num{font-family:var(--cond);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--d-muted);margin-bottom:8px;transition:color .4s;}
+.step.active .step-num,.step.done .step-num{color:var(--amber);}
+.step-title{font-family:var(--serif);font-size:16px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.3;margin-bottom:8px;transition:color .4s;}
+.step.active .step-title{color:#fff;font-weight:400;}
+.step.done .step-title{color:rgba(255,255,255,.7);}
+.step-desc{font-size:12px;color:var(--d-muted);line-height:1.6;transition:color .4s;max-width:160px;margin:0 auto;}
+.step.active .step-desc{color:rgba(255,255,255,.6);}
+
+/* Detail panel */
+.step-panel{background:rgba(255,255,255,.03);border:1px solid var(--d-line);margin-top:56px;padding:0;overflow:hidden;transition:all .4s ease;}
+.step-panel-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.panel-left{padding:48px 52px;border-right:1px solid var(--d-line);}
+.panel-tag{font-family:var(--cond);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;}
+.panel-title{font-family:var(--serif);font-size:28px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:16px;}
+.panel-title em{font-style:italic;color:var(--amber);}
+.panel-desc{font-size:15px;color:var(--d-muted);line-height:1.75;font-weight:300;}
+.panel-right{padding:48px 52px;display:flex;flex-direction:column;gap:14px;}
+.panel-detail{display:flex;align-items:flex-start;gap:14px;}
+.panel-detail-icon{width:36px;height:36px;background:var(--amber-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.panel-detail-icon svg{width:15px;height:15px;stroke:var(--amber);fill:none;}
+.panel-detail-text strong{display:block;font-family:var(--cond);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:3px;}
+.panel-detail-text span{font-size:13px;color:var(--d-muted);line-height:1.5;}
+
+/* Timeline nav buttons */
+.timeline-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:40px;}
+.tnav-btn{width:44px;height:44px;border-radius:50%;background:none;border:1.5px solid var(--d-line);color:var(--d-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;}
+.tnav-btn:hover:not(:disabled){border-color:var(--amber);color:var(--amber);}
+.tnav-btn:disabled{opacity:.3;cursor:not-allowed;}
+.tnav-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+.tnav-dots{display:flex;gap:8px;align-items:center;}
+.tnav-dot{width:8px;height:8px;border-radius:50%;background:var(--d-line);cursor:pointer;transition:background .3s,transform .3s;}
+.tnav-dot.active{background:var(--amber);transform:scale(1.3);}
+
+/* ── WHAT WE OFFER ── */
+.offer-sec{background:var(--page2);}
+.offer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:60px;}
+.offer-item{background:var(--page);padding:44px 40px;display:flex;gap:24px;align-items:flex-start;}
+.offer-num{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--amber);line-height:1;flex-shrink:0;opacity:.4;}
+.offer-body h3{font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:10px;}
+.offer-body h3 em{font-style:italic;color:var(--amber);}
+.offer-body p{font-size:14px;color:var(--ink-mid);line-height:1.7;font-weight:300;}
+
+/* ── TESTIMONIALS ── */
+.testi-sec{background:var(--dark);padding:100px 60px;}
+.testi-header{text-align:center;margin-bottom:64px;}
+.testi-header .sec-h2{color:#fff;}
+.testi-header .sec-eyebrow{justify-content:center;}
+.testi-header .sec-eyebrow::before{display:none;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.testi-card{background:rgba(255,255,255,.03);border:1px solid var(--d-line);padding:36px 32px;}
+.testi-quote{font-family:var(--serif);font-size:16px;font-style:italic;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:24px;font-weight:300;}
+.testi-quote::before{content:'\201C';font-size:40px;color:var(--amber);line-height:0;vertical-align:-16px;margin-right:4px;}
+.testi-author{font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--d-muted);}
+.testi-company{font-family:var(--cond);font-size:11px;letter-spacing:1px;color:var(--amber);margin-top:4px;}
+
+/* ── TOPICS ── */
+.topics-sec{background:var(--page);}
+.topics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
+.topic-item{background:var(--page3);padding:32px;border-bottom:3px solid transparent;transition:border-color .3s,transform .25s;}
+.topic-item:hover{border-color:var(--amber);transform:translateY(-3px);}
+.topic-icon{margin-bottom:16px;}
+.topic-icon svg{width:28px;height:28px;stroke:var(--amber);fill:none;}
+.topic-name{font-family:var(--serif);font-size:18px;font-weight:300;margin-bottom:8px;}
+.topic-name em{font-style:italic;color:var(--amber);}
+.topic-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.tag{font-family:var(--cond);font-size:10px;letter-spacing:1px;text-transform:uppercase;background:var(--amber-dim);color:var(--amber);padding:4px 10px;}
+
+/* ── CTA STRIP ── */
+.cta-strip{background:var(--amber);padding:80px 60px;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;}
+.cta-strip-title{font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:300;color:#000;line-height:1.15;}
+.cta-strip-title em{font-style:italic;}
+.cta-strip-sub{font-size:16px;color:rgba(0,0,0,.6);margin-top:10px;font-weight:300;}
+.cta-strip-btns{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
+.btn-dark{background:#000;color:#fff;font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:15px 32px;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;transition:background .2s;}
+.btn-dark:hover{background:#1a1a1a;}
+.btn-outline-dark{border:1.5px solid rgba(0,0,0,.3);color:#000;font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:13px 32px;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;transition:background .2s;}
+.btn-outline-dark:hover{background:rgba(0,0,0,.08);}
+
+/* ── FOOTER ── */
+footer{background:var(--dark2);border-top:1px solid var(--d-line);padding:72px 60px 36px;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid var(--d-line);margin-bottom:32px;}
+.ft{font-size:13px;color:var(--d-muted);line-height:1.7;margin-top:14px;max-width:300px;font-weight:300;}
+.fc{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+.fc a,.fc span{font-size:13px;color:var(--d-muted);display:flex;align-items:center;gap:8px;transition:color .2s;text-decoration:none;}
+.fc a:hover{color:var(--amber);}
+.fc svg{width:14px;height:14px;stroke:currentColor;fill:none;flex-shrink:0;}
+.fcol h4{font-family:var(--cond);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--d-muted);margin-bottom:18px;}
+.flinks{list-style:none;}
+.flinks li{margin-bottom:10px;}
+.flinks a{font-size:14px;color:var(--d-muted);text-decoration:none;font-weight:300;transition:color .2s;}
+.flinks a:hover{color:var(--amber);}
+.fbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.fcopy{font-size:12px;color:var(--d-muted);}
+.fsoc{display:flex;gap:16px;}
+.fsoc a{font-size:13px;color:var(--d-muted);transition:color .2s;}
+.fsoc a:hover{color:var(--amber);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .timeline-steps{grid-template-columns:repeat(3,1fr);row-gap:40px;}
+  .timeline-track{display:none;}
+  .step-panel-inner{grid-template-columns:1fr;}
+  .panel-left{border-right:none;border-bottom:1px solid var(--d-line);}
+  .why-grid,.offer-grid,.testi-grid,.topics-grid{grid-template-columns:1fr 1fr;}
+  .cta-strip{grid-template-columns:1fr;}
+  .cta-strip-btns{flex-direction:row;flex-wrap:wrap;}
+  .fg{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero-content{padding:80px 24px 60px;}
+  .sec{padding:64px 24px;}
+  .journey-inner{padding:0 24px;}
+  .testi-sec{padding:64px 24px;}
+  .cta-strip{padding:60px 24px;}
+  footer{padding:48px 24px 28px;}
+  .hstat{padding:20px 24px;}
+  .hstat-num{font-size:28px;}
+  .timeline-steps{grid-template-columns:1fr 1fr;}
+  .why-grid,.offer-grid,.testi-grid,.topics-grid{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .hero-h1{font-size:38px;}
+  .timeline-steps{grid-template-columns:1fr;}
+  .hero-stats{flex-direction:column;}
+  .hstat{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG SPRITE -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-mail" viewBox="0 0 16 16"><path fill="currentColor" d="M0 3v10h16V3H0zm14 1-6 4-6-4h12zm0 8H2V5.5l6 4 6-4V12z"/></symbol>
+  <symbol id="ico-phone" viewBox="0 0 16 16"><path fill="currentColor" d="M3.5 1C2 1 1 2 1 3.5 1 9.8 6.2 15 12.5 15c1.5 0 2.5-1 2.5-2.5v-2c0-.8-.5-1.4-1.2-1.5l-2-.3c-.7-.1-1.4.2-1.8.7l-.6.7C8.3 9.4 6.6 7.7 5.9 6.6l.7-.6c.5-.4.8-1.1.7-1.8l-.3-2C6.9 1.5 6.3 1 5.5 1h-2z"/></symbol>
+  <symbol id="ico-pin" viewBox="0 0 16 16"><path fill="currentColor" d="M8 1a5 5 0 0 0-5 5c0 3.5 5 9 5 9s5-5.5 5-9a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></symbol>
+  <symbol id="ico-arrow" viewBox="0 0 16 16"><path fill="currentColor" d="M3 8h8.6l-3.3-3.3 1.4-1.4L14 8l-4.3 4.7-1.4-1.4L11.6 8H3z"/></symbol>
+  <symbol id="ico-arrow-left" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 8H3M3 8l5-5M3 8l5 5"/></symbol>
+  <symbol id="ico-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ico-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="ico-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+  <symbol id="ico-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+  <symbol id="ico-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="ico-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+  <symbol id="ico-star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="ico-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+  <symbol id="ico-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ico-video" viewBox="0 0 24 24"><polygon points="23,7 16,12 23,17 23,7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+  <symbol id="ico-map" viewBox="0 0 24 24"><polygon points="1,6 1,22 8,18 16,22 23,18 23,2 16,6 8,2 1,6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><line x1="8" y1="2" x2="8" y2="18" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="6" x2="16" y2="22" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="ico-layers" viewBox="0 0 24 24"><polygon points="12,2 2,7 12,12 22,7 12,2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><polyline points="2,17 12,22 22,17" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2,12 12,17 22,12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <a href="index.html"><img src="logo-white.png" alt="London Petro Academy" style="height:34px;"></a>
+  <div class="nav-links">
+    <a href="upstream.html">Upstream</a>
+    <a href="downstream.html">Downstream</a>
+    <a href="renewables.html">Renewables</a>
+    <a href="calendar-2026.html">Calendar</a>
+    <a href="inhouse.html" class="active">In-House</a>
+  </div>
+  <a href="mailto:j.rogus@londonpetroacademy.co.uk?subject=In-House%20Training%20Enquiry" class="nav-cta">Request a Proposal</a>
+  <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.nav-links').style.display='flex'">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="In-house training hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1600&q=80" alt="Corporate training session in a modern conference room" loading="eager">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">London Petro Academy</p>
+    <h1 class="hero-h1">In-House <em>Tailored</em><br>Training Programmes</h1>
+    <p class="hero-sub">Fully customised programmes delivered at your workplace or any preferred venue worldwide. We adapt content, pace and format to your team's exact requirements.</p>
+    <div class="hero-btns">
+      <a href="mailto:j.rogus@londonpetroacademy.co.uk?subject=In-House%20Training%20Enquiry" class="btn-a">
+        <svg width="14" height="14"><use href="#ico-mail"/></svg> Request a Proposal
+      </a>
+      <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" target="_blank" rel="noopener" class="btn-b">
+        <svg width="14" height="14"><use href="#ico-video"/></svg> Book a Free Consultation
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats" role="list">
+    <div class="hstat" role="listitem"><div class="hstat-num">38+</div><div class="hstat-label">Courses Available</div></div>
+    <div class="hstat" role="listitem"><div class="hstat-num">20+</div><div class="hstat-label">Countries Delivered</div></div>
+    <div class="hstat" role="listitem"><div class="hstat-num">500+</div><div class="hstat-label">In-House Programmes</div></div>
+    <div class="hstat" role="listitem"><div class="hstat-num">100%</div><div class="hstat-label">Customised Content</div></div>
+  </div>
+</section>
+
+<!-- WHY IN-HOUSE -->
+<section class="sec why-sec" aria-labelledby="why-heading">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="sec-eyebrow">Why In-House</p>
+    <h2 class="sec-h2" id="why-heading">Training that fits <em>your organisation,</em><br>not the other way around</h2>
+    <p class="sec-intro">Open-enrolment courses are built for the average delegate. In-house programmes are built for your team — your assets, your challenges, your strategic priorities.</p>
+    <div class="why-grid" role="list">
+      <div class="why-card" role="listitem">
+        <div class="why-icon"><svg><use href="#ico-target"/></svg></div>
+        <div class="why-num">Benefit 01</div>
+        <h3 class="why-title">Fully <em>Tailored</em> Content</h3>
+        <p class="why-desc">Every module, case study and exercise is adapted to your sector, assets and business context. We work from your real-world scenarios — not generic examples.</p>
+      </div>
+      <div class="why-card" role="listitem">
+        <div class="why-icon"><svg><use href="#ico-users"/></svg></div>
+        <div class="why-num">Benefit 02</div>
+        <h3 class="why-title"><em>Cost-Effective</em> at Scale</h3>
+        <p class="why-desc">Training 10 or more colleagues? In-house delivery dramatically reduces the per-delegate cost compared to sending individuals to open programmes.</p>
+      </div>
+      <div class="why-card" role="listitem">
+        <div class="why-icon"><svg><use href="#ico-globe"/></svg></div>
+        <div class="why-num">Benefit 03</div>
+        <h3 class="why-title">Your <em>Location,</em> Your Schedule</h3>
+        <p class="why-desc">We come to you — whether that's your Houston office, a training centre in Lagos, or a five-star hotel in Singapore. Any date, any city, any format.</p>
+      </div>
+      <div class="why-card" role="listitem">
+        <div class="why-icon"><svg><use href="#ico-settings"/></svg></div>
+        <div class="why-num">Benefit 04</div>
+        <h3 class="why-title">Flexible <em>Format</em> &amp; Pace</h3>
+        <p class="why-desc">Classroom, virtual, or blended. Intensive 2-day sprint or a week-long immersive. Morning sessions only? We adapt to your team's availability.</p>
+      </div>
+      <div class="why-card" role="listitem">
+        <div class="why-icon"><svg><use href="#ico-layers"/></svg></div>
+        <div class="why-num">Benefit 05</div>
+        <h3 class="why-title">Combine <em>Multiple</em> Courses</h3>
+        <p class="why-desc">Build a bespoke multi-module curriculum from our portfolio of 38+ courses. Mix upstream, downstream and renewables content into a single integrated programme.</p>
+      </div>
+      <div class="why-card" role="listitem">
+        <div class="why-icon"><svg><use href="#ico-award"/></svg></div>
+        <div class="why-num">Benefit 06</div>
+        <h3 class="why-title">Certificate of <em>Completion</em></h3>
+        <p class="why-desc">Every delegate receives a London Petro Academy Certificate of Completion. Available co-branded with your organisation's logo on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MILESTONE JOURNEY (animated) -->
+<section class="journey-sec" aria-labelledby="journey-heading">
+  <div class="journey-inner">
+    <div class="journey-header">
+      <p class="sec-eyebrow">The Process</p>
+      <h2 class="sec-h2" id="journey-heading">From initial <em>enquiry</em> to<br>course <em>delivery</em></h2>
+      <p class="sec-intro">A transparent, collaborative six-step journey designed to make your in-house programme as smooth and impactful as possible.</p>
+    </div>
+
+    <div class="timeline" id="timeline" role="region" aria-label="Course delivery process steps">
+      <div class="timeline-track">
+        <div class="timeline-progress" id="timelineProgress"></div>
+      </div>
+
+      <div class="timeline-steps" id="timelineSteps">
+
+        <div class="step" data-step="0" role="listitem" tabindex="0" aria-label="Step 1: Initial Enquiry">
+          <div class="step-dot"><svg><use href="#ico-mail"/></svg></div>
+          <div class="step-num">Step 01</div>
+          <div class="step-title">Initial Enquiry</div>
+          <div class="step-desc">Tell us your team size, topics of interest and timeline</div>
+        </div>
+
+        <div class="step" data-step="1" role="listitem" tabindex="0" aria-label="Step 2: Needs Assessment">
+          <div class="step-dot"><svg><use href="#ico-target"/></svg></div>
+          <div class="step-num">Step 02</div>
+          <div class="step-title">Needs Assessment</div>
+          <div class="step-desc">A call with our programme advisor to map your objectives</div>
+        </div>
+
+        <div class="step" data-step="2" role="listitem" tabindex="0" aria-label="Step 3: Proposal & Design">
+          <div class="step-dot"><svg><use href="#ico-layers"/></svg></div>
+          <div class="step-num">Step 03</div>
+          <div class="step-title">Proposal &amp; Design</div>
+          <div class="step-desc">We deliver a tailored proposal with curriculum outline and pricing</div>
+        </div>
+
+        <div class="step" data-step="3" role="listitem" tabindex="0" aria-label="Step 4: Content Customisation">
+          <div class="step-dot"><svg><use href="#ico-settings"/></svg></div>
+          <div class="step-num">Step 04</div>
+          <div class="step-title">Customisation</div>
+          <div class="step-desc">Materials adapted to your assets, datasets and business context</div>
+        </div>
+
+        <div class="step" data-step="4" role="listitem" tabindex="0" aria-label="Step 5: Scheduling & Logistics">
+          <div class="step-dot"><svg><use href="#ico-calendar"/></svg></div>
+          <div class="step-num">Step 05</div>
+          <div class="step-title">Scheduling</div>
+          <div class="step-desc">Dates, venue or virtual setup confirmed and coordinated</div>
+        </div>
+
+        <div class="step" data-step="5" role="listitem" tabindex="0" aria-label="Step 6: Delivery & Certification">
+          <div class="step-dot"><svg><use href="#ico-award"/></svg></div>
+          <div class="step-num">Step 06</div>
+          <div class="step-title">Delivery &amp; Certification</div>
+          <div class="step-desc">Expert-led training with post-course support and certificates</div>
+        </div>
+
+      </div>
+
+      <!-- Detail panel -->
+      <div class="step-panel" id="stepPanel">
+        <div class="step-panel-inner" id="stepPanelInner">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="timeline-nav" aria-label="Step navigation">
+        <button class="tnav-btn" id="prevBtn" onclick="changeStep(currentStep-1)" disabled aria-label="Previous step">
+          <svg><path d="M15 8H3M9 2l-6 6 6 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tnav-dots" id="tnavDots" role="tablist"></div>
+        <button class="tnav-btn" id="nextBtn" onclick="changeStep(currentStep+1)" aria-label="Next step">
+          <svg><path d="M1 8h12M7 2l6 6-6 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="sec offer-sec" aria-labelledby="offer-heading">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="sec-eyebrow">Our Portfolio</p>
+    <h2 class="sec-h2" id="offer-heading">Available across <em>every</em> sector<br>and discipline</h2>
+    <p class="sec-intro">Every course in our portfolio is available as an in-house programme. Mix and combine disciplines to create an integrated learning journey.</p>
+    <div class="offer-grid" role="list">
+      <div class="offer-item" role="listitem">
+        <div class="offer-num" aria-hidden="true">01</div>
+        <div class="offer-body">
+          <h3><em>Upstream</em> &amp; Midstream</h3>
+          <p>PSCs, JV agreements, fiscal regimes, petroleum economics, gas &amp; LNG contracts, IFRS accounting, drilling engineering and project economics. 22 courses available.</p>
+          <a href="upstream.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-top:14px;transition:gap .15s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">Browse Upstream <svg width="12" height="12"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="offer-item" role="listitem">
+        <div class="offer-num" aria-hidden="true">02</div>
+        <div class="offer-body">
+          <h3><em>Downstream</em> &amp; Trading</h3>
+          <p>Oil refining economics, crude oil trading, LNG value chains, international oil markets and commercial aspects of refining. 7 courses available.</p>
+          <a href="downstream.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-top:14px;transition:gap .15s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">Browse Downstream <svg width="12" height="12"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="offer-item" role="listitem">
+        <div class="offer-num" aria-hidden="true">03</div>
+        <div class="offer-body">
+          <h3><em>Renewable Energy</em></h3>
+          <p>Solar power finance, renewable energy economics, corporate PPAs, IPP project finance, hydrogen and battery economics. 9 courses available.</p>
+          <a href="renewables.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-top:14px;transition:gap .15s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">Browse Renewables <svg width="12" height="12"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="offer-item" role="listitem">
+        <div class="offer-num" aria-hidden="true">04</div>
+        <div class="offer-body">
+          <h3><em>Bespoke</em> Curricula</h3>
+          <p>Need something beyond our existing portfolio? Our subject-matter experts will design a fully bespoke programme aligned to your organisation's strategic objectives.</p>
+          <a href="mailto:j.rogus@londonpetroacademy.co.uk?subject=Bespoke%20Programme%20Enquiry" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-top:14px;transition:gap .15s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">Discuss a Bespoke Programme <svg width="12" height="12"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-sec" aria-labelledby="testi-heading">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="testi-header">
+      <p class="sec-eyebrow" style="justify-content:center;">What Clients Say</p>
+      <h2 class="sec-h2" id="testi-heading" style="color:#fff;">Trusted by leading <em>energy organisations</em><br>around the world</h2>
+    </div>
+    <div class="testi-grid" role="list">
+      <div class="testi-card" role="listitem">
+        <p class="testi-quote">The content was perfectly adapted to our production sharing contracts in West Africa. The instructor understood our business context from day one — this was not an off-the-shelf course.</p>
+        <div class="testi-author">Head of Commercial, West Africa NOC</div>
+        <div class="testi-company">Upstream · PSC &amp; Fiscal Regimes Programme</div>
+      </div>
+      <div class="testi-card" role="listitem">
+        <p class="testi-quote">We trained 40 delegates across three departments in two days. The logistics were seamless, the trainer was exceptional, and the case studies were directly applicable to our LNG operations.</p>
+        <div class="testi-author">VP Training &amp; Development</div>
+        <div class="testi-company">LNG National Company · Gas &amp; LNG Programme</div>
+      </div>
+      <div class="testi-card" role="listitem">
+        <p class="testi-quote">LPA redesigned the financial modelling exercises around our actual Brent-linked contracts. Our team walked away with tools they could use the very next day.</p>
+        <div class="testi-author">Finance Director, European IOC</div>
+        <div class="testi-company">Downstream · Commercial Aspects of Refining</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC AREAS -->
+<section class="sec topics-sec" aria-labelledby="topics-heading">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="sec-eyebrow">Popular In-House Topics</p>
+    <h2 class="sec-h2" id="topics-heading">Most requested <em>programmes</em></h2>
+    <p class="sec-intro">These are the courses most frequently delivered in-house to NOCs, IOCs and energy ministries worldwide.</p>
+    <div class="topics-grid" role="list">
+      <div class="topic-item" role="listitem">
+        <div class="topic-icon"><svg><use href="#ico-book"/></svg></div>
+        <div class="topic-name">Gas &amp; LNG <em>Contracts Negotiations</em></div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;margin-top:8px;">GSAs, LNG SPAs, pricing formulas, dispute resolution and negotiation strategy.</p>
+        <div class="topic-tags"><span class="tag">3 Days</span><span class="tag">Upstream</span><span class="tag">£3,300</span></div>
+      </div>
+      <div class="topic-item" role="listitem">
+        <div class="topic-icon"><svg><use href="#ico-layers"/></svg></div>
+        <div class="topic-name">Production Sharing <em>Contracts — Brazil</em></div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;margin-top:8px;">Legal, fiscal and financial aspects of Brazil's PSC and concession regimes.</p>
+        <div class="topic-tags"><span class="tag">4 Days</span><span class="tag">Upstream</span><span class="tag">£3,500</span></div>
+      </div>
+      <div class="topic-item" role="listitem">
+        <div class="topic-icon"><svg><use href="#ico-target"/></svg></div>
+        <div class="topic-name">Petroleum Project <em>Economics &amp; Risk</em></div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;margin-top:8px;">Decision analysis, Monte Carlo simulation, NPV and risk-adjusted valuations.</p>
+        <div class="topic-tags"><span class="tag">5 Days</span><span class="tag">Upstream</span><span class="tag">£3,900</span></div>
+      </div>
+      <div class="topic-item" role="listitem">
+        <div class="topic-icon"><svg><use href="#ico-globe"/></svg></div>
+        <div class="topic-name">International Crude Oil <em>Markets &amp; Trading</em></div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;margin-top:8px;">Benchmarks, logistics, refining margins, hedging and price risk management.</p>
+        <div class="topic-tags"><span class="tag">5 Days</span><span class="tag">Downstream</span><span class="tag">£3,900</span></div>
+      </div>
+      <div class="topic-item" role="listitem">
+        <div class="topic-icon"><svg><use href="#ico-star"/></svg></div>
+        <div class="topic-name">Renewable Energy <em>Economics &amp; Finance</em></div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;margin-top:8px;">Financial modelling, valuation and investment analysis for renewable projects.</p>
+        <div class="topic-tags"><span class="tag">3 Days</span><span class="tag">Renewables</span><span class="tag">£1,800</span></div>
+      </div>
+      <div class="topic-item" role="listitem">
+        <div class="topic-icon"><svg><use href="#ico-map"/></svg></div>
+        <div class="topic-name">Energy Transition <em>Fiscal Systems</em></div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;margin-top:8px;">How fiscal regimes are adapting to the energy transition and carbon pricing.</p>
+        <div class="topic-tags"><span class="tag">5 Days</span><span class="tag">Upstream</span><span class="tag">£3,900</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip" role="complementary" aria-label="Request an in-house proposal">
+  <div>
+    <h2 class="cta-strip-title">Ready to bring world-class training<br><em>to your team?</em></h2>
+    <p class="cta-strip-sub">Contact us today and we'll have a tailored proposal with you within 48 hours.</p>
+  </div>
+  <div class="cta-strip-btns">
+    <a href="mailto:j.rogus@londonpetroacademy.co.uk?subject=In-House%20Training%20Enquiry%202026" class="btn-dark">
+      <svg width="14" height="14"><use href="#ico-mail"/></svg> Request a Proposal
+    </a>
+    <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" target="_blank" rel="noopener" class="btn-outline-dark">
+      <svg width="14" height="14"><use href="#ico-video"/></svg> Book a Free Call
+    </a>
+    <a href="tel:+441582516247" class="btn-outline-dark">
+      <svg width="14" height="14"><use href="#ico-phone"/></svg> +44 (0)1582 516247
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div>
+      <a href="index.html"><img src="logo-white.png" alt="London Petro Academy" style="height:32px;" loading="lazy"></a>
+      <p class="ft">Empowering energy professionals for a sustainable future. Trusted by NOCs, IOCs and Energy Ministries worldwide.</p>
+      <div class="fc">
+        <a href="tel:+441582516247"><svg><use href="#ico-phone"/></svg>+44 (0) 1582 516247</a>
+        <a href="mailto:info@londonpetroacademy.co.uk"><svg><use href="#ico-mail"/></svg>info@londonpetroacademy.co.uk</a>
+        <span><svg><use href="#ico-pin"/></svg>207 Regent Street, London</span>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Training Areas</h4>
+      <ul class="flinks">
+        <li><a href="upstream.html">Upstream &amp; Midstream</a></li>
+        <li><a href="downstream.html">Downstream &amp; Trading</a></li>
+        <li><a href="renewables.html">Renewable Energy</a></li>
+        <li><a href="calendar-2026.html">2026 Calendar</a></li>
+        <li><a href="inhouse.html">In-House Training</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>In-House Enquiries</h4>
+      <ul class="flinks">
+        <li><a href="mailto:j.rogus@londonpetroacademy.co.uk">Send Us an Enquiry</a></li>
+        <li><a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" target="_blank" rel="noopener">Book a Free Consultation</a></li>
+        <li><a href="tel:+441582516247">Call Us</a></li>
+        <li><a href="mailto:info@londonpetroacademy.co.uk">General Contact</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Company</h4>
+      <ul class="flinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://www.londonpetroacademy.co.uk/about/">About LPA</a></li>
+        <li><a href="https://www.londonpetroacademy.co.uk/privacy-policy/">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fcopy">© 2026 London Petro Academy Ltd. All rights reserved.</span>
+    <div class="fsoc">
+      <a href="https://www.linkedin.com/company/london-petro-academy-limited/" aria-label="LinkedIn">in</a>
+      <a href="https://twitter.com/London_Petro_Ac" aria-label="X (Twitter)">𝕏</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── MILESTONE JOURNEY DATA ──
+const STEPS_DATA = [
+  {
+    num: '01', title: 'Initial Enquiry',
+    desc: 'Send us a brief message or request a callback. Tell us which topics interest you, how many delegates you have in mind, and your rough timeline. No commitment required.',
+    details: [
+      { icon: 'ico-mail',     label: 'How to reach us',   text: 'Email j.rogus@londonpetroacademy.co.uk or call +44 (0)1582 516247. We aim to respond within 4 working hours.' },
+      { icon: 'ico-calendar', label: 'Response time',     text: 'Initial response within 4 hours. A follow-up call scheduled within 24 hours of your enquiry.' },
+      { icon: 'ico-check-circle', label: 'What to include', text: 'Topic area, number of delegates, preferred dates or window, and any specific learning objectives you already have in mind.' },
+    ]
+  },
+  {
+    num: '02', title: 'Needs Assessment',
+    desc: 'A 30–60 minute call with one of our programme advisors. We map your team\'s knowledge baseline, identify specific gaps, and clarify strategic objectives. This call shapes everything that follows.',
+    details: [
+      { icon: 'ico-target',   label: 'What we cover',    text: 'Team background, current knowledge levels, business context, key challenges, and desired outcomes — framed around your actual operations.' },
+      { icon: 'ico-users',    label: 'Who attends',      text: 'Typically your L&D lead or programme sponsor plus one or two subject-matter stakeholders from the business unit.' },
+      { icon: 'ico-video',    label: 'Format',           text: 'MS Teams, Zoom, or in person at your offices. We can also conduct this by email questionnaire if preferred.' },
+    ]
+  },
+  {
+    num: '03', title: 'Proposal & Design',
+    desc: 'Within 48 hours of your needs assessment call we deliver a detailed written proposal covering curriculum outline, trainer biography, delivery format, schedule and all-inclusive pricing.',
+    details: [
+      { icon: 'ico-layers',   label: 'What you receive', text: 'A full curriculum outline with day-by-day module breakdown, learning objectives, proposed exercises, and a transparent pricing breakdown.' },
+      { icon: 'ico-calendar', label: 'Turnaround',       text: '48-hour turnaround from the needs assessment call. Revisions are unlimited at no additional cost — we iterate until the design is exactly right.' },
+      { icon: 'ico-settings', label: 'Customisation level', text: 'We flag exactly which modules are adapted vs standard, so you can see precisely where the customisation investment goes.' },
+    ]
+  },
+  {
+    num: '04', title: 'Content Customisation',
+    desc: 'Once the proposal is confirmed, our subject-matter experts rework the training materials. Case studies, financial models, contract templates and exercises are all adapted to your specific business context.',
+    details: [
+      { icon: 'ico-book',     label: 'What gets adapted', text: 'Slide decks, case studies, financial models, workshop exercises, contract examples and scenario analyses — all built around your assets and operations.' },
+      { icon: 'ico-settings', label: 'Your input',       text: 'You can provide proprietary data, internal documents or specific scenarios. Everything is kept strictly confidential under our standard NDA.' },
+      { icon: 'ico-calendar', label: 'Timeline',         text: 'Typically 2–4 weeks depending on the complexity of customisation required. Express turnaround available for urgent programmes.' },
+    ]
+  },
+  {
+    num: '05', title: 'Scheduling & Logistics',
+    desc: 'Dates, venue and logistics confirmed. Whether you need a London boardroom, a Houston conference centre or a five-star hotel in Singapore — we coordinate everything on your behalf.',
+    details: [
+      { icon: 'ico-map',      label: 'Venue options',    text: 'Your premises, a hotel conference room, a dedicated training centre, or fully virtual. We manage venue sourcing and AV requirements on request.' },
+      { icon: 'ico-users',    label: 'Delegate management', text: 'We provide delegate information packs, pre-course reading and joining instructions. Pre-course knowledge assessments available on request.' },
+      { icon: 'ico-calendar', label: 'Final confirmation', text: 'Full programme schedule, trainer contact details and logistics checklist sent at least 2 weeks before the course start date.' },
+    ]
+  },
+  {
+    num: '06', title: 'Delivery & Certification',
+    desc: 'Expert-led delivery at your chosen venue or via secure virtual platform. Post-course, every delegate receives a London Petro Academy Certificate of Completion and access to a shared resource folder.',
+    details: [
+      { icon: 'ico-star',     label: 'During delivery',  text: 'Daily check-ins with your programme contact. We adjust pace, depth and examples in real time based on delegate feedback and engagement.' },
+      { icon: 'ico-award',    label: 'Certification',    text: 'Every delegate receives a London Petro Academy Certificate of Completion. Co-branded certificates with your logo are available on request.' },
+      { icon: 'ico-book',     label: 'Post-course support', text: 'Shared cloud folder with all materials, recordings (virtual), and a 30-day email Q&A window with the trainer included as standard.' },
+    ]
+  },
+];
+
+let currentStep = 0;
+let autoTimer = null;
+
+function buildDots() {
+  const container = document.getElementById('tnavDots');
+  container.innerHTML = '';
+  STEPS_DATA.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'tnav-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to step ${i+1}`);
+    dot.setAttribute('role', 'tab');
+    dot.onclick = () => changeStep(i);
+    container.appendChild(dot);
+  });
+}
+
+function updatePanel(idx) {
+  const d = STEPS_DATA[idx];
+  const panel = document.getElementById('stepPanelInner');
+  panel.innerHTML = `
+    <div class="panel-left">
+      <div class="panel-tag">Step ${d.num} of 06</div>
+      <h3 class="panel-title">${d.title.replace(/(.+)/, (m) => {
+        const words = m.split(' ');
+        if(words.length > 1) return words.slice(0,-1).join(' ') + ' <em>' + words.slice(-1) + '</em>';
+        return '<em>' + m + '</em>';
+      })}</h3>
+      <p class="panel-desc">${d.desc}</p>
+    </div>
+    <div class="panel-right">
+      ${d.details.map(det => `
+        <div class="panel-detail">
+          <div class="panel-detail-icon"><svg><use href="#${det.icon}"/></svg></div>
+          <div class="panel-detail-text">
+            <strong>${det.label}</strong>
+            <span>${det.text}</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+}
+
+function changeStep(idx) {
+  if(idx < 0 || idx >= STEPS_DATA.length) return;
+
+  // Reset auto
+  clearInterval(autoTimer);
+
+  const steps = document.querySelectorAll('.step');
+  const dots  = document.querySelectorAll('.tnav-dot');
+
+  // Update classes
+  steps.forEach((s, i) => {
+    s.classList.remove('active', 'done');
+    if(i < idx)  s.classList.add('done');
+    if(i === idx) s.classList.add('active');
+  });
+
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+
+  // Progress bar: percentage of steps done
+  const progress = ((idx) / (STEPS_DATA.length - 1)) * 100;
+  document.getElementById('timelineProgress').style.width = progress + '%';
+
+  // Panel
+  updatePanel(idx);
+
+  // Buttons
+  document.getElementById('prevBtn').disabled = idx === 0;
+  document.getElementById('nextBtn').disabled = idx === STEPS_DATA.length - 1;
+
+  currentStep = idx;
+
+  // Restart auto after 8s
+  autoTimer = setInterval(() => {
+    const next = (currentStep + 1) % STEPS_DATA.length;
+    changeStep(next);
+  }, 8000);
+}
+
+// ── INTERSECTION OBSERVER: animate steps in ──
+function initTimeline() {
+  buildDots();
+  updatePanel(0);
+
+  const steps = document.querySelectorAll('.step');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        const allSteps = document.querySelectorAll('.step');
+        allSteps.forEach((s, i) => {
+          setTimeout(() => s.classList.add('visible'), i * 120);
+        });
+        // Activate first step
+        setTimeout(() => changeStep(0), allSteps.length * 120 + 200);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if(steps[0]) observer.observe(steps[0]);
+
+  // Click on steps
+  steps.forEach((s, i) => {
+    s.onclick = () => changeStep(i);
+    s.onkeydown = (e) => { if(e.key==='Enter'||e.key===' ') changeStep(i); };
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initTimeline);
+</script>
+</body>
+</html>

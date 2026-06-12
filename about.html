@@ -125,12 +125,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;ali
 .pillar-title{font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;margin-bottom:14px;}
 .pillar-text{font-size:14px;color:var(--grey);font-weight:300;line-height:1.75;}
 
-/* ── PHOTO STRIP ── */
-.photo-strip{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3px;height:440px;}
-.photo-strip-item{overflow:hidden;position:relative;}
-.photo-strip-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
-.photo-strip-item:hover img{transform:scale(1.04);}
-.photo-strip-item .ps-label{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(0,rgba(10,11,13,0.85),transparent);font-family:var(--cond);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);}
+/* ── GLOBAL REACH MAP ── */
+.reach-map-section{background:var(--bg2);padding:0;}
+.reach-map-inner{max-width:100%;overflow:hidden;}
+.reach-map-header{padding:72px 60px 40px;text-align:center;}
+.reach-map-title{font-family:var(--serif);font-size:clamp(32px,3.5vw,52px);font-weight:300;color:#fff;margin-bottom:10px;}
+.reach-map-title em{font-style:italic;color:var(--amber);}
+.reach-map-sub{font-size:15px;color:var(--grey);font-weight:300;}
+.reach-map-wrap{position:relative;}
+#worldMapSvg{width:100%;height:auto;display:block;}
+/* City labels */
+.map-city-label{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;fill:#e8e6e0;font-weight:600;}
+.map-city-sub{font-family:"Barlow",sans-serif;font-size:9px;fill:rgba(138,143,150,0.85);}
+/* Pulse animation */
+.pulse-ring{animation:mapPulse 2.8s ease-out infinite;}
+@keyframes mapPulse{
+  0%{r:6;opacity:0.8;fill:rgba(200,135,58,0.5);}
+  70%{r:22;opacity:0;fill:rgba(200,135,58,0);}
+  100%{r:6;opacity:0;fill:rgba(200,135,58,0);}
+}
+/* City strip below map */
+.reach-city-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;background:rgba(0,0,0,0.3);border-top:1px solid rgba(255,255,255,0.06);padding:20px 40px;}
+.rcs-item{display:flex;flex-direction:column;align-items:center;padding:10px 20px;gap:3px;}
+.rcs-city{font-family:var(--cond);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--off-white);font-weight:600;}
+.rcs-country{font-family:var(--sans);font-size:10px;color:var(--grey);font-weight:300;}
+.rcs-sep{width:1px;height:32px;background:rgba(255,255,255,0.08);}
+@media(max-width:768px){
+  .reach-map-header{padding:48px 24px 28px;}
+  .reach-city-strip{gap:0;padding:16px 12px;}
+  .rcs-item{padding:8px 10px;}
+  .rcs-sep{display:none;}
+}
 
 /* ── WORLD MAP ── */
 .map-section{background:var(--bg2);padding:96px 60px;}
@@ -334,25 +359,261 @@ footer{background:#080909;border-top:1px solid var(--line);}
   </div>
 </section>
 
-<!-- ══ PHOTO STRIP — GLOBAL LOCATIONS ══ -->
-<div class="photo-strip" aria-label="Course locations around the world">
-  <div class="photo-strip-item">
-    <!-- Pexels 338515: Singapore skyline — CC0 -->
-    <img src="https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg?auto=compress&cs=tinysrgb&w=1200"
-         alt="Singapore skyline — LPA training location" loading="lazy">
-    <div class="ps-label">Singapore</div>
-  </div>
-  <div class="photo-strip-item">
-    <!-- Pexels 1804035: Rio de Janeiro aerial — CC0 -->
-    <img src="https://images.pexels.com/photos/1804035/pexels-photo-1804035.jpeg?auto=compress&cs=tinysrgb&w=900"
-         alt="Rio de Janeiro — LPA training location" loading="lazy">
-    <div class="ps-label">Rio de Janeiro</div>
-  </div>
-  <div class="photo-strip-item">
-    <!-- Pexels 3573351: Dubai skyline — CC0 -->
-    <img src="https://images.pexels.com/photos/3573351/pexels-photo-3573351.jpeg?auto=compress&cs=tinysrgb&w=900"
-         alt="Dubai — LPA training location" loading="lazy">
-    <div class="ps-label">Dubai</div>
+<!-- ══ GLOBAL REACH MAP ══ -->
+<div class="reach-map-section" aria-label="LPA global course locations">
+  <div class="reach-map-inner">
+    <div class="reach-map-header">
+      <span class="sec-tag">Global Reach</span>
+      <h2 class="reach-map-title">Where We <em>Deliver</em></h2>
+      <p class="reach-map-sub">Expert-led programmes delivered across energy capitals worldwide</p>
+    </div>
+    <div class="reach-map-wrap">
+      <svg id="worldMapSvg" viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg" aria-label="World map showing LPA course delivery cities">
+        <defs>
+          <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#111418"/>
+            <stop offset="100%" stop-color="#0a0b0d"/>
+          </radialGradient>
+          <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="lineGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <!-- Graticule pattern -->
+          <pattern id="grid" width="55" height="44" patternUnits="userSpaceOnUse">
+            <path d="M 55 0 L 0 0 0 44" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Ocean -->
+        <rect width="1100" height="520" fill="url(#bgGrad)"/>
+        <!-- Subtle grid -->
+        <rect width="1100" height="520" fill="url(#grid)"/>
+
+        <!-- ── CONTINENTS (simplified but recognisable paths) ── -->
+        <g fill="#1c2028" stroke="#252b35" stroke-width="0.6" stroke-linejoin="round">
+
+          <!-- North America -->
+          <path d="M98,58 L118,52 L145,50 L175,54 L200,62 L218,78 L228,100 L232,125 L228,152 L218,175 L205,198 L190,218 L172,238 L155,255 L138,268 L118,275 L100,272 L84,258 L75,238 L70,215 L68,190 L72,165 L80,140 L88,115 L92,90 L95,72 Z"/>
+          <!-- Alaska -->
+          <path d="M68,58 L88,52 L98,58 L92,72 L75,78 L62,72 Z"/>
+          <!-- Greenland -->
+          <path d="M190,22 L220,16 L242,22 L250,38 L245,55 L228,62 L208,60 L192,50 L185,36 Z"/>
+          <!-- Central America -->
+          <path d="M155,268 L172,272 L182,285 L178,300 L162,298 L150,285 Z"/>
+          <!-- Caribbean -->
+          <ellipse cx="210" cy="285" rx="14" ry="6" opacity="0.8"/>
+          <ellipse cx="235" cy="278" rx="8" ry="4" opacity="0.8"/>
+          <!-- South America -->
+          <path d="M168,305 L205,298 L238,308 L262,328 L275,360 L278,398 L268,435 L248,458 L222,465 L196,458 L172,440 L154,415 L145,385 L142,352 L148,320 Z"/>
+
+          <!-- Europe -->
+          <path d="M435,48 L462,42 L488,44 L508,52 L518,65 L515,82 L502,96 L485,105 L465,108 L448,102 L436,88 L430,72 L432,58 Z"/>
+          <!-- UK & Ireland -->
+          <path d="M415,52 L430,46 L438,56 L435,70 L425,78 L412,72 L408,60 Z"/>
+          <ellipse cx="405" cy="66" rx="6" ry="8" opacity="0.9"/>
+          <!-- Scandinavia -->
+          <path d="M462,22 L492,16 L510,26 L515,42 L508,52 L488,44 L468,36 Z"/>
+          <!-- Iberia -->
+          <path d="M428,95 L458,90 L465,108 L458,128 L438,132 L422,118 Z"/>
+          <!-- France/Italy area -->
+          <path d="M465,108 L502,96 L512,112 L508,130 L490,138 L472,132 Z"/>
+          <path d="M498,122 L512,112 L518,132 L510,148 L498,148 L492,135 Z"/>
+
+          <!-- Africa -->
+          <path d="M448,138 L520,130 L558,142 L575,165 L582,198 L580,238 L570,278 L552,315 L528,348 L502,368 L476,372 L450,358 L428,328 L415,295 L412,258 L418,222 L428,188 L438,162 Z"/>
+          <!-- Madagascar -->
+          <path d="M582,298 L596,290 L604,308 L598,332 L584,336 L575,318 Z"/>
+
+          <!-- Middle East & Arabian Peninsula -->
+          <path d="M552,138 L605,132 L632,142 L645,162 L638,182 L618,192 L592,188 L568,175 L554,158 Z"/>
+          <path d="M592,188 L642,182 L662,200 L658,232 L638,245 L612,240 L590,222 L578,205 Z"/>
+          <!-- Turkey -->
+          <path d="M505,105 L548,100 L562,112 L558,128 L528,132 L508,122 Z"/>
+
+          <!-- Central Asia / Kazakhstan -->
+          <path d="M605,78 L678,68 L718,78 L728,102 L712,120 L672,126 L632,120 L608,105 Z"/>
+          <!-- Russia (simplified) -->
+          <path d="M508,28 L620,18 L720,22 L800,32 L838,52 L828,72 L775,82 L718,78 L678,68 L620,62 L568,65 L528,62 L510,48 Z"/>
+          <!-- Siberia extension -->
+          <path d="M720,22 L820,18 L870,28 L878,48 L848,60 L800,65 L760,60 L728,48 Z"/>
+
+          <!-- Indian Subcontinent -->
+          <path d="M648,128 L705,122 L732,138 L745,165 L742,198 L725,222 L700,232 L675,228 L654,210 L642,182 L638,158 Z"/>
+          <!-- Sri Lanka -->
+          <ellipse cx="728" cy="240" rx="8" ry="12" opacity="0.9"/>
+
+          <!-- Southeast Asia mainland -->
+          <path d="M735,155 L792,148 L818,162 L822,188 L808,208 L782,215 L755,208 L735,188 Z"/>
+          <!-- Thailand/Indochina -->
+          <path d="M762,178 L798,172 L808,192 L802,215 L780,222 L758,212 L750,195 Z"/>
+          <!-- Malaysia peninsula -->
+          <path d="M778,218 L792,215 L798,232 L790,245 L775,242 L770,228 Z"/>
+
+          <!-- Indonesia / Bali -->
+          <path d="M772,240 L822,232 L858,242 L862,258 L835,265 L795,262 L770,252 Z"/>
+          <ellipse cx="878" cy="252" rx="16" ry="8" opacity="0.9"/>
+          <ellipse cx="908" cy="248" rx="12" ry="6" opacity="0.9"/>
+
+          <!-- China -->
+          <path d="M722,72 L818,65 L858,78 L865,108 L848,135 L818,150 L782,152 L748,142 L722,122 L712,98 Z"/>
+          <!-- Japan -->
+          <path d="M870,82 L890,75 L900,88 L894,108 L875,114 L862,102 Z"/>
+          <ellipse cx="882" cy="75" rx="8" ry="16" transform="rotate(-15,882,75)" opacity="0.9"/>
+
+          <!-- Australia -->
+          <path d="M812,305 L885,295 L925,310 L938,348 L932,385 L912,410 L878,418 L842,412 L815,395 L800,365 L798,332 Z"/>
+          <!-- Tasmania -->
+          <ellipse cx="872" cy="428" rx="12" ry="8" opacity="0.9"/>
+          <!-- New Zealand -->
+          <path d="M950,368 L962,358 L968,375 L960,392 L948,388 Z"/>
+
+          <!-- Philippines -->
+          <ellipse cx="848" cy="195" rx="8" ry="18" opacity="0.8"/>
+          <ellipse cx="835" cy="218" rx="6" ry="12" opacity="0.8"/>
+
+        </g>
+
+        <!-- ── FLIGHT PATH ARCS (amber, subtle) ── -->
+        <g fill="none" stroke="rgba(200,135,58,0.18)" stroke-width="0.8" stroke-dasharray="4 3" filter="url(#lineGlow)">
+          <!-- London → Paris -->
+          <path d="M432,65 Q435,58 448,62"/>
+          <!-- London → Algiers -->
+          <path d="M432,65 Q438,120 462,152"/>
+          <!-- London → Dubai -->
+          <path d="M432,65 Q520,80 622,196"/>
+          <!-- London → Rio -->
+          <path d="M432,65 Q340,200 222,348"/>
+          <!-- London → Houston -->
+          <path d="M432,65 Q340,120 188,248"/>
+          <!-- London → Bali -->
+          <path d="M432,65 Q620,100 808,248"/>
+          <!-- London → Bangkok -->
+          <path d="M432,65 Q580,90 775,205"/>
+          <!-- London → Port of Spain -->
+          <path d="M432,65 Q340,180 215,292"/>
+          <!-- Dubai → Bali -->
+          <path d="M622,196 Q715,180 808,248"/>
+          <!-- Dubai → Bangkok -->
+          <path d="M622,196 Q700,182 775,205"/>
+        </g>
+
+        <!-- ── LOCATION MARKERS ── -->
+        <!-- Each marker: pulse ring + solid dot + label -->
+
+        <!-- LONDON (432, 65) -->
+        <g class="map-loc" data-city="London">
+          <circle cx="432" cy="65" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:0s"/>
+          <circle cx="432" cy="65" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="432" cy="65" r="3" fill="#fff"/>
+          <text x="432" y="52" text-anchor="middle" class="map-city-label">LONDON</text>
+          <text x="432" y="44" text-anchor="middle" class="map-city-sub">United Kingdom</text>
+        </g>
+
+        <!-- PARIS (448, 72) -->
+        <g class="map-loc" data-city="Paris">
+          <circle cx="452" cy="72" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:0.3s"/>
+          <circle cx="452" cy="72" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="452" cy="72" r="3" fill="#fff"/>
+          <text x="468" y="68" text-anchor="start" class="map-city-label">PARIS</text>
+          <text x="468" y="78" text-anchor="start" class="map-city-sub">France</text>
+        </g>
+
+        <!-- ALGIERS (462, 142) -->
+        <g class="map-loc" data-city="Algiers">
+          <circle cx="458" cy="148" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:0.6s"/>
+          <circle cx="458" cy="148" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="458" cy="148" r="3" fill="#fff"/>
+          <text x="458" y="138" text-anchor="middle" class="map-city-label">ALGIERS</text>
+          <text x="458" y="130" text-anchor="middle" class="map-city-sub">Algeria</text>
+        </g>
+
+        <!-- DUBAI (622, 196) -->
+        <g class="map-loc" data-city="Dubai">
+          <circle cx="622" cy="200" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:0.9s"/>
+          <circle cx="622" cy="200" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="622" cy="200" r="3" fill="#fff"/>
+          <text x="635" y="196" text-anchor="start" class="map-city-label">DUBAI</text>
+          <text x="635" y="206" text-anchor="start" class="map-city-sub">UAE</text>
+        </g>
+
+        <!-- BANGKOK (775, 205) -->
+        <g class="map-loc" data-city="Bangkok">
+          <circle cx="775" cy="205" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:1.2s"/>
+          <circle cx="775" cy="205" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="775" cy="205" r="3" fill="#fff"/>
+          <text x="775" y="194" text-anchor="middle" class="map-city-label">BANGKOK</text>
+          <text x="775" y="186" text-anchor="middle" class="map-city-sub">Thailand</text>
+        </g>
+
+        <!-- BALI (808, 248) -->
+        <g class="map-loc" data-city="Bali">
+          <circle cx="812" cy="248" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:1.5s"/>
+          <circle cx="812" cy="248" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="812" cy="248" r="3" fill="#fff"/>
+          <text x="828" y="244" text-anchor="start" class="map-city-label">BALI</text>
+          <text x="828" y="254" text-anchor="start" class="map-city-sub">Indonesia</text>
+        </g>
+
+        <!-- HOUSTON (188, 248) -->
+        <g class="map-loc" data-city="Houston">
+          <circle cx="155" cy="248" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:1.8s"/>
+          <circle cx="155" cy="248" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="155" cy="248" r="3" fill="#fff"/>
+          <text x="155" y="238" text-anchor="middle" class="map-city-label">HOUSTON</text>
+          <text x="155" y="230" text-anchor="middle" class="map-city-sub">United States</text>
+        </g>
+
+        <!-- PORT OF SPAIN (215, 292) -->
+        <g class="map-loc" data-city="Port of Spain">
+          <circle cx="218" cy="295" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:2.1s"/>
+          <circle cx="218" cy="295" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="218" cy="295" r="3" fill="#fff"/>
+          <text x="232" y="291" text-anchor="start" class="map-city-label">PORT OF SPAIN</text>
+          <text x="232" y="301" text-anchor="start" class="map-city-sub">Trinidad &amp; Tobago</text>
+        </g>
+
+        <!-- RIO DE JANEIRO (222, 365) -->
+        <g class="map-loc" data-city="Rio de Janeiro">
+          <circle cx="222" cy="368" r="18" fill="rgba(200,135,58,0.0)" class="pulse-ring" style="animation-delay:2.4s"/>
+          <circle cx="222" cy="368" r="5.5" fill="#c8873a" filter="url(#dotGlow)"/>
+          <circle cx="222" cy="368" r="3" fill="#fff"/>
+          <text x="238" y="364" text-anchor="start" class="map-city-label">RIO DE JANEIRO</text>
+          <text x="238" y="374" text-anchor="start" class="map-city-sub">Brazil</text>
+        </g>
+
+        <!-- Map legend bottom-right -->
+        <g transform="translate(880,460)">
+          <circle cx="0" cy="0" r="5" fill="#c8873a"/>
+          <circle cx="0" cy="0" r="3" fill="#fff"/>
+          <text x="12" y="4" font-family="Barlow Condensed,sans-serif" font-size="10" fill="rgba(138,143,150,0.8)" letter-spacing="1">COURSE DELIVERY CITY</text>
+        </g>
+      </svg>
+
+      <!-- City count strip -->
+      <div class="reach-city-strip">
+        <div class="rcs-item"><span class="rcs-city">London</span><span class="rcs-country">United Kingdom</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Paris</span><span class="rcs-country">France</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Algiers</span><span class="rcs-country">Algeria</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Dubai</span><span class="rcs-country">UAE</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Bangkok</span><span class="rcs-country">Thailand</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Bali</span><span class="rcs-country">Indonesia</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Houston</span><span class="rcs-country">United States</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Port of Spain</span><span class="rcs-country">Trinidad &amp; Tobago</span></div>
+        <div class="rcs-sep"></div>
+        <div class="rcs-item"><span class="rcs-city">Rio de Janeiro</span><span class="rcs-country">Brazil</span></div>
+      </div>
+    </div>
   </div>
 </div>
 

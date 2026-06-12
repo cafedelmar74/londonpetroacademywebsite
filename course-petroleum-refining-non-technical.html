@@ -129,32 +129,31 @@ h1.course-title em{font-style:italic;color:var(--amber);}
 .pill-green{background:rgba(200,135,58,.15);border-color:rgba(200,135,58,.4);color:#c8873a;}
 .pill-green svg{stroke:#c8873a;}
 
-/* Booking card */
-.booking-card{background:var(--page3);border-top:3px solid var(--amber);padding:28px 26px 24px;box-shadow:0 32px 80px rgba(0,0,0,.45);align-self:end;margin-bottom:0;}
-.bc-sessions{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
-.bc-session{background:var(--dark);padding:14px 16px;border-left:3px solid var(--amber);display:flex;align-items:center;justify-content:space-between;gap:12px;}
-.bc-session-date{font-family:var(--serif);font-size:17px;font-weight:400;color:#fff;line-height:1.1;}
-.bc-session-loc{font-family:var(--cond);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--d-muted);margin-top:3px;}
-.bc-session-tag{font-family:var(--cond);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#c8873a;background:rgba(200,135,58,.12);border:1px solid rgba(200,135,58,.3);padding:3px 10px;white-space:nowrap;}
-.bc-pricing{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
-.bc-price-box{border:1px solid var(--line);padding:14px 16px;text-align:center;}
-.bc-price-box-label{font-family:var(--cond);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-light);margin-bottom:6px;display:block;}
-.bc-price-val{font-family:var(--serif);font-size:44px;font-weight:300;color:var(--ink);line-height:1;}
-.bc-price-cur{font-size:22px;color:var(--amber);font-family:var(--serif);font-weight:300;vertical-align:baseline;margin-right:1px;}
-.btn-book{display:block;width:100%;text-align:center;background:var(--amber);color:#fff;font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px;text-decoration:none;transition:background .2s;margin-bottom:10px;border:none;cursor:pointer;}
+/* ── BOOKING CARD ── */
+.booking-card{background:#111315;border-top:3px solid var(--amber);padding:28px 26px 24px;box-shadow:0 32px 80px rgba(0,0,0,.55);align-self:end;margin-bottom:0;}
+.bc-session-block{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.bc-session-block:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.bc-session-label{font-family:var(--cond);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--d-muted);margin-bottom:8px;}
+.bc-session-date-lg{font-family:var(--serif);font-size:28px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:6px;}
+.bc-session-loc-row{display:flex;align-items:center;gap:6px;font-family:var(--cond);font-size:11px;letter-spacing:1px;color:var(--d-muted);}
+.bc-session-loc-row svg{width:13px;height:13px;stroke:var(--d-muted);fill:none;flex-shrink:0;}
+.bc-sessions-wrap{margin-bottom:22px;}
+.bc-price-large{font-family:var(--serif);font-size:52px;font-weight:300;color:#fff;line-height:1;margin-bottom:6px;}
+.bc-price-note{font-size:12px;color:var(--d-muted);margin-bottom:20px;line-height:1.5;}
+.btn-book{display:block;width:100%;text-align:center;background:var(--amber);color:#000;font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px;text-decoration:none;transition:background .2s;margin-bottom:10px;border:none;cursor:pointer;}
 .btn-book:hover{background:var(--amber2);}
-.btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;text-align:center;background:none;border:1.5px solid var(--line2);color:var(--ink-mid);font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:12px;text-decoration:none;transition:border-color .2s,color .2s;margin-bottom:8px;cursor:pointer;}
+.btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;text-align:center;background:none;border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:13px;text-decoration:none;transition:border-color .2s,color .2s;margin-bottom:8px;cursor:pointer;}
 .btn-secondary svg{width:14px;height:14px;stroke:currentColor;fill:none;flex-shrink:0;}
 .btn-secondary:hover{border-color:var(--amber);color:var(--amber);}
-.bc-divider{height:1px;background:var(--line);margin:16px 0;}
-.bc-includes{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-.bc-includes li{font-size:13px;color:var(--ink-mid);font-weight:300;display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
-.bc-check svg{width:14px;height:14px;stroke:var(--ink);fill:none;flex-shrink:0;margin-top:2px;}
-.bc-zoom{background:var(--page2);padding:14px;display:flex;align-items:center;gap:12px;text-decoration:none;transition:background .2s;}
-.bc-zoom:hover{background:var(--page4);}
-.bc-zoom-icon svg{width:20px;height:20px;stroke:var(--ink);fill:none;}
-.bc-zoom-title{font-family:var(--cond);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);font-weight:600;}
-.bc-zoom-sub{font-size:12px;color:var(--ink-light);margin-top:2px;}
+.bc-divider{height:1px;background:rgba(255,255,255,.08);margin:20px 0;}
+.bc-includes{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:0;}
+.bc-includes li{font-size:13px;color:rgba(255,255,255,.65);font-weight:300;display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
+.bc-check svg{width:14px;height:14px;stroke:var(--amber);fill:none;flex-shrink:0;margin-top:2px;}
+.bc-zoom{background:rgba(200,135,58,.1);border:1px solid rgba(200,135,58,.25);padding:14px;display:flex;align-items:center;gap:12px;text-decoration:none;transition:background .2s;margin-top:20px;}
+.bc-zoom:hover{background:rgba(200,135,58,.18);}
+.bc-zoom-icon svg{width:20px;height:20px;stroke:var(--amber);fill:none;}
+.bc-zoom-title{font-family:var(--cond);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);font-weight:600;}
+.bc-zoom-sub{font-size:12px;color:var(--d-muted);margin-top:2px;}
 
 
 /* Tab nav */
@@ -535,58 +534,45 @@ select.brfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 
     <!-- Booking card -->
     <aside class="booking-card" aria-label="Book this course">
-            <div class="bc-sessions">
-        <div class="bc-session">
-          <div>
-            <div class="bc-session-date">8–10 Sep 2026</div>
-            <div class="bc-session-loc">London, UK</div>
-          </div>
-          <span class="bc-session-tag">+VAT</span>
+      <div class="bc-sessions-wrap">
+        <div class="bc-session-block">
+          <div class="bc-session-label">NEXT CLASSROOM SESSION</div>
+          <div class="bc-session-date-lg">26–28 January 2026</div>
+          <div class="bc-session-loc-row"><svg viewBox="0 0 16 16"><use href="#ico-pin"/></svg> Rotterdam, Netherlands</div>
         </div>
-        <div class="bc-session">
-          <div>
-            <div class="bc-session-date">27–29 Oct 2026</div>
-            <div class="bc-session-loc">Rotterdam, Netherlands</div>
-          </div>
-          <span class="bc-session-tag">Classroom</span>
-        </div>
-        <div class="bc-session">
-          <div>
-            <div class="bc-session-date">1–3 Dec 2026</div>
-            <div class="bc-session-loc">Houston, USA</div>
-          </div>
-          <span class="bc-session-tag">Classroom</span>
+        <div class="bc-session-block">
+          <div class="bc-session-label">ALSO AVAILABLE</div>
+          <div class="bc-session-date-lg">5–7 October 2026</div>
+          <div class="bc-session-loc-row"><svg viewBox="0 0 16 16"><use href="#ico-pin"/></svg> Houston, USA</div>
         </div>
       </div>
 
-      <div class="bc-price-row">
-        <span class="bc-price">£3,300</span>
-        <span class="bc-price-label">per delegate</span>
-      </div>
-      <p class="bc-price-note">£3,300 per delegate. London sessions subject to 20% VAT. Group discounts available.</p>
+      <div class="bc-price-large">£3,300</div>
+      <p class="bc-price-note">£3,300 per delegate. No VAT on international sessions. Group discounts available.</p>
 
-      <button type="button" class="btn-book" id="btnOpenBooking" style="margin-top:20px;">Book This Course →</button>
-      <a href="mailto:info@londonpetroacademy.co.uk?subject=I%20am%20interested%20in%20Petroleum%20Refining%20for%20Non-Technical%20Persons%20course" class="btn-secondary">
+      <button type="button" class="btn-book" id="btnOpenBooking">Book This Course →</button>
+      <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry%20%E2%80%94%20Petroleum%20Refining%20for%20NonTechnical%20Persons" class="btn-secondary">
         <svg><use href="#ico-send"/></svg> Send an Enquiry
       </a>
-      <button type="button" class="btn-secondary" onclick="openBrModal()"><svg><use href="#ico-download"/></svg> Download Brochure</button>
+      <button type="button" class="btn-secondary" onclick="openBrModal()">
+        <svg><use href="#ico-download"/></svg> Download Brochure
+      </button>
 
       <div class="bc-divider"></div>
       <ul class="bc-includes" aria-label="Included in the fee">
         <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> 7–8 hours of teaching per day</li>
-        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Lunch + morning &amp; afternoon breaks</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Morning, lunch & afternoon breaks</li>
         <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Course materials in PDF</li>
-        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Real-life refining case studies</li>
-        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Superfast Wi-Fi throughout</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Refinery visit (selected sessions)</li>
         <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Certificate of completion</li>
       </ul>
 
       <div class="bc-divider"></div>
-      <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" class="bc-zoom">
+      <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" class="bc-zoom" target="_blank" rel="noopener">
         <span class="bc-zoom-icon"><svg><use href="#ico-video"/></svg></span>
         <div>
           <div class="bc-zoom-title">Free Zoom Consultation</div>
-          <div class="bc-zoom-sub">Talk to an advisor before booking</div>
+          <div class="bc-zoom-sub">Schedule a call with our advisors</div>
         </div>
       </a>
     </aside>

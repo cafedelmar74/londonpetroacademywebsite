@@ -143,38 +143,31 @@ h1.course-title em{font-style:italic;color:var(--amber);}
 .pill-highlight svg{stroke:var(--amber);}
 
 /* ── BOOKING CARD — sits inside hero right column ── */
-.booking-card{
-  background:var(--page3);
-  border-top:3px solid var(--amber);
-  padding:28px 26px 24px;
-  box-shadow:0 32px 80px rgba(0,0,0,0.45);
-  margin-bottom:0;
-  align-self:end;
-}
-.bc-date-block{background:var(--dark);padding:16px 18px;margin-bottom:20px;border-left:3px solid var(--amber);}
-.bc-date-label{font-family:var(--cond);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--d-muted);margin-bottom:5px;display:block;}
-.bc-date{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;line-height:1.15;}
-.bc-location{font-size:12px;color:var(--d-muted);margin-top:5px;display:flex;align-items:center;gap:6px;}
-.bc-location svg{width:12px;height:12px;stroke:var(--d-muted);fill:none;flex-shrink:0;}
-.bc-price-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;}
-.bc-price{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--ink);line-height:1;}
-.bc-price-label{font-family:var(--cond);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-light);}
-.bc-price-note{font-size:12px;color:var(--ink-light);margin-bottom:18px;}
-.btn-book{display:block;width:100%;text-align:center;background:var(--amber);color:#fff !important;font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px;text-decoration:none;transition:background .2s;margin-bottom:10px;border:none;cursor:pointer;}
+/* ── BOOKING CARD ── */
+.booking-card{background:#111315;border-top:3px solid var(--amber);padding:28px 26px 24px;box-shadow:0 32px 80px rgba(0,0,0,.55);align-self:end;margin-bottom:0;}
+.bc-session-block{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.bc-session-block:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.bc-session-label{font-family:var(--cond);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--d-muted);margin-bottom:8px;}
+.bc-session-date-lg{font-family:var(--serif);font-size:28px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:6px;}
+.bc-session-loc-row{display:flex;align-items:center;gap:6px;font-family:var(--cond);font-size:11px;letter-spacing:1px;color:var(--d-muted);}
+.bc-session-loc-row svg{width:13px;height:13px;stroke:var(--d-muted);fill:none;flex-shrink:0;}
+.bc-sessions-wrap{margin-bottom:22px;}
+.bc-price-large{font-family:var(--serif);font-size:52px;font-weight:300;color:#fff;line-height:1;margin-bottom:6px;}
+.bc-price-note{font-size:12px;color:var(--d-muted);margin-bottom:20px;line-height:1.5;}
+.btn-book{display:block;width:100%;text-align:center;background:var(--amber);color:#000;font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px;text-decoration:none;transition:background .2s;margin-bottom:10px;border:none;cursor:pointer;}
 .btn-book:hover{background:var(--amber2);}
-.btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;text-align:center;background:none;border:1.5px solid var(--line2);color:var(--ink-mid);font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:12px;text-decoration:none;transition:border-color .2s,color .2s;margin-bottom:8px;cursor:pointer;}
+.btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;text-align:center;background:none;border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:13px;text-decoration:none;transition:border-color .2s,color .2s;margin-bottom:8px;cursor:pointer;}
 .btn-secondary svg{width:14px;height:14px;stroke:currentColor;fill:none;flex-shrink:0;}
 .btn-secondary:hover{border-color:var(--amber);color:var(--amber);}
-.bc-divider{height:1px;background:var(--line);margin:16px 0;}
-.bc-includes{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-.bc-includes li{font-size:13px;color:var(--ink-mid);font-weight:300;display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
-.bc-check{flex-shrink:0;margin-top:2px;}
-.bc-check svg{width:14px;height:14px;stroke:var(--ink);fill:none;}
-.bc-zoom{background:var(--page2);padding:14px;display:flex;align-items:center;gap:12px;text-decoration:none;transition:background .2s;}
-.bc-zoom:hover{background:var(--page4);}
-.bc-zoom-icon svg{width:20px;height:20px;stroke:var(--ink);fill:none;}
-.bc-zoom-title{font-family:var(--cond);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);font-weight:600;}
-.bc-zoom-sub{font-size:12px;color:var(--ink-light);margin-top:2px;}
+.bc-divider{height:1px;background:rgba(255,255,255,.08);margin:20px 0;}
+.bc-includes{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:0;}
+.bc-includes li{font-size:13px;color:rgba(255,255,255,.65);font-weight:300;display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
+.bc-check svg{width:14px;height:14px;stroke:var(--amber);fill:none;flex-shrink:0;margin-top:2px;}
+.bc-zoom{background:rgba(200,135,58,.1);border:1px solid rgba(200,135,58,.25);padding:14px;display:flex;align-items:center;gap:12px;text-decoration:none;transition:background .2s;margin-top:20px;}
+.bc-zoom:hover{background:rgba(200,135,58,.18);}
+.bc-zoom-icon svg{width:20px;height:20px;stroke:var(--amber);fill:none;}
+.bc-zoom-title{font-family:var(--cond);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);font-weight:600;}
+.bc-zoom-sub{font-size:12px;color:var(--d-muted);margin-top:2px;}
 
 /* hero tab bar */
 .hero-tabs{position:relative;z-index:2;display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);margin-top:48px;}
@@ -632,38 +625,48 @@ select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
 
     <!-- Booking card -->
     <aside class="booking-card" aria-label="Book this course">
-      <div class="bc-date-block">
-        <span class="bc-date-label">Next Classroom Session</span>
-        <div class="bc-date">13–16 October 2026</div>
-        <div class="bc-location">
-          <svg><use href="#ico-pin"/></svg> Rio de Janeiro, Brazil
+      <div class="bc-sessions-wrap">
+        <div class="bc-session-block">
+          <div class="bc-session-label">NEXT CLASSROOM SESSION</div>
+          <div class="bc-session-date-lg">13–16 October 2026</div>
+          <div class="bc-session-loc-row"><svg viewBox="0 0 16 16"><use href="#ico-pin"/></svg> Rio de Janeiro, Brazil</div>
+        </div>
+        <div class="bc-session-block">
+          <div class="bc-session-label">ALSO AVAILABLE</div>
+          <div class="bc-session-date-lg">18–22 May 2026</div>
+          <div class="bc-session-loc-row"><svg viewBox="0 0 16 16"><use href="#ico-pin"/></svg> Bali, Indonesia</div>
+        </div>
+        <div class="bc-session-block">
+          <div class="bc-session-label">ALSO AVAILABLE</div>
+          <div class="bc-session-date-lg">7–11 September 2026</div>
+          <div class="bc-session-loc-row"><svg viewBox="0 0 16 16"><use href="#ico-pin"/></svg> Bali, Indonesia</div>
         </div>
       </div>
-      <div class="bc-price-row">
-        <span class="bc-price">£3,500</span>
-        <span class="bc-price-label">per delegate</span>
-      </div>
+
+      <div class="bc-price-large">£3,500</div>
       <p class="bc-price-note">£3,500 per delegate. No VAT on international sessions. Group discounts available.</p>
-      <button type="button" class="btn-book" id="btnOpenBooking" data-track="booking_open" aria-label="Book the Petroleum Agreements &amp; Joint Ventures in Brazil course">Book This Course →</button>
-      <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry%20%E2%80%94%20Petroleum%20Agreements%20%26%20JVs%20in%20Brazil" class="btn-secondary" data-track="cta_click" data-track-label="Send Enquiry">
+
+      <button type="button" class="btn-book" id="btnOpenBooking">Book This Course →</button>
+      <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry%20%E2%80%94%20JV%20Agreements%20%26amp%20Petroleum%20Contracts%20in%20Brazil" class="btn-secondary">
         <svg><use href="#ico-send"/></svg> Send an Enquiry
       </a>
-      <a href="mailto:info@londonpetroacademy.co.uk?subject=Brochure%20Request%20%E2%80%94%20JVs%20in%20Brazil" class="btn-secondary" data-track="brochure_download" data-track-label="Download Brochure">
+      <button type="button" class="btn-secondary" onclick="openBrModal()">
         <svg><use href="#ico-download"/></svg> Download Brochure
-      </a>
+      </button>
+
       <div class="bc-divider"></div>
       <ul class="bc-includes" aria-label="Included in the fee">
-        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> 6 hours of teaching per day</li>
-        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Morning, lunch &amp; afternoon breaks</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> 7–8 hours of teaching per day</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Morning, lunch & afternoon breaks</li>
         <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Course materials in PDF</li>
-        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Case studies &amp; group exercises</li>
-        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Superfast Wi-Fi throughout</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Case studies & group exercises</li>
         <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Certificate of completion</li>
       </ul>
+
       <div class="bc-divider"></div>
-      <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" class="bc-zoom" data-track="calendly_click" data-track-label="Free Zoom Consultation">
+      <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" class="bc-zoom" target="_blank" rel="noopener">
         <span class="bc-zoom-icon"><svg><use href="#ico-video"/></svg></span>
-        <div class="bc-zoom-text">
+        <div>
           <div class="bc-zoom-title">Free Zoom Consultation</div>
           <div class="bc-zoom-sub">Schedule a call with our advisors</div>
         </div>

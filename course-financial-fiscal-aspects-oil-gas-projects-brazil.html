@@ -111,33 +111,31 @@ h1.course-title em{font-style:italic;color:var(--amber);}
 .pill svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;}
 
 /* BOOKING CARD */
-.booking-card{
-  background:rgba(12,13,15,0.85);backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.12);
-  padding:28px;display:flex;flex-direction:column;gap:0;
-  margin-bottom:0;
-}
-.bc-date-block{padding-bottom:20px;border-bottom:1px solid var(--d-line);margin-bottom:20px;}
-.bc-date-label{font-family:var(--cond);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--d-muted);display:block;margin-bottom:6px;}
-.bc-date{font-family:var(--serif);font-size:22px;font-weight:300;color:#fff;margin-bottom:4px;}
-.bc-location{font-size:13px;color:var(--d-muted);display:flex;align-items:center;gap:6px;}
-.bc-location svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;}
-.bc-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;}
-.bc-price{font-family:var(--serif);font-size:36px;font-weight:300;color:#fff;line-height:1;}
-.bc-price-label{font-family:var(--cond);font-size:12px;color:var(--d-muted);letter-spacing:1px;text-transform:uppercase;}
-.bc-price-note{font-size:12px;color:var(--d-muted);margin-bottom:20px;}
-.btn-book{display:block;text-align:center;background:var(--amber);color:var(--dark);font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 20px;text-decoration:none;transition:background .2s;margin-bottom:10px;}
+/* ── BOOKING CARD ── */
+.booking-card{background:#111315;border-top:3px solid var(--amber);padding:28px 26px 24px;box-shadow:0 32px 80px rgba(0,0,0,.55);align-self:end;margin-bottom:0;}
+.bc-session-block{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.bc-session-block:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.bc-session-label{font-family:var(--cond);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--d-muted);margin-bottom:8px;}
+.bc-session-date-lg{font-family:var(--serif);font-size:28px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:6px;}
+.bc-session-loc-row{display:flex;align-items:center;gap:6px;font-family:var(--cond);font-size:11px;letter-spacing:1px;color:var(--d-muted);}
+.bc-session-loc-row svg{width:13px;height:13px;stroke:var(--d-muted);fill:none;flex-shrink:0;}
+.bc-sessions-wrap{margin-bottom:22px;}
+.bc-price-large{font-family:var(--serif);font-size:52px;font-weight:300;color:#fff;line-height:1;margin-bottom:6px;}
+.bc-price-note{font-size:12px;color:var(--d-muted);margin-bottom:20px;line-height:1.5;}
+.btn-book{display:block;width:100%;text-align:center;background:var(--amber);color:#000;font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px;text-decoration:none;transition:background .2s;margin-bottom:10px;border:none;cursor:pointer;}
 .btn-book:hover{background:var(--amber2);}
-.btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;background:transparent;color:rgba(255,255,255,0.65);font-family:var(--cond);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:11px 20px;border:1px solid rgba(255,255,255,0.15);text-decoration:none;transition:border-color .2s,color .2s;margin-bottom:8px;}
+.btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;text-align:center;background:none;border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);font-family:var(--cond);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:13px;text-decoration:none;transition:border-color .2s,color .2s;margin-bottom:8px;cursor:pointer;}
+.btn-secondary svg{width:14px;height:14px;stroke:currentColor;fill:none;flex-shrink:0;}
 .btn-secondary:hover{border-color:var(--amber);color:var(--amber);}
-.btn-secondary svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;}
-.bc-divider{border:none;border-top:1px solid var(--d-line);margin:16px 0;}
-.bc-includes{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
-.bc-includes li{font-size:13px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:10px;}
-.bc-check{color:var(--amber);display:flex;}
-.bc-check svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.5;}
-.bc-zoom{display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(200,135,58,0.08);border:1px solid rgba(200,135,58,0.2);text-decoration:none;transition:background .2s;margin-top:10px;}
-.bc-zoom:hover{background:rgba(200,135,58,0.14);}
+.bc-divider{height:1px;background:rgba(255,255,255,.08);margin:20px 0;}
+.bc-includes{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:0;}
+.bc-includes li{font-size:13px;color:rgba(255,255,255,.65);font-weight:300;display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
+.bc-check svg{width:14px;height:14px;stroke:var(--amber);fill:none;flex-shrink:0;margin-top:2px;}
+.bc-zoom{background:rgba(200,135,58,.1);border:1px solid rgba(200,135,58,.25);padding:14px;display:flex;align-items:center;gap:12px;text-decoration:none;transition:background .2s;margin-top:20px;}
+.bc-zoom:hover{background:rgba(200,135,58,.18);}
+.bc-zoom-icon svg{width:20px;height:20px;stroke:var(--amber);fill:none;}
+.bc-zoom-title{font-family:var(--cond);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);font-weight:600;}
+.bc-zoom-sub{font-size:12px;color:var(--d-muted);margin-top:2px;}
 .bc-zoom-icon{width:36px;height:36px;background:rgba(200,135,58,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .bc-zoom-icon svg{width:16px;height:16px;fill:none;stroke:var(--amber);stroke-width:2;}
 .bc-zoom-title{font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--amber);}
@@ -511,41 +509,43 @@ select.bkfi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 
     <!-- Booking card -->
     <aside class="booking-card" aria-label="Book this course">
-      <div class="bc-date-block">
-        <span class="bc-date-label">Next Classroom Session</span>
-        <div class="bc-date">21–23 July 2026</div>
-        <div class="bc-location"><svg aria-hidden="true"><use href="#ico-pin"/></svg> Rio de Janeiro, Brazil</div>
+      <div class="bc-sessions-wrap">
+        <div class="bc-session-block">
+          <div class="bc-session-label">NEXT CLASSROOM SESSION</div>
+          <div class="bc-session-date-lg">21–23 July 2026</div>
+          <div class="bc-session-loc-row"><svg viewBox="0 0 16 16"><use href="#ico-pin"/></svg> Rio de Janeiro, Brazil</div>
+        </div>
+        <div class="bc-session-block">
+          <div class="bc-session-label">ALSO AVAILABLE</div>
+          <div class="bc-session-date-lg">6–8 October 2026</div>
+          <div class="bc-session-loc-row"><svg viewBox="0 0 16 16"><use href="#ico-pin"/></svg> Rio de Janeiro, Brazil</div>
+        </div>
       </div>
-      <div class="bc-date-block">
-        <span class="bc-date-label">Also Available</span>
-        <div class="bc-date">06–08 October 2026</div>
-        <div class="bc-location"><svg aria-hidden="true"><use href="#ico-pin"/></svg> Rio de Janeiro, Brazil</div>
-      </div>
-      <div class="bc-price-row">
-        <span class="bc-price">£3,500</span>
-      </div>
-      <p class="bc-price-note">£3,500 per delegate. No VAT — all sessions held in Rio de Janeiro, Brazil. Group discounts available.</p>
+
+      <div class="bc-price-large">£3,500</div>
+      <p class="bc-price-note">£3,500 per delegate. No VAT — all sessions held in Brazil. Group discounts available.</p>
+
       <button type="button" class="btn-book" id="btnOpenBooking">Book This Course →</button>
-      <a href="mailto:info@londonpetroacademy.co.uk?subject=I%20am%20interested%20in%20Financial%20%26%20Fiscal%20Aspects%20of%20Oil%20%26%20Gas%20Projects%20in%20Brazil%20course" class="btn-secondary">
-        <svg aria-hidden="true"><use href="#ico-send"/></svg> Send an Enquiry
+      <a href="mailto:info@londonpetroacademy.co.uk?subject=Enquiry%20%E2%80%94%20Financial%20%26amp%20Fiscal%20Aspects%20of%20Oil%20%26amp%20Gas%20Brazil" class="btn-secondary">
+        <svg><use href="#ico-send"/></svg> Send an Enquiry
       </a>
-      <a href="financial-fiscal-aspects-brazil-brochure.pdf" class="btn-secondary" target="_blank" rel="noopener">
-        <svg aria-hidden="true"><use href="#ico-download"/></svg> Download Brochure
-      </a>
+      <button type="button" class="btn-secondary" onclick="openBrModal()">
+        <svg><use href="#ico-download"/></svg> Download Brochure
+      </button>
+
       <div class="bc-divider"></div>
-      <ul class="bc-includes" aria-label="What is included">
-        <li><span class="bc-check"><svg aria-hidden="true"><use href="#ico-check"/></svg></span> 7–8 hours of teaching per day</li>
-        <li><span class="bc-check"><svg aria-hidden="true"><use href="#ico-check"/></svg></span> Morning, lunch &amp; afternoon breaks</li>
-        <li><span class="bc-check"><svg aria-hidden="true"><use href="#ico-check"/></svg></span> Course materials in PDF</li>
-        <li><span class="bc-check"><svg aria-hidden="true"><use href="#ico-check"/></svg></span> Case studies &amp; group exercises</li>
-        <li><span class="bc-check"><svg aria-hidden="true"><use href="#ico-check"/></svg></span> Certificate of completion</li>
-        <li><span class="bc-check"><svg aria-hidden="true"><use href="#ico-check"/></svg></span> Virtual option available (£3,500)</li>
+      <ul class="bc-includes" aria-label="Included in the fee">
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> 7–8 hours of teaching per day</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Morning, lunch & afternoon breaks</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Course materials in PDF</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Financial modelling case studies</li>
+        <li><span class="bc-check"><svg><use href="#ico-check"/></svg></span> Certificate of completion</li>
       </ul>
+
       <div class="bc-divider"></div>
-      <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy"
-         class="bc-zoom" target="_blank" rel="noopener">
-        <span class="bc-zoom-icon"><svg aria-hidden="true"><use href="#ico-video"/></svg></span>
-        <div class="bc-zoom-text">
+      <a href="https://calendly.com/london_petro_academy/ms-teams-session-with-london-petro-academy" class="bc-zoom" target="_blank" rel="noopener">
+        <span class="bc-zoom-icon"><svg><use href="#ico-video"/></svg></span>
+        <div>
           <div class="bc-zoom-title">Free Zoom Consultation</div>
           <div class="bc-zoom-sub">Schedule a call with our advisors</div>
         </div>
